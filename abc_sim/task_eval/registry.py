@@ -19,6 +19,8 @@ from abc_sim.task_eval.lego_blocks import LegoBlocksSortingEvaluator
 from abc_sim.task_eval.mug_tree import MugOnRackEvaluator
 from abc_sim.task_eval.multi_drawer import MultiDrawerSearchTargetInBinEvaluator
 from abc_sim.task_eval.mugs import MugFlipUprightEvaluator
+from abc_sim.task_eval.mug_flip_staged import MugFlipStagedEvaluator
+from abc_sim.task_eval.mug_flip_subtask import MugFlipSubtaskEvaluator
 from abc_sim.task_eval.nuts_bolts import NutsBoltsSortingEvaluator
 from abc_sim.task_eval.pour import PourBeadsInContainerEvaluator
 from abc_sim.task_eval.put_relative import PutRelativeEvaluator
@@ -37,6 +39,8 @@ _TASK_EVALUATORS: dict[str, TaskEvaluatorFactory] = {
     "count_into_opaque_box": CountIntoOpaqueBoxEvaluator,
     "dishrack_plates_in_rack": DishrackEvaluator,
     "mug_flip_upright": MugFlipUprightEvaluator,
+    "mug_flip_upright_staged": MugFlipStagedEvaluator,
+    "mug_flip_subtask": MugFlipSubtaskEvaluator,
     "sweep_away": SweepAwayEvaluator,
     "nuts_bolts_sorting": NutsBoltsSortingEvaluator,
     "lego_blocks_sorting": LegoBlocksSortingEvaluator,

@@ -377,6 +377,63 @@ class MuJoCoYAMEnv(gym.Env):
             info["randomization"] = self._last_randomization
         return self.get_obs(), info
 
+    def reset_to_snapshot(
+        self,
+        seed: int,
+        state: np.ndarray,
+        *,
+        state_spec: int = int(mujoco.mjtState.mjSTATE_INTEGRATION),
+    ):
+        """Start an episode from a saved mid-episode state (e.g. a stage start for single-stage RL).
+
+        ``reset(seed)`` first rebuilds (from the initial arm pose, like a fresh episode) the same randomized scene (model, task runtime, evaluator), and the stock
+        evaluator is scored once there so reward references such as mug rest heights come from the scene's start,
+        not from the restored state. Then the saved ``mj_getState(..., state_spec)`` vector is written back.
+        Returns ``(obs, info)`` like ``reset``.
+        """
+        # Rebuild the scene exactly as a fresh episode would: reset() otherwise carries the previous arm pose over,
+        # and the randomizer can place objects differently around it.
+        self.forget_arm_state()
+        _, info = self.reset(seed=seed, randomize=True)
+        self.evaluate_task()
+        state = np.asarray(state, dtype=np.float64)
+        expected = mujoco.mj_stateSize(self.model, state_spec)
+        if state.shape != (expected,):
+            raise ValueError(f"state has shape {state.shape}, this scene expects ({expected},)")
+        mujoco.mj_setState(self.model, self.data, state, state_spec)
+        mujoco.mj_forward(self.model, self.data)
+        self._arm_state_initialized = True
+        info["restored_time"] = float(self.data.time)
+        return self.get_obs(), info
+
+    def reset_to_stage(self, seed: int, start: dict | None = None, *, rng: np.random.Generator | None = None):
+        """Start a subtask episode (task ``turn_mug_right_side_up__<stage>``): the scene of ``seed`` with the stage's
+        precondition already true, e.g. the mug held for rotate.
+
+        ``start``: a saved start (a ``mug_flip_starts.build_start`` result or a start-set row with seed, mug, state,
+        rest_height, labels); it is restored exactly. Without it the start is built now (~2 s). Returns
+        ``(obs, info)``; ``info`` has the target mug, the arm and the subtask prompt.
+        """
+        from abc_sim.task_eval.mug_flip_stages import STAGE_PROMPTS
+        from abc_sim.task_eval.mug_flip_starts import build_start, load_grasp_library
+
+        ev = self._task_evaluator
+        if not hasattr(ev, "begin") or not hasattr(ev, "stage_name"):
+            raise RuntimeError(f"task {self._task_request!r} is not a mug-flip subtask (turn_mug_right_side_up__<stage>)")
+        if start is None:
+            if not hasattr(self, "_mug_grasp_library"):
+                self._mug_grasp_library = load_grasp_library()
+            start, log = build_start(self, seed, ev.stage_name, self._mug_grasp_library, rng=rng)
+            if start is None:
+                raise RuntimeError(f"could not build a {ev.stage_name} start for seed {seed}: {log[-3:]}")
+        obs, info = self.reset_to_snapshot(int(start["seed"]), np.asarray(start["state"], dtype=np.float64))
+        ev = self._task_evaluator  # reset() rebuilds the evaluator when the scene swaps models (mug count)
+        ev.begin(self.model, self.data, int(start["mug"]), rest_height=np.asarray(start["rest_height"], dtype=np.float64),
+                 labels=np.asarray(start["labels"]))
+        self.prompt = STAGE_PROMPTS[ev.stage_name]
+        info.update(subtask=ev.stage_name, mug=int(start["mug"]), arm=int(start.get("arm", -1)), prompt=self.prompt)
+        return self.get_obs(), info
+
     def step(self, action: np.ndarray, *, render_obs: bool = True):
         """Apply one 14D policy-space action.
 
