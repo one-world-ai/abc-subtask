@@ -80,7 +80,7 @@ def test_hold_still_is_not_terminal():
             arm = info["arm"]
             rew, done = run(env, [action(env, arm, arm_q(env, arm), 0.0)] * CHUNK)
             m = env.evaluate_task().metrics
-            assert not done and rew in (0.0, 1.0, -1.0), (st, seed, rew, m)
+            assert not done and abs(rew) < 0.05, (st, seed, rew, m)  # holding still: ~no shaping reward
             assert m["grasp_arm"] in (arm, 2), (st, seed, m)
         env.close()
 
@@ -98,7 +98,7 @@ def test_opening_the_gripper_is_a_drop():
 
 
 def test_rotate_reward_follows_tilt():
-    """Turning the wrist (joint 6, then 5) moves the held mug's tilt; the chunk reward's sign follows it."""
+    """Turning the wrist (joint 6, then 5) moves the held mug's tilt; the chunk reward is the scaled tilt change."""
     env = env_for("rotate")
     checked = 0
     for seed in SEEDS:
@@ -119,12 +119,48 @@ def test_rotate_reward_follows_tilt():
                 if done:  # dropped or reached upright: the terminal reward must match
                     assert (rew == 1.0) == (m["failed"] == "" and m["label"] in ("place", "done")), (seed, m)
                     continue
-                eps = env._task_evaluator.cfg.eps["rotate"]
-                want = 1.0 if dz > eps else -1.0 if dz < -eps else 0.0
-                assert rew == want, (seed, joint, direction, dz, rew)
+                ev = env._task_evaluator  # default "progress" mode: 0.5 x change in upz / span
+                want = ev.shaping_total * dz / ev.cfg.span["rotate"]
+                assert abs(rew - want) < 1e-6, (seed, joint, direction, dz, rew, want)
                 checked += 1
     env.close()
     assert checked >= 6, checked
+
+
+def test_progress_reward_does_not_pay_for_dawdling():
+    """Same start, same final wrist angle: one big move or eight small ones earn the same shaping total."""
+    env = env_for("rotate")
+    totals = []
+    for n in (1, 8):
+        info = start(env, SEEDS[0], "rotate")
+        arm = info["arm"]
+        q0 = arm_q(env, arm)
+        total = 0.0
+        for c in range(8):
+            q = q0.copy()
+            q[5] += 0.5 * min(1.0, (c + 1) / n)
+            rew, done = run(env, [action(env, arm, q, 0.0)] * CHUNK)
+            assert not done
+            total += rew
+        totals.append(total)
+    env.close()
+    assert abs(totals[0] - totals[1]) < 0.02, totals
+
+
+def test_sign_mode():
+    env = env_for("rotate")
+    info = start(env, SEEDS[0], "rotate")
+    ev = env._task_evaluator
+    ev.reward_mode = "sign"
+    arm = info["arm"]
+    q = arm_q(env, arm)
+    q[5] += 0.4
+    z0 = env.evaluate_task().metrics["upright_z"]
+    rew, done = run(env, [action(env, arm, q, 0.0)] * CHUNK)
+    dz = env.evaluate_task().metrics["upright_z"] - z0
+    eps = ev.cfg.eps["rotate"]
+    assert rew == (1.0 if dz > eps else -1.0 if dz < -eps else 0.0), (dz, rew)
+    env.close()
 
 
 def test_scripted_place_succeeds():

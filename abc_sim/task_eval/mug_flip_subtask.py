@@ -13,10 +13,16 @@ Every physics step (``env.step`` evaluates every action) the stage tracker is up
 Result: ``reward`` = the stage's progress number (dense, per step), ``success`` = the mug reached a later stage
 (the subtask goal) without a latched failure, metrics carry label / progress / failed / terminal.
 
-RL reward per chunk: call ``chunk_reward()`` after each chunk: +1 / -1 / 0 from the change in progress (dead band
-``StageConfig.eps``), +1 on success and -1 on failure (both terminal). Options: ``continuous=True`` returns the raw
-progress change instead of its sign; ``best_so_far=True`` gives +1 only when progress beats its best so far in the
-episode by more than the dead band, else 0 (no -1 for moving back and forth; success/failure unchanged).
+RL reward per chunk: call ``chunk_reward()`` after each chunk. +1 on success and -1 on failure (both end the
+episode); in between it depends on ``reward_mode``:
+  "progress" (default)  shaping_total x (change in progress) / StageConfig.span[stage]. Potential-based shaping:
+                        the in-between rewards sum to shaping_total x (progress gained) / span however many chunks
+                        it takes, so going slowly or wobbling earns nothing extra. With shaping_total 0.5 a whole
+                        stage of progress is worth ~0.5, less than the +1 for finishing.
+  "sign"                +1 / -1 / 0 when progress rose / fell by more than the dead band StageConfig.eps. Each chunk
+                        of progress earns a full +1, so slow progress can out-earn finishing: use with a discount
+                        factor or a per-chunk cost.
+  "best"                +1 only when progress beats its best so far by more than the dead band, else 0 (same caveat).
 """
 
 from __future__ import annotations
@@ -35,14 +41,16 @@ from abc_sim.task_specs import SimTaskSpec
 
 class MugFlipSubtaskEvaluator:
     def __init__(self, *, model: mujoco.MjModel, spec: SimTaskSpec, stage: str, drop_margin_m: float = 0.01,
-                 continuous: bool = False, best_so_far: bool = False) -> None:
+                 reward_mode: str = "progress", shaping_total: float = 0.5) -> None:
         if stage not in STAGE_PROMPTS:
             raise ValueError(f"stage must be one of {tuple(STAGE_PROMPTS)}, got {stage!r}")
         self.spec, self.stage_name, self.stage = spec, stage, STAGES.index(stage)
         self.cfg = StageConfig()
         self.drop_margin_m = float(drop_margin_m)
-        self.continuous = bool(continuous)
-        self.best_so_far = bool(best_so_far)
+        if reward_mode not in ("progress", "sign", "best"):
+            raise ValueError(f"reward_mode must be progress, sign or best, got {reward_mode!r}")
+        self.reward_mode = reward_mode
+        self.shaping_total = float(shaping_total)
         self._bind(model)
 
     def _bind(self, model: mujoco.MjModel) -> None:
@@ -142,12 +150,12 @@ class MugFlipSubtaskEvaluator:
         phi = self._last.get("progress", self._phi_chunk)
         d = phi - self._phi_chunk
         self._phi_chunk = phi
+        if self.reward_mode == "progress":
+            return float(self.shaping_total * d / self.cfg.span[self.stage_name]), False
         eps = self.cfg.eps[self.stage_name]
-        if self.best_so_far:  # +1 only for a new best (by more than eps), else 0: wandering back and forth earns nothing
+        if self.reward_mode == "best":  # +1 only for a new best (by more than eps): wandering earns nothing
             if phi > self._phi_best + eps:
                 self._phi_best = phi
                 return 1.0, False
             return 0.0, False
-        if self.continuous:
-            return float(d), False
         return (1.0 if d > eps else -1.0 if d < -eps else 0.0), False

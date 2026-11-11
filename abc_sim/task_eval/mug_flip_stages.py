@@ -62,6 +62,10 @@ class StageConfig:
     fallen_m: float = 0.05
     hold: int = 5  # updates a new stage must persist
     eps: dict = field(default_factory=lambda: {"reach": 0.005, "pick": 0.05, "rotate": 0.02, "place": 0.005})
+    # Typical progress gained over a whole stage (start -> goal): reach ~30 cm closer, pick 0 -> 1, rotate upside down
+    # -> upright (-1 -> 0.95), place ~12 cm down + release. Shaping rewards are divided by this, so every stage's
+    # shaping adds up to about ``shaping_total`` however many chunks it takes.
+    span: dict = field(default_factory=lambda: {"reach": 0.30, "pick": 1.0, "rotate": 1.95, "place": 0.15})
 
 
 def _subtree(model: mujoco.MjModel, root: int) -> set[int]:
