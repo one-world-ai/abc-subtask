@@ -14,8 +14,9 @@ Result: ``reward`` = the stage's progress number (dense, per step), ``success`` 
 (the subtask goal) without a latched failure, metrics carry label / progress / failed / terminal.
 
 RL reward per chunk: call ``chunk_reward()`` after each chunk: +1 / -1 / 0 from the change in progress (dead band
-``StageConfig.eps``), +1 on success and -1 on failure (both terminal). ``continuous=True`` returns the raw progress
-change instead of its sign.
+``StageConfig.eps``), +1 on success and -1 on failure (both terminal). Options: ``continuous=True`` returns the raw
+progress change instead of its sign; ``best_so_far=True`` gives +1 only when progress beats its best so far in the
+episode by more than the dead band, else 0 (no -1 for moving back and forth; success/failure unchanged).
 """
 
 from __future__ import annotations
@@ -34,13 +35,14 @@ from abc_sim.task_specs import SimTaskSpec
 
 class MugFlipSubtaskEvaluator:
     def __init__(self, *, model: mujoco.MjModel, spec: SimTaskSpec, stage: str, drop_margin_m: float = 0.01,
-                 continuous: bool = False) -> None:
+                 continuous: bool = False, best_so_far: bool = False) -> None:
         if stage not in STAGE_PROMPTS:
             raise ValueError(f"stage must be one of {tuple(STAGE_PROMPTS)}, got {stage!r}")
         self.spec, self.stage_name, self.stage = spec, stage, STAGES.index(stage)
         self.cfg = StageConfig()
         self.drop_margin_m = float(drop_margin_m)
         self.continuous = bool(continuous)
+        self.best_so_far = bool(best_so_far)
         self._bind(model)
 
     def _bind(self, model: mujoco.MjModel) -> None:
@@ -61,6 +63,7 @@ class MugFlipSubtaskEvaluator:
         self._failed = ""
         self._success = False
         self._phi_chunk: float | None = None
+        self._phi_best: float | None = None
         self._last: dict[str, Any] = {}
         self.stock.reset(nworld=1)
 
@@ -78,7 +81,7 @@ class MugFlipSubtaskEvaluator:
         self.mug = int(mug)
         self.tracker.reset(data, rest_height=rest_height, labels=labels)
         self.stock._rest_height = self.tracker.rest_height[None].astype(np.float32)  # the episode's, not the restored
-        self._phi_chunk = self._phi()
+        self._phi_chunk = self._phi_best = self._phi()
 
     def _phi(self) -> float:
         return float(progress(self.stage, self.tracker.obs)[self.mug])
@@ -139,7 +142,12 @@ class MugFlipSubtaskEvaluator:
         phi = self._last.get("progress", self._phi_chunk)
         d = phi - self._phi_chunk
         self._phi_chunk = phi
+        eps = self.cfg.eps[self.stage_name]
+        if self.best_so_far:  # +1 only for a new best (by more than eps), else 0: wandering back and forth earns nothing
+            if phi > self._phi_best + eps:
+                self._phi_best = phi
+                return 1.0, False
+            return 0.0, False
         if self.continuous:
             return float(d), False
-        eps = self.cfg.eps[self.stage_name]
         return (1.0 if d > eps else -1.0 if d < -eps else 0.0), False
