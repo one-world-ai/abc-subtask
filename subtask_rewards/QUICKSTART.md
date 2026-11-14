@@ -39,6 +39,42 @@ Each task's `STATUS.md` says why.
 
 **Handoff stages** only cover scenes where the object has to change arms, e.g. the bin is on the other side.
 
+## Get the start states
+
+The saved starts are on Hugging Face, not in git: the dataset
+[`OneWorld-AI/abc-subtask-starts`](https://huggingface.co/datasets/OneWorld-AI/abc-subtask-starts).
+- It is private: ask for access to the OneWorld-AI org, then `hf auth login`.
+- It holds 43 stages and 4,410 starts, about 11 MB.
+
+```bash
+hf download OneWorld-AI/abc-subtask-starts --repo-type dataset --local-dir final_starts
+# -> final_starts/<task>/<stage>.npz, manifest.json (row counts, abc commit), README.md
+```
+
+**A start only works with the scene code that built it.** `state` is a raw MuJoCo state vector, and `seed` rebuilds
+the randomized scene it belongs to. `manifest.json` records the abc commit the starts were built at. If a task's
+scene XML, randomizer or object set changes, rebuild that task's starts (see Starts below) and upload them again.
+
+### What's in a file
+
+Each `<stage>.npz` holds N starts (N = 80–217), one per row. Example: row 0 of
+`put_plastic_bottles_in_bin/carry.npz`:
+
+| key | value | meaning |
+|---|---|---|
+| `seed` | `920000000` | scene seed: `reset(seed)` rebuilds this exact randomized scene first |
+| `stage` | `'carry'` | stage name (one scalar per file; mug flip files don't have it) |
+| `target` | `4` | the object this episode is about (0-based: the prompt says "bottle 5"); mug flip calls it `mug` |
+| `arm` | `0` | the arm holding it (0 left, 1 right) |
+| `state` | float64 × 531 | `mj_getState(mjSTATE_INTEGRATION)`: time, qpos (58), qvel (52), act, …. The whole sim at the stage start, here with bottle 4 held 7 cm above where it rested |
+| `rest_height` | 6 × 3 | reference positions from the scene's start: each bottle's resting centre of mass, plus the bin. Lift and "fell / bin moved" checks compare against these |
+| `labels` | `[0 0 0 0 2]` | each object's stage label at the start: the target (index 4) is in `carry` (`LABELS = reach, pick, carry, drop, done, fallen`), the others still at `reach` |
+
+- The shapes of `state`, `rest_height` and `labels` vary by task.
+- Handoff carry/drop files add `handoff_scene` and `source`, saying which chain built the row.
+- Mug flip files add `grasp`, `upz`, `lift`, `variant` and `mugs`.
+- `reset_to_stage(seed, row)` uses only `seed`, `state`, `target`/`mug`, `rest_height` and `labels`.
+
 ## Minimal loop
 
 ```python
@@ -83,9 +119,9 @@ for ep in range(N):
 - **Starts:**
   - `reset_to_stage(seed)` without `row` builds a fresh start: it randomizes the scene, scripts the earlier stages,
     checks the result is valid and that it holds still. That takes about 1–10 s of CPU, too slow per episode.
-  - Use the saved pools (about 80–200 starts per stage, all checked), or prebuild your own with
+  - Use the saved pools (80–217 starts per stage, all checked), or prebuild your own with
     `env._task_evaluator.build_start(env, seed)`. It returns `(start, log)`, and `start` is `None` when that seed
-    has no valid start.
+    has no valid start. To save a pool, stack the returned dicts key by key into an npz in the same format.
   - Seeds don't overlap across tasks.
 - **Speed:** about 5–15 ms per physics step on one CPU core, with no cameras. Run many envs in parallel processes.
 - **Setup:** the `simulation` venv (MuJoCo 3.8.1) with `PYTHONPATH=<abc checkout>`.
@@ -96,7 +132,7 @@ for ep in range(N):
 
 | what | where |
 |---|---|
-| **Saved start pools** (11 MB, not in git; ask for a copy) | `simulation/outputs/subtask_rewards/final_starts/<task>/<stage>.npz` |
+| **Saved start pools** (not in git) | HF dataset `OneWorld-AI/abc-subtask-starts` (see "Get the start states"); our local copy: `simulation/outputs/subtask_rewards/final_starts/` |
 | reset / restore | `abc_sim/env.py` → `reset_to_stage` |
 | reward kit (`chunk_reward`, reward modes) | `abc_sim/task_eval/stagekit/subtask.py` (+ `scene.py`, `tracker.py`, `holding.py`) |
 | shared handoff stage | `abc_sim/task_eval/handoff_stage.py` |
