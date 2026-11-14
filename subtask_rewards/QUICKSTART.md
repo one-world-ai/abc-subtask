@@ -108,4 +108,4 @@ for ep in range(N):
 | scripted solvers and hacks (examples of driving the env) | `simulation/experiments/subtask_rewards/<short>/scripted_rollouts.py`, `build_starts.py`; mug flip: `simulation/experiments/mug_stages/` |
 | how the pipeline / gates work | `.claude/skills/abc-subtask-reward/` (`SKILL.md`, `references/gates.md`, `references/contract.md`) |
 
-Branch: `subtask-rewards` on GitHub (`ninghaolu/abc`).
+Branch: `subtask-rewards` on GitHub (`one-world-ai/abc-subtask`).
