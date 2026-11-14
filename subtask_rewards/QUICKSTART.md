@@ -29,13 +29,18 @@ Videos of the scripted runs, per task and stage: https://huggingface.co/spaces/O
 
 ¹ Accepted as an exception: the push-hack test couldn't be carried out properly, but no hack earned +1.
 
-**Do not use** any other stage registered in `task_specs.py`:
-- dish rack, all stages;
-- mug rack reach / align / insert / release;
-- inhand carry (the giving arm shoving the receiving arm earns +1);
-- drawer pull / push.
+**Not usable.** These stages either don't exist or are registered in `task_specs.py` but failed a check. They have
+no saved starts. Details are in each task's `STATUS.md`.
 
-Each task's `STATUS.md` says why.
+| task | stage | why |
+|---|---|---|
+| dish rack | reach, pick | **Not built.** No scripted policy can pick a flat plate up off the table: a rim pinch leaves the plate tilted ~35° with its far edge on the table, and it slips out by 16 cm. |
+| dish rack | carry, insert | The plate is placed directly in the gripper, since it can't be picked up. Too few scenes have an upright held plate the arm can also bring to a rack slot (65 and 72 of 100 valid starts, 80 needed). |
+| dish rack | release | After the gripper opens, the plate stays in the rack on only 8 of 16 runs. |
+| mug rack | reach | The approved goal counts a finger touch as reaching, so a push earns +1. |
+| mug rack | align, insert, release | The gripper can't hold the mug sideways in the hanging pose without it slipping (66, 36 and 51 of 100 valid starts). |
+| inhand | carry | **Real exploit:** the giving arm shoving the receiving arm's gripper pushes the item across for +1 (2 of 20 starts). |
+| open / close drawer | pull / push | The reward looks fine (solver 19/20 and 20/20, no hack earns +1), but the hack test, using both arms to open another drawer, could not be carried out (the arms collide). Use these at your own risk. |
 
 **Handoff stages** only cover scenes where the object has to change arms, e.g. the bin is on the other side.
 
