@@ -10,6 +10,7 @@ from abc_sim.task_runtime.base import TaskRuntime
 from abc_sim.task_runtime.ball_tray import BallTrayBalancingRuntime
 from abc_sim.task_runtime.conveyor_pick import ConveyorPickRuntime
 from abc_sim.task_runtime.multi_drawer import MultiDrawerSearchRuntime
+from abc_sim.task_runtime.wipe_whiteboard import WipeWhiteboardRuntime
 from abc_sim.task_registry import resolve_env_task_name
 from abc_sim.task_specs import SimTaskSpec
 
@@ -20,6 +21,7 @@ _TASK_RUNTIMES: dict[str, TaskRuntimeFactory] = {
     "ball_tray_balancing": BallTrayBalancingRuntime,
     "conveyor_pick": ConveyorPickRuntime,
     "multi_drawer_search": MultiDrawerSearchRuntime,
+    "whiteboard": WipeWhiteboardRuntime,
 }
 
 

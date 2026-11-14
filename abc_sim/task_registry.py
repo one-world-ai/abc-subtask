@@ -73,6 +73,23 @@ _SCENE_TASKS: tuple[SceneTaskSpec, ...] = (
     SceneTaskSpec(name="nuts_bolts_sorting", scene_xml=_MODELS_DIR / "yam_nuts_bolts_sorting_scene.xml"),
     SceneTaskSpec(name="lego_blocks_sorting", scene_xml=_MODELS_DIR / "yam_lego_blocks_sorting_scene.xml"),
     SceneTaskSpec(name="inhand_transfer", scene_xml=_MODELS_DIR / "yam_inhand_transfer_base.xml"),
+    # OpenWAM-added tasks: drawers without the markers (same physics as the drawer scene), and table scenes the
+    # randomizer rebuilds each reset (fruit / plates, like put_relative)
+    SceneTaskSpec(
+        name="drawer_open",
+        scene_xml=_MODELS_DIR / "yam_drawer_openclose_scene.xml",
+        physics_defaults=(("physics_dt", 0.0002), ("control_decimation", 170)),
+    ),
+    SceneTaskSpec(
+        name="drawer_close",
+        scene_xml=_MODELS_DIR / "yam_drawer_openclose_scene.xml",
+        physics_defaults=(("physics_dt", 0.0002), ("control_decimation", 170)),
+    ),
+    SceneTaskSpec(name="fruit_on_plate", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
+    SceneTaskSpec(name="plates_stack", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
+    SceneTaskSpec(name="plates_unstack", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
+    SceneTaskSpec(name="whiteboard", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
+    SceneTaskSpec(name="headphones", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
 )
 
 _SCENE_TASK_LOOKUP = {spec.name: spec for spec in _SCENE_TASKS}

@@ -115,6 +115,10 @@ SIM_TASK_PACKAGES = {
     "pour": ("cup_stacking", "mug"),
     "chess": ("chess", "task_chess"),
     "blocks": ("blocks",),
+    # OpenWAM overlay drawer scenes (yam_drawer_openclose_scene.xml): cabinet meshes; the XML still declares
+    # the drawer scene's marker meshes (no marker bodies), so the model needs that package to compile.
+    "drawer_open": ("drawer", "marker"),
+    "drawer_close": ("drawer", "marker"),
 }
 # Policy-specific VLA releases use a distinct catalogue prefix so they cannot
 # replace the existing DiT checkpoint for the same simulator task.

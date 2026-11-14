@@ -18,6 +18,7 @@ from .tasks.marker import MarkerRandomizer
 from .tasks.multi_drawer_search import MultiDrawerSearchRandomizer
 from .tasks.pour import PourRandomizer
 from .tasks.put_relative import PutRelativeRandomizer
+from .tasks.openwam_tasks import DrawerOpenCloseRandomizer, FruitOnPlateRandomizer, PlateStackRandomizer, WipeWhiteboardRandomizer, HangHeadphonesRandomizer
 from .tasks.sorting import LegoBlocksSortingRandomizer, NutsBoltsSortingRandomizer
 from .tasks.sweep import SweepRandomizer
 
@@ -45,6 +46,13 @@ TASK_RANDOMIZERS: dict[str, SceneRandomizer] = {
     "multi_drawer_search": MultiDrawerSearchRandomizer(),
     "nuts_bolts_sorting": NutsBoltsSortingRandomizer(),
     "lego_blocks_sorting": LegoBlocksSortingRandomizer(),
+    "drawer_open":   DrawerOpenCloseRandomizer("open"),
+    "drawer_close":  DrawerOpenCloseRandomizer("close"),
+    "fruit_on_plate": FruitOnPlateRandomizer(),
+    "plates_stack":  PlateStackRandomizer("stack"),
+    "plates_unstack": PlateStackRandomizer("unstack"),
+    "whiteboard":    WipeWhiteboardRandomizer(),
+    "headphones":    HangHeadphonesRandomizer(),
     # "empty": no free-jointed objects to randomize
 }
 
