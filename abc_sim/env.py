@@ -407,31 +407,30 @@ class MuJoCoYAMEnv(gym.Env):
         return self.get_obs(), info
 
     def reset_to_stage(self, seed: int, start: dict | None = None, *, rng: np.random.Generator | None = None):
-        """Start a subtask episode (task ``turn_mug_right_side_up__<stage>``): the scene of ``seed`` with the stage's
-        precondition already true, e.g. the mug held for rotate.
+        """Start a subtask episode (a ``<task>__<stage>`` task whose evaluator is a ``stagekit.SubtaskEvaluator``):
+        the scene of ``seed`` with the stage's precondition already true, e.g. the mug held for mug-flip rotate.
 
-        ``start``: a saved start (a ``mug_flip_starts.build_start`` result or a start-set row with seed, mug, state,
-        rest_height, labels); it is restored exactly. Without it the start is built now (~2 s). Returns
-        ``(obs, info)``; ``info`` has the target mug, the arm and the subtask prompt.
+        ``start``: a saved start (the evaluator's ``build_start`` result or a start-set row with seed, the target
+        index under ``target`` or the task's own key (mug flip: ``mug``), state, rest_height, labels); it is restored
+        exactly. Without it the start is built now (~2 s). Returns ``(obs, info)``; ``info`` has the target, the arm
+        and the subtask prompt.
         """
-        from abc_sim.task_eval.mug_flip_stages import STAGE_PROMPTS
-        from abc_sim.task_eval.mug_flip_starts import build_start, load_grasp_library
-
         ev = self._task_evaluator
-        if not hasattr(ev, "begin") or not hasattr(ev, "stage_name"):
-            raise RuntimeError(f"task {self._task_request!r} is not a mug-flip subtask (turn_mug_right_side_up__<stage>)")
+        if not hasattr(ev, "begin") or not hasattr(ev, "stage_name") or not hasattr(ev, "build_start"):
+            raise RuntimeError(f"task {self._task_request!r} is not a subtask (<task>__<stage> with a SubtaskEvaluator)")
         if start is None:
-            if not hasattr(self, "_mug_grasp_library"):
-                self._mug_grasp_library = load_grasp_library()
-            start, log = build_start(self, seed, ev.stage_name, self._mug_grasp_library, rng=rng)
+            start, log = ev.build_start(self, seed, rng=rng)
             if start is None:
                 raise RuntimeError(f"could not build a {ev.stage_name} start for seed {seed}: {log[-3:]}")
         obs, info = self.reset_to_snapshot(int(start["seed"]), np.asarray(start["state"], dtype=np.float64))
-        ev = self._task_evaluator  # reset() rebuilds the evaluator when the scene swaps models (mug count)
-        ev.begin(self.model, self.data, int(start["mug"]), rest_height=np.asarray(start["rest_height"], dtype=np.float64),
+        ev = self._task_evaluator  # reset() rebuilds the evaluator when the scene swaps models (object count)
+        key = "target" if "target" in start else ev.TARGET_KEY
+        target = int(start[key])
+        ev.begin(self.model, self.data, target, rest_height=np.asarray(start["rest_height"], dtype=np.float64),
                  labels=np.asarray(start["labels"]))
-        self.prompt = STAGE_PROMPTS[ev.stage_name]
-        info.update(subtask=ev.stage_name, mug=int(start["mug"]), arm=int(start.get("arm", -1)), prompt=self.prompt)
+        self.prompt = ev.stage_prompt()
+        info.update(subtask=ev.stage_name, target=target, arm=int(start.get("arm", -1)), prompt=self.prompt)
+        info[ev.TARGET_KEY] = target
         return self.get_obs(), info
 
     def step(self, action: np.ndarray, *, render_obs: bool = True):
