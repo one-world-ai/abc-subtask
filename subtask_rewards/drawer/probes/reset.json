@@ -1,0 +1,114 @@
+{
+ "open_drawer": {
+  "n": 40,
+  "crashes": [],
+  "nonzero_at_reset": [],
+  "nonzero_after_idle_chunk": [],
+  "targets": {
+   "middle": 12,
+   "top": 10,
+   "bottom": 18
+  },
+  "prompts": {
+   "open the middle drawer": 12,
+   "open the top drawer": 10,
+   "open the bottom drawer": 18
+  },
+  "target_start_m": [
+   0.0,
+   0.0
+  ],
+  "max_idle_drift_m": 0.0,
+  "handle_xyz_min": [
+   [
+    0.605,
+    -0.21,
+    0.959
+   ],
+   [
+    0.605,
+    -0.21,
+    0.875
+   ],
+   [
+    0.605,
+    -0.21,
+    0.791
+   ]
+  ],
+  "handle_xyz_max": [
+   [
+    0.668,
+    -0.047,
+    0.959
+   ],
+   [
+    0.668,
+    -0.047,
+    0.875
+   ],
+   [
+    0.668,
+    -0.047,
+    0.791
+   ]
+  ],
+  "secs": 12
+ },
+ "close_drawer": {
+  "n": 40,
+  "crashes": [],
+  "nonzero_at_reset": [],
+  "nonzero_after_idle_chunk": [],
+  "targets": {
+   "middle": 12,
+   "top": 10,
+   "bottom": 18
+  },
+  "prompts": {
+   "close the middle drawer": 12,
+   "close the top drawer": 10,
+   "close the bottom drawer": 18
+  },
+  "target_start_m": [
+   0.1405,
+   0.1878
+  ],
+  "max_idle_drift_m": 0.0,
+  "handle_xyz_min": [
+   [
+    0.433,
+    -0.21,
+    0.959
+   ],
+   [
+    0.436,
+    -0.21,
+    0.875
+   ],
+   [
+    0.446,
+    -0.226,
+    0.791
+   ]
+  ],
+  "handle_xyz_max": [
+   [
+    0.668,
+    -0.023,
+    0.959
+   ],
+   [
+    0.667,
+    -0.046,
+    0.875
+   ],
+   [
+    0.668,
+    -0.002,
+    0.791
+   ]
+  ],
+  "secs": 11
+ }
+}

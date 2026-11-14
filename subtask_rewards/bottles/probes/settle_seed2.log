@@ -1,0 +1,6 @@
+/projects/work/yang-lab/projects/policy-finetuning/abc/abc_sim/__init__.py
+bin rim z 0.998 floor z 0.751 r_top 0.107 bottle reach 0.1
+('inside', True) 104
+('on_rim', True) 5
+('on_table', False) 110
+on_rim com above rim: min/median/max [0.005 0.011 0.014]

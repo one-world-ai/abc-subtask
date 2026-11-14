@@ -1,0 +1,43 @@
+[
+  {
+    "world": "world-00",
+    "exit": 0,
+    "already_complete": true
+  },
+  {
+    "world": "world-01",
+    "exit": 0
+  },
+  {
+    "world": "world-02",
+    "exit": 0
+  },
+  {
+    "world": "world-03",
+    "exit": 0
+  },
+  {
+    "world": "world-04",
+    "exit": 0
+  },
+  {
+    "world": "world-05",
+    "exit": 0
+  },
+  {
+    "world": "world-06",
+    "exit": 0
+  },
+  {
+    "world": "world-07",
+    "exit": 0
+  },
+  {
+    "world": "world-08",
+    "exit": 0
+  },
+  {
+    "world": "world-09",
+    "exit": 0
+  }
+]

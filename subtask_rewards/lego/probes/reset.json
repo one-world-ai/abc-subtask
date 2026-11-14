@@ -1,0 +1,486 @@
+{
+  "rows": [
+    {
+      "seed": 0,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 7,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 1,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 6,
+        "yellow": 4,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 2,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 6,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 3,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 7,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 4,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 7,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 5,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 7,
+        "yellow": 3,
+        "blue": 4
+      }
+    },
+    {
+      "seed": 6,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 6,
+        "yellow": 5,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 7,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 8,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 8,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 3,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 9,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 5,
+        "yellow": 9,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 10,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 3,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 11,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 7,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 12,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 7,
+        "yellow": 7,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 13,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 9,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 14,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 4,
+        "yellow": 5,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 15,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 6,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 16,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 6,
+        "yellow": 5,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 17,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 3,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 18,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 6,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 19,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 7,
+        "yellow": 5,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 20,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 7,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 21,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 5,
+        "yellow": 7,
+        "blue": 6
+      }
+    },
+    {
+      "seed": 22,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 8,
+        "yellow": 3,
+        "blue": 6
+      }
+    },
+    {
+      "seed": 23,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 7,
+        "blue": 7
+      }
+    },
+    {
+      "seed": 24,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 5,
+        "yellow": 7,
+        "blue": 8
+      }
+    },
+    {
+      "seed": 25,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 6,
+        "yellow": 4,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 26,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 6,
+        "blue": 4
+      }
+    },
+    {
+      "seed": 27,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 7,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 28,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 7,
+        "yellow": 4,
+        "blue": 9
+      }
+    },
+    {
+      "seed": 29,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 3,
+        "blue": 7
+      }
+    },
+    {
+      "seed": 30,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 7,
+        "blue": 4
+      }
+    },
+    {
+      "seed": 31,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 6,
+        "yellow": 4,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 32,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 8,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 33,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 4,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 34,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 3,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 35,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 3,
+        "yellow": 4,
+        "blue": 5
+      }
+    },
+    {
+      "seed": 36,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 5,
+        "yellow": 6,
+        "blue": 4
+      }
+    },
+    {
+      "seed": 37,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 4,
+        "yellow": 4,
+        "blue": 3
+      }
+    },
+    {
+      "seed": 38,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 4,
+        "yellow": 3,
+        "blue": 7
+      }
+    },
+    {
+      "seed": 39,
+      "reward": 0.0,
+      "success": false,
+      "correct": 0,
+      "wrong": 0,
+      "counts": {
+        "red": 9,
+        "yellow": 9,
+        "blue": 5
+      }
+    }
+  ],
+  "nonzero": 0,
+  "successes": 0
+}

@@ -1,0 +1,5464 @@
+{
+  "checkout": "/projects/work/yang-lab/projects/policy-finetuning/abc-audit-nuts-bolts/abc_sim/__init__.py",
+  "reset": [
+    {
+      "seed": 0,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 16
+    },
+    {
+      "seed": 1,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 14,
+      "bolts": 14
+    },
+    {
+      "seed": 2,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 18,
+      "bolts": 11
+    },
+    {
+      "seed": 3,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 18,
+      "bolts": 9
+    },
+    {
+      "seed": 4,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 17,
+      "bolts": 20
+    },
+    {
+      "seed": 5,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 16,
+      "bolts": 18
+    },
+    {
+      "seed": 6,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 13,
+      "bolts": 14
+    },
+    {
+      "seed": 7,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 20,
+      "bolts": 16
+    },
+    {
+      "seed": 8,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 17,
+      "bolts": 12
+    },
+    {
+      "seed": 9,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 13,
+      "bolts": 19
+    },
+    {
+      "seed": 10,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 18,
+      "bolts": 20
+    },
+    {
+      "seed": 11,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 9,
+      "bolts": 9
+    },
+    {
+      "seed": 12,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 15,
+      "bolts": 11
+    },
+    {
+      "seed": 13,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 19
+    },
+    {
+      "seed": 14,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 9,
+      "bolts": 18
+    },
+    {
+      "seed": 15,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 20,
+      "bolts": 17
+    },
+    {
+      "seed": 16,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 15,
+      "bolts": 15
+    },
+    {
+      "seed": 17,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 17,
+      "bolts": 18
+    },
+    {
+      "seed": 18,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 13
+    },
+    {
+      "seed": 19,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 15,
+      "bolts": 13
+    },
+    {
+      "seed": 20,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 11
+    },
+    {
+      "seed": 21,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 11,
+      "bolts": 18
+    },
+    {
+      "seed": 22,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 18,
+      "bolts": 12
+    },
+    {
+      "seed": 23,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 8,
+      "bolts": 17
+    },
+    {
+      "seed": 24,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 12,
+      "bolts": 12
+    },
+    {
+      "seed": 25,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 14,
+      "bolts": 10
+    },
+    {
+      "seed": 26,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 14
+    },
+    {
+      "seed": 27,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 8,
+      "bolts": 17
+    },
+    {
+      "seed": 28,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 16,
+      "bolts": 19
+    },
+    {
+      "seed": 29,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 20,
+      "bolts": 8
+    },
+    {
+      "seed": 30,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 9,
+      "bolts": 11
+    },
+    {
+      "seed": 31,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 15,
+      "bolts": 19
+    },
+    {
+      "seed": 32,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 10
+    },
+    {
+      "seed": 33,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 19,
+      "bolts": 13
+    },
+    {
+      "seed": 34,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 8,
+      "bolts": 8
+    },
+    {
+      "seed": 35,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 9,
+      "bolts": 12
+    },
+    {
+      "seed": 36,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 12,
+      "bolts": 10
+    },
+    {
+      "seed": 37,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 10,
+      "bolts": 17
+    },
+    {
+      "seed": 38,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 11,
+      "bolts": 14
+    },
+    {
+      "seed": 39,
+      "reward": 0.0,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          0
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      },
+      "nuts": 20,
+      "bolts": 14
+    }
+  ],
+  "handmade": [
+    {
+      "case": "spec",
+      "reward": 1.0,
+      "success": true,
+      "metrics": {
+        "num_nuts_sorted": [
+          19
+        ],
+        "num_bolts_sorted": [
+          16
+        ],
+        "num_correct": [
+          35
+        ],
+        "num_correct_spec": [
+          35
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "spec"
+        ],
+        "ever_success": [
+          true
+        ]
+      }
+    },
+    {
+      "case": "inverted",
+      "reward": 1.0,
+      "success": true,
+      "metrics": {
+        "num_nuts_sorted": [
+          0
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          35
+        ],
+        "num_correct_spec": [
+          0
+        ],
+        "num_correct_inverted": [
+          35
+        ],
+        "sorted_orientation": [
+          "inverted"
+        ],
+        "ever_success": [
+          true
+        ]
+      }
+    },
+    {
+      "case": "mixed",
+      "reward": 0.9714285731315613,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          18
+        ],
+        "num_bolts_sorted": [
+          16
+        ],
+        "num_correct": [
+          34
+        ],
+        "num_correct_spec": [
+          34
+        ],
+        "num_correct_inverted": [
+          1
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      }
+    },
+    {
+      "case": "all_in_one_bin",
+      "reward": 0.5428571701049805,
+      "success": false,
+      "metrics": {
+        "num_nuts_sorted": [
+          19
+        ],
+        "num_bolts_sorted": [
+          0
+        ],
+        "num_correct": [
+          19
+        ],
+        "num_correct_spec": [
+          19
+        ],
+        "num_correct_inverted": [
+          16
+        ],
+        "sorted_orientation": [
+          "none"
+        ],
+        "ever_success": [
+          false
+        ]
+      }
+    },
+    {
+      "case": "floating_spec",
+      "reward": 1.0,
+      "success": true,
+      "metrics": {
+        "num_nuts_sorted": [
+          19
+        ],
+        "num_bolts_sorted": [
+          16
+        ],
+        "num_correct": [
+          35
+        ],
+        "num_correct_spec": [
+          35
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "spec"
+        ],
+        "ever_success": [
+          true
+        ]
+      }
+    },
+    {
+      "case": "tipped_90_spec",
+      "reward": 1.0,
+      "success": true,
+      "metrics": {
+        "num_nuts_sorted": [
+          19
+        ],
+        "num_bolts_sorted": [
+          16
+        ],
+        "num_correct": [
+          35
+        ],
+        "num_correct_spec": [
+          35
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "spec"
+        ],
+        "ever_success": [
+          true
+        ]
+      }
+    },
+    {
+      "case": "tipped_180_spec",
+      "reward": 1.0,
+      "success": true,
+      "metrics": {
+        "num_nuts_sorted": [
+          19
+        ],
+        "num_bolts_sorted": [
+          16
+        ],
+        "num_correct": [
+          35
+        ],
+        "num_correct_spec": [
+          35
+        ],
+        "num_correct_inverted": [
+          0
+        ],
+        "sorted_orientation": [
+          "spec"
+        ],
+        "ever_success": [
+          true
+        ]
+      }
+    }
+  ],
+  "settles": [
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 0,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6762059958159623e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.0051652689550389305
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 1,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0010842906709091413,
+      "local": [
+        0.038092451766462934,
+        -0.12682031090743312,
+        0.011634739900838086
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 2,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.001818194061331401,
+      "local": [
+        -0.0028330402315468765,
+        0.032847315379303695,
+        0.024828069580134313
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 3,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00236888549556219,
+      "local": [
+        -0.06330922442937476,
+        0.06182535179086239,
+        0.023135979478420502
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 4,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0006211931752020957,
+      "local": [
+        -0.035783995080219705,
+        -0.04464409473256488,
+        0.024060617848129105
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 5,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.003630711467734517,
+      "local": [
+        -0.04934304564156611,
+        -0.04879726583241743,
+        0.020270465409184726
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 6,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.002144501060870726,
+      "local": [
+        -0.022317186893222495,
+        0.012422852820998205,
+        0.02590380560147272
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 7,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6723213818911677e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038939
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 8,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.005244864260832642,
+      "local": [
+        0.04119622832053678,
+        -0.050738866960680695,
+        0.024078300784585383
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 9,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 4.257802889526551e-07,
+      "local": [
+        -0.04793316578276962,
+        -0.11862891280367797,
+        0.00982389793034012
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 10,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.672598890931618e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038936
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 11,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.001093668241047063,
+      "local": [
+        -0.04801780181528385,
+        -0.06406494493681114,
+        0.023914366321480127
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0014097624911227743,
+      "local": [
+        0.08141809544046379,
+        0.11578945724547922,
+        0.011572908168721908
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 13,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00459949718813492,
+      "local": [
+        0.021742584169558755,
+        -0.001574677030924257,
+        0.02007755619597207
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 14,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 7.403474986719826e-08,
+      "local": [
+        0.01403931844737082,
+        -0.06551353341539189,
+        0.023029271061956392
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 15,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0009467943564127187,
+      "local": [
+        0.10586570967836179,
+        0.04193101182604306,
+        0.011655928635353027
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 16,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0017478060129701677,
+      "local": [
+        0.08355013470892025,
+        -0.030458762331201893,
+        0.10856615381329457
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 17,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00043303274325848197,
+      "local": [
+        -0.018445432053421525,
+        0.041367551640951794,
+        0.023439711808138235
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 18,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.1946502767287038e-09,
+      "local": [
+        0.10587667727333173,
+        0.1261322277970589,
+        0.005165268955038872
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 19,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.675096153817769e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038935
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 20,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.672876334186586e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038929
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.671766442000308e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038926
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 22,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.002601926564637366,
+      "local": [
+        -0.11681697223262856,
+        0.048237360487128005,
+        0.01253069079136559
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 23,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6664944642720357e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038922
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 24,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0039363614303153565,
+      "local": [
+        -0.10704281062020496,
+        0.09670332521787998,
+        0.009580234836820682
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 25,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0011784649632796515,
+      "local": [
+        0.06537525248090037,
+        0.023733576057971623,
+        0.025109501167816104
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 26,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0009368013329808122,
+      "local": [
+        0.053008877411818256,
+        0.072262140314331,
+        0.026176391272329
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 27,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6734313837024727e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038938
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 28,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6731538590530847e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.00516526895503893
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "nut",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.672876327214852e-14,
+      "local": [
+        -0.34000000000072494,
+        -0.61,
+        0.005165268955038927
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 0,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0027447956230977587,
+      "local": [
+        -0.13384875648996,
+        0.06132228958830442,
+        0.00908844617645766
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 1,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 3.305010893116797e-07,
+      "local": [
+        0.042639941972683414,
+        -0.0016716833397799448,
+        0.019878233985963396
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 2,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0005223429341997018,
+      "local": [
+        0.03332873526410138,
+        -0.025261700968971634,
+        0.020284860600076345
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 3,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0017558839929967393,
+      "local": [
+        -0.10514622165517103,
+        -0.019391328143570422,
+        0.009157996579085005
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 4,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0002643828065395879,
+      "local": [
+        0.11413810997969755,
+        0.07926104816781476,
+        0.009148427529960474
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 5,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 5.372743798741714e-07,
+      "local": [
+        0.011754383896581157,
+        0.05468048113706078,
+        0.01987819639378899
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 6,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00010353891343004044,
+      "local": [
+        0.0311934495779278,
+        0.04119215818820411,
+        0.01987823386128891
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 7,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0053596562137955776,
+      "local": [
+        0.056793090575907895,
+        0.002780096188458984,
+        0.03414423074793893
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 8,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00328164912177881,
+      "local": [
+        0.008324417027695142,
+        -0.06945080777543132,
+        0.02029226052942692
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 9,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.029059020217679858,
+      "local": [
+        -0.0405838250804706,
+        0.07902859683002704,
+        0.09363458545276644
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 10,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.005030692113466646,
+      "local": [
+        -0.023693189037231437,
+        0.13631565450310218,
+        0.00880684459474113
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 11,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 3.229003581522468e-06,
+      "local": [
+        0.002750549453497852,
+        -0.05897546526250471,
+        0.019878195701033746
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.946906461418537e-05,
+      "local": [
+        0.04594516325535186,
+        -0.11261724249471307,
+        0.008764738153022457
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "bolts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 13,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.4874971806717348e-14,
+      "local": [
+        -0.001127704854250895,
+        -0.1271877351332363,
+        0.008764715998059952
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 14,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.001313576221961691,
+      "local": [
+        -0.047368289804772076,
+        -0.11156548769355663,
+        0.009368824195443966
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "bolts_bin_right_wall",
+        "bolts_bin_right_wall",
+        "bolts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 15,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 9.979846934452755e-08,
+      "local": [
+        -0.03744615234993547,
+        0.03338792362191138,
+        0.03244805897742893
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 16,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.49071526187353e-14,
+      "local": [
+        -0.10948497043698284,
+        -0.05086329544556533,
+        0.008764715998061397
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 17,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 2.344103156652035e-07,
+      "local": [
+        -0.030501285428791203,
+        0.026586527431239047,
+        0.01987814079237444
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 18,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0011344684215805457,
+      "local": [
+        0.07385643154863636,
+        -0.08144139314791382,
+        0.09697721105890793
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_right_wall",
+        "bolts_bin_right_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 19,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 1.8096612958161947e-05,
+      "local": [
+        0.04653326487247803,
+        -0.05919599380092486,
+        0.020307125387887495
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 20,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 6.317085061953766e-05,
+      "local": [
+        0.009651454525055649,
+        0.029187384873091193,
+        0.020306809779079865
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6937295044337397e-14,
+      "local": [
+        -0.060544742124981316,
+        0.1231779643813126,
+        0.021322435527312715
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 22,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.002444182232715459,
+      "local": [
+        0.08820713320835223,
+        0.11958546988367581,
+        0.009112464286647352
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 23,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0008126656398245937,
+      "local": [
+        -0.016027895526235448,
+        -0.036034766633909365,
+        0.02025324579573972
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 24,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.4290102714852473e-14,
+      "local": [
+        0.0472952209292834,
+        0.12003336590205127,
+        0.008764715998059938
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 25,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.8383722381085163e-07,
+      "local": [
+        -0.0807819095361002,
+        0.11961851095918367,
+        0.008764715606724198
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 26,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00030059219988400564,
+      "local": [
+        0.03634201059711763,
+        0.022492857534412325,
+        0.02029972812316669
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 27,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 7.096907211703959e-05,
+      "local": [
+        -0.058912320093810935,
+        0.0882142862754902,
+        0.09553030172694088
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 28,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 8.493096220148092e-10,
+      "local": [
+        0.10467165467217934,
+        0.035687618638923335,
+        0.02129505373519103
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 0,
+      "kind": "bolt",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 4.960129922358361e-06,
+      "local": [
+        -0.009942653424764237,
+        -0.125309586521819,
+        0.008764697885472857
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 0,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.004525445190297135,
+      "local": [
+        0.014181057898460808,
+        0.044533896608517726,
+        0.01895470355311175
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 1,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.00722178870046926,
+      "local": [
+        -0.0962695512040363,
+        -0.11603925008970038,
+        0.00549376381322076
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 2,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.00345930695385264,
+      "local": [
+        -0.08397355208641404,
+        -0.06322809132428966,
+        0.10767816775095199
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_front_wall",
+        "nuts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 3,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.001199730260422124,
+      "local": [
+        0.021320545101560878,
+        -0.044778435552564985,
+        0.023052236166324545
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 4,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.646516516276339e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038826
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 5,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.007100191411413286,
+      "local": [
+        0.09876101149937244,
+        0.03058753914002426,
+        0.09879210293475411
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 6,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6445742081300483e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038829
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 7,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0005630420670966822,
+      "local": [
+        -0.03473126525229769,
+        0.0932543133744654,
+        0.10655927837452234
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 8,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 2.81117715991706e-10,
+      "local": [
+        -0.02604696538743565,
+        -0.1115332398066492,
+        0.010096442472989473
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 9,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 8.023629600098258e-08,
+      "local": [
+        0.09480914854546081,
+        0.11290838932002335,
+        0.0053079134048710135
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 10,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0038552443892328563,
+      "local": [
+        -0.05667973277079779,
+        0.0036605801502746565,
+        0.017554408709677154
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 11,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6484588265795408e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038827
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6431868461259994e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038827
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 13,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6448516812041647e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.00530791340503883
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 14,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6459615707130387e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038837
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 15,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.00466886621534022,
+      "local": [
+        -0.0953065860731571,
+        -0.09689788486890731,
+        0.09943000306842795
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_right_wall",
+        "nuts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 16,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0002743382313003135,
+      "local": [
+        0.02968884678445463,
+        0.088789252331026,
+        0.10144074514098136
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall",
+        "nuts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 17,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.003913851790114072,
+      "local": [
+        -0.057957696448911175,
+        -0.11650068946248249,
+        0.010991145430559578
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 18,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.005195254708206101,
+      "local": [
+        0.049802365435065665,
+        -0.08967275705813989,
+        0.10529569817931456
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_right_wall",
+        "nuts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 19,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 1.947886563599646e-06,
+      "local": [
+        -0.002034475747471461,
+        0.053702497139975075,
+        0.017305057347293224
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 20,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6484588226397593e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.0053079134050388254
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6473489328106326e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038825
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 22,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6448516820943797e-14,
+      "local": [
+        -0.33999999999999997,
+        -0.6099999999978742,
+        0.005307913405038831
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 23,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.2899721220771587e-10,
+      "local": [
+        -0.33999999999999997,
+        -0.609999999997874,
+        0.005307913353613038
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 24,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.00627372365669377,
+      "local": [
+        0.04373499637129203,
+        0.08050793943712578,
+        0.09617482508582884
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 25,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.002253924643695256,
+      "local": [
+        -0.05071157900698731,
+        0.12302610651965237,
+        0.010954784263845876
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 26,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.001915356065632607,
+      "local": [
+        0.06295626516819748,
+        0.09419906225889513,
+        0.11020346288033808
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 27,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.007326562663433936,
+      "local": [
+        0.03825435663082342,
+        -0.065809958206833,
+        0.018557252169292757
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 28,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.002501725336690753,
+      "local": [
+        0.015231851642319383,
+        -0.054217947924304705,
+        0.022984688001676887
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "nut",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0010274864210418851,
+      "local": [
+        0.11433246246041709,
+        0.025426109168045028,
+        0.010890195063112394
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 0,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0097141882777366,
+      "local": [
+        0.07933096209923084,
+        0.10660369738673901,
+        0.1308056519386361
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 1,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.07026536385783332,
+      "local": [
+        0.029712745700959123,
+        -0.0071480474660601725,
+        0.027124186958409333
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 2,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.08755143869435351,
+      "local": [
+        0.11673627264481391,
+        0.06605921263139025,
+        0.010408900451914423
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 3,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.3089451751104015e-05,
+      "local": [
+        -0.00630728905594227,
+        -0.12953143174665427,
+        0.009172047607833867
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 4,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 3.9323002714094435e-07,
+      "local": [
+        -0.03254370217008665,
+        0.06172254844124806,
+        0.022351194973105958
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 5,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.2973578232642156e-05,
+      "local": [
+        -0.13363824080444153,
+        -0.11677491803210678,
+        0.009172047611381474
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 6,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0012451458023814504,
+      "local": [
+        -0.12051723227015476,
+        -0.0008991622585855552,
+        0.01849679124910411
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "bolts_bin_front_wall",
+        "bolts_bin_front_wall",
+        "bolts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 7,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 5.102009901661043e-06,
+      "local": [
+        -0.00901859873065809,
+        -0.14031533021866652,
+        0.009172047778459824
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 8,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 7.947023801522168e-05,
+      "local": [
+        -0.032053185058210934,
+        0.07254540826677253,
+        0.022780846315445493
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 9,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 4.475351587614727e-07,
+      "local": [
+        0.03732291004730657,
+        -0.07498735510127114,
+        0.022351202238972
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 10,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0002550530792550712,
+      "local": [
+        0.092410653457377,
+        -0.028282957442639946,
+        0.1163943212614671
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 11,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.003991273530587359,
+      "local": [
+        0.10540919000763928,
+        0.08947311602760397,
+        0.10233770486505495
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 4.8058842370080555e-12,
+      "local": [
+        0.14745172582711577,
+        0.034525570443831026,
+        0.008787265812567285
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 13,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.02407392809845008,
+      "local": [
+        0.06119541296923685,
+        -0.14017875557235657,
+        0.02305279417642249
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 14,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 2.833754194304258e-07,
+      "local": [
+        0.05780745856882068,
+        0.07719692158696514,
+        0.02235117425097617
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 15,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00034958814970132703,
+      "local": [
+        -0.05607601811618637,
+        -0.03328879029482222,
+        0.022771584057600668
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 16,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6725488824227865e-14,
+      "local": [
+        0.1488850021495116,
+        -0.11639376996571119,
+        0.008787265812567294
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 17,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00033075556772730843,
+      "local": [
+        0.010836017909683025,
+        -0.02210580795044589,
+        0.02235111543458599
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 18,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 5.810601103178101e-06,
+      "local": [
+        -0.15137306966853967,
+        -0.015006659815405811,
+        0.009172047769379747
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 19,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.2644844757981132e-13,
+      "local": [
+        0.1395081770513932,
+        0.0048847620280204045,
+        0.008787265812567283
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 20,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0014219031308857963,
+      "local": [
+        -0.007998406696592455,
+        -0.040101462688772155,
+        0.02263140294912493
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.013807662641262557,
+      "local": [
+        -0.10637702735251077,
+        -0.03714021003292288,
+        0.10869559915119935
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_front_wall",
+        "bolts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 22,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 8.88122124411847e-05,
+      "local": [
+        0.037200013415772504,
+        0.056401413237915095,
+        0.022735935474888926
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 23,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.017030490977146998,
+      "local": [
+        -0.12187169940849592,
+        0.06365499021973822,
+        0.00949040718761695
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "bolts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 24,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0017180517777014431,
+      "local": [
+        -0.0723878675077804,
+        0.05267302929790918,
+        0.022568021913266206
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 25,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00031146349332843555,
+      "local": [
+        0.03436574230000019,
+        0.039870430513278335,
+        0.022734612427472774
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 26,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0004541708948241642,
+      "local": [
+        0.06678206306878366,
+        0.078456726559109,
+        0.023131219096786428
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 27,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.004820876150219038,
+      "local": [
+        -0.050477759459219035,
+        -0.05319362229813814,
+        0.02367053268967324
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 28,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 2.3103804435120208e-07,
+      "local": [
+        -0.03431667168167478,
+        0.031379890366298846,
+        0.022351199013552564
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 1,
+      "kind": "bolt",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0003760663174695754,
+      "local": [
+        0.11954302989662846,
+        -0.059946268293635474,
+        0.02053984318303545
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall",
+        "bolts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 0,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6588318789204973e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.00623421281503892
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 1,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00969167583065499,
+      "local": [
+        0.018004228420729164,
+        -0.020904396155459668,
+        0.020796208759428163
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 2,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0006231959862293453,
+      "local": [
+        0.019988620464455802,
+        0.06667281645928502,
+        0.025180043696608298
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 3,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.003669464960721358,
+      "local": [
+        0.005152801563903733,
+        -0.03484494199386586,
+        0.023855568618921116
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 4,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.0637048176333344e-09,
+      "local": [
+        0.017185893555565143,
+        -0.11366581760552828,
+        0.011866282461758143
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 5,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.0451242534654555e-09,
+      "local": [
+        -0.10205578910512753,
+        0.03855860740020487,
+        0.006234212815038886
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 6,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.006965159439742312,
+      "local": [
+        -0.005645273708124165,
+        0.1278824377495561,
+        0.011833861168881845
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 7,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0015044168501685343,
+      "local": [
+        -0.0955278554143491,
+        0.020104252685992335,
+        0.014067872817154601
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 8,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.004069441988744207,
+      "local": [
+        -0.0011843445276083326,
+        0.11165736509020055,
+        0.0125130711808532
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 9,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6588322446337776e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.006234212815038918
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 10,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6596646627318238e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.006234212815038922
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 11,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.008340816604462646,
+      "local": [
+        -0.09843443403388147,
+        0.12062908665592963,
+        0.009152237511876875
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.0688917108382752e-06,
+      "local": [
+        0.05223862556358011,
+        -0.10539161743264695,
+        0.011866268677131362
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 13,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.008333607774874211,
+      "local": [
+        0.10175118040957701,
+        -0.04535190007291964,
+        0.009162453846304099
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 14,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6918747112923086e-06,
+      "local": [
+        -0.1131011962161132,
+        0.01867012058940398,
+        0.011866282316189245
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 15,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 2.2001139031988686e-06,
+      "local": [
+        0.11395295515612804,
+        -0.012624146367864051,
+        0.011866282302185449
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 16,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0008191602442402719,
+      "local": [
+        0.03578234463838872,
+        0.022849921731043478,
+        0.025151400055380396
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 17,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0076257330262246735,
+      "local": [
+        -0.0433382952572373,
+        -0.06083238891239474,
+        0.02520066834888452
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 18,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0010267353113958425,
+      "local": [
+        -0.022379060641344192,
+        -0.058556430407679855,
+        0.025112409229974982
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 19,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.007011119106835393,
+      "local": [
+        0.005408059364481696,
+        0.042537371281516176,
+        0.01792387747515957
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 20,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6568895775407633e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.0062342128150389186
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.009748272158301213,
+      "local": [
+        -0.11224638571443597,
+        -0.07123460670793358,
+        0.006949853121768329
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 22,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.009939934870014565,
+      "local": [
+        -0.10694821006036616,
+        -0.12836982923588566,
+        0.0066058823815734555
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 23,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0012522026085866357,
+      "local": [
+        0.10476043387252032,
+        -0.10792904783673293,
+        0.006226443539690046
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 24,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.007732794571103632,
+      "local": [
+        -0.06600921234596789,
+        -0.06528089030523644,
+        0.09806049372176383
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 25,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6579995855020897e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.006234212815038919
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 26,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.659109612243908e-14,
+      "local": [
+        -0.3399999999996006,
+        -0.6100000000000001,
+        0.006234212815038923
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 27,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 7.735580491289619e-07,
+      "local": [
+        0.04648076442133682,
+        -0.055304454390404385,
+        0.0173306026177012
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor",
+        "nuts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 28,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.014972002515500744,
+      "local": [
+        0.08795273549758686,
+        0.03210413321710453,
+        0.09368663368357913
+      ],
+      "support": "bin",
+      "contacts": [
+        "nuts_bin_back_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "nut",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0008298863085160189,
+      "local": [
+        0.0502991586947447,
+        -0.10938851277178906,
+        0.013126353534817245
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "nuts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 0,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.279280195278349e-14,
+      "local": [
+        -0.10862786820695217,
+        -0.06762943668640363,
+        0.009276969267873919
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 1,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.424942751630048e-05,
+      "local": [
+        0.11474394342420517,
+        -0.11291037321708217,
+        0.009276893875074249
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 2,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 8.46440737391317e-08,
+      "local": [
+        -0.027582794750646622,
+        -0.035413489214426414,
+        0.0337963351370395
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 3,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 2.3256143176470763e-14,
+      "local": [
+        0.10634414339647047,
+        0.03894776357635698,
+        0.009276969267875359
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 4,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.3258036669711225e-09,
+      "local": [
+        -0.004759084447672574,
+        -0.12240946618841134,
+        0.00927696926550315
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 5,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.831203087684668e-14,
+      "local": [
+        0.12367766221948436,
+        -0.09630560487971049,
+        0.009276969267873811
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 6,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.4635737359253293,
+      "local": [
+        -0.050567825835073854,
+        -0.01042901261068506,
+        0.03393653760251731
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 7,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.9482825460878086e-14,
+      "local": [
+        -0.13420644613511742,
+        -0.0037571352745551464,
+        0.00927696926787536
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 8,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0008493866635934157,
+      "local": [
+        0.04842972657555433,
+        0.09410144286220902,
+        0.09839830199430978
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall",
+        "bolts_bin_left_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 9,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 4.941641015156163e-05,
+      "local": [
+        0.0010423252719267647,
+        0.0564100066760994,
+        0.020493822529793353
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 10,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0005862219433741632,
+      "local": [
+        -0.006684532545064656,
+        -0.04244098403873578,
+        0.020493452887328602
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 11,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 5.2974648411924405e-05,
+      "local": [
+        -0.1072472389531282,
+        -0.1091746235215855,
+        0.009683195754080063
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 12,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 1.6314315954731635e-14,
+      "local": [
+        0.026533887621448666,
+        -0.12860589151406257,
+        0.009276969267875256
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 13,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 4.6811968732622944e-05,
+      "local": [
+        0.04594199930633309,
+        -0.03838629277647857,
+        0.020900106201611753
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 14,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 7.148136503518809e-05,
+      "local": [
+        0.10581346232175005,
+        0.04758255286662672,
+        0.009683189330852767
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 15,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.00603059799488927,
+      "local": [
+        -0.024738272468997066,
+        -0.06924181733149072,
+        0.02206040130284008
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 16,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0003899460880295371,
+      "local": [
+        0.004889199054775433,
+        -0.035036199909169834,
+        0.02093995980283509
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 17,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0035405732782503997,
+      "local": [
+        0.004970714008438718,
+        -0.07798101171993599,
+        0.08162423594190818
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_right_wall",
+        "bolts_bin_right_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 18,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 3.2728091804788035e-11,
+      "local": [
+        0.14196110818821353,
+        -0.05708441671510243,
+        0.009276969267874576
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 19,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 6.219140600024418e-08,
+      "local": [
+        -0.10430492095322685,
+        -0.11559088341901771,
+        0.009683198321502669
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 20,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 5.747166378097831e-07,
+      "local": [
+        0.01885158769307977,
+        -0.0727570242909518,
+        0.02049382324047852
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 21,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.0007672776296444771,
+      "local": [
+        -0.10474190892480935,
+        0.05000439754277997,
+        0.01111005961881365
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "bolts_bin_front_wall",
+        "bolts_bin_front_wall",
+        "bolts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 22,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 3.541475458901105e-07,
+      "local": [
+        0.002399669319483468,
+        -0.028946301814276907,
+        0.020493742829851298
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 23,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.0006268929805881188,
+      "local": [
+        0.04726240172742605,
+        0.054672896927101276,
+        0.020923419374139683
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 24,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 6.099488999576333e-05,
+      "local": [
+        -0.10650714369678126,
+        0.047795964584958536,
+        0.009693307738861377
+      ],
+      "support": "bin",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "bolts_bin_front_wall"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 25,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.000810201369487645,
+      "local": [
+        0.048687342500133686,
+        -0.03754406257542681,
+        0.02090492927324339
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 26,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.010348435373585242,
+      "local": [
+        0.00037950986572587834,
+        0.06558840222503895,
+        0.03545977884270391
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 27,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 2.1576891205266622e-06,
+      "local": [
+        0.10790763395711656,
+        0.12474769048552373,
+        0.022567344013123995
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane",
+        "table_plane"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 28,
+      "inside_goal": true,
+      "accepted": true,
+      "speed": 0.007846170826607319,
+      "local": [
+        -0.04830042912085124,
+        0.07173599240451216,
+        0.035923204165725184
+      ],
+      "support": "bin",
+      "contacts": [
+        "bolts_bin_floor",
+        "bolts_bin_floor"
+      ]
+    },
+    {
+      "seed": 2,
+      "kind": "bolt",
+      "trial": 29,
+      "inside_goal": false,
+      "accepted": false,
+      "speed": 0.004642098909873521,
+      "local": [
+        -0.1189239086648858,
+        -0.10447339188302125,
+        0.009464535410279922
+      ],
+      "support": "table_or_other",
+      "contacts": [
+        "table_plane",
+        "table_plane"
+      ]
+    }
+  ]
+}

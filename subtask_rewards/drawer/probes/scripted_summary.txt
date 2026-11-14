@@ -1,0 +1,26 @@
+== open_drawer
+success_script  ever 18/20, final 18, lost after success [], per target (succ, n) {'middle': [9, 9], 'top': [4, 4], 'bottom': [5, 7]}, max success flips 1, max other-drawer q 0.0000, hand on target at first success 18/18, final q [0.1689, 0.1708, 0.0, 0.2, 0.2, 0.2, 0.1373, 0.1668, 0.2, 0.0, 0.2, 0.1575, 0.2, 0.1639, 0.2, 0.1672, 0.1931, 0.2, 0.2, 0.1933]
+failure_script  ever 0/20, final 0, lost after success [], per target (succ, n) {'middle': [0, 9], 'top': [0, 4], 'bottom': [0, 7]}, max success flips 0, max other-drawer q 0.2241, hand on target at first success 0/0, final q [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+hook            ever 12/20, final 12, lost after success [], per target (succ, n) {'middle': [9, 9], 'top': [2, 4], 'bottom': [1, 7]}, max success flips 1, max other-drawer q 0.0000, hand on target at first success 12/12, final q [0.1379, 0.0828, 0.0, 0.0, 0.1563, 0.143, 0.1631, 0.1579, 0.0503, 0.0455, 0.1436, 0.1484, 0.0, 0.1817, 0.1557, 0.0293, 0.032, 0.1583, 0.158, 0.1606]
+partial         ever 2/20, final 2, lost after success [], per target (succ, n) {'middle': [0, 9], 'top': [2, 4], 'bottom': [0, 7]}, max success flips 1, max other-drawer q 0.0000, hand on target at first success 2/2, final q [0.1008, 0.1975, 0.0, 0.0953, 0.0988, 0.0973, 0.1001, 0.0995, 0.0914, 0.0, 0.098, 0.1003, 0.1091, 0.096, 0.0994, 0.0895, 0.1918, 0.0992, 0.0991, 0.0995]
+fling {'seed': 0, 'v': 0.3, 'max_q': 0.0032, 'min_q': 0.003, 'final_q': 0.0032, 'ever_success': False}
+fling {'seed': 0, 'v': 0.6, 'max_q': 0.0064, 'min_q': 0.0061, 'final_q': 0.0064, 'ever_success': False}
+fling {'seed': 0, 'v': 1.0, 'max_q': 0.0106, 'min_q': 0.0102, 'final_q': 0.0106, 'ever_success': False}
+fling {'seed': 0, 'v': 2.0, 'max_q': 0.0212, 'min_q': 0.0203, 'final_q': 0.0212, 'ever_success': False}
+fling {'seed': 10, 'v': 0.3, 'max_q': 0.0032, 'min_q': 0.003, 'final_q': 0.0032, 'ever_success': False}
+fling {'seed': 10, 'v': 0.6, 'max_q': 0.0064, 'min_q': 0.0061, 'final_q': 0.0064, 'ever_success': False}
+fling {'seed': 10, 'v': 1.0, 'max_q': 0.0106, 'min_q': 0.0102, 'final_q': 0.0106, 'ever_success': False}
+fling {'seed': 10, 'v': 2.0, 'max_q': 0.0212, 'min_q': 0.0203, 'final_q': 0.0212, 'ever_success': False}
+handmade [{'target_q': 0.119, 'other_q': 0.0, 'success': False, 'reward': 0.99}, {'target_q': 0.121, 'other_q': 0.0, 'success': True, 'reward': 1.0}, {'target_q': 0.2, 'other_q': 0.0, 'success': True, 'reward': 1.0}, {'target_q': 0.121, 'other_q': 0.049, 'success': True, 'reward': 1.0}, {'target_q': 0.121, 'other_q': 0.051, 'success': False, 'reward': 0.495}, {'target_q': 0.0, 'other_q': 0.2, 'success': False, 'reward': 0.0}]
+== close_drawer
+success_script  ever 12/20, final 12, lost after success [], per target (succ, n) {'middle': [9, 9], 'top': [3, 4], 'bottom': [0, 7]}, max success flips 1, max other-drawer q 0.0000, hand on target at first success 7/12, final q [0.0, 0.0, 0.1501, 0.0372, 0.0, 0.0, 0.0, 0.0, 0.0917, 0.1267, 0.0, 0.0, 0.0909, 0.2, 0.0, 0.1102, 0.054, 0.0, 0.0, 0.0]
+failure_script  ever 0/20, final 0, lost after success [], per target (succ, n) {'middle': [0, 9], 'top': [0, 4], 'bottom': [0, 7]}, max success flips 0, max other-drawer q 0.0000, hand on target at first success 0/0, final q [0.113, 0.1296, 0.2, 0.1606, 0.1254, 0.1104, 0.1026, 0.131, 0.1439, 0.1253, 0.1292, 0.1134, 0.1625, 0.1837, 0.1134, 0.1825, 0.1189, 0.1771, 0.1185, 0.1011]
+fling {'seed': 0, 'v': -0.3, 'max_q': 0.153, 'min_q': 0.1529, 'final_q': 0.1529, 'ever_success': False}
+fling {'seed': 0, 'v': -0.6, 'max_q': 0.1499, 'min_q': 0.1497, 'final_q': 0.1497, 'ever_success': False}
+fling {'seed': 0, 'v': -1.0, 'max_q': 0.1459, 'min_q': 0.1454, 'final_q': 0.1454, 'ever_success': False}
+fling {'seed': 0, 'v': -2.0, 'max_q': 0.1357, 'min_q': 0.1348, 'final_q': 0.1348, 'ever_success': False}
+fling {'seed': 10, 'v': -0.3, 'max_q': 0.182, 'min_q': 0.1819, 'final_q': 0.1819, 'ever_success': False}
+fling {'seed': 10, 'v': -0.6, 'max_q': 0.179, 'min_q': 0.1787, 'final_q': 0.1787, 'ever_success': False}
+fling {'seed': 10, 'v': -1.0, 'max_q': 0.1749, 'min_q': 0.1745, 'final_q': 0.1745, 'ever_success': False}
+fling {'seed': 10, 'v': -2.0, 'max_q': 0.1648, 'min_q': 0.1639, 'final_q': 0.1639, 'ever_success': False}
+handmade [{'target_q': 0.016, 'other_q': 0.0, 'success': False, 'reward': 0.99}, {'target_q': 0.014, 'other_q': 0.0, 'success': True, 'reward': 1.0}, {'target_q': 0.0, 'other_q': 0.0, 'success': True, 'reward': 1.0}, {'target_q': 0.014, 'other_q': 0.049, 'success': True, 'reward': 1.0}, {'target_q': 0.014, 'other_q': 0.051, 'success': False, 'reward': 0.495}]

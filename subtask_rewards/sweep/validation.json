@@ -1,0 +1,183 @@
+{
+  "reach": {
+    "starts": {
+      "stage": "reach",
+      "tried": 100,
+      "built": 100,
+      "valid": 100,
+      "idle_kept": 100,
+      "idle_fraction": 1.0,
+      "mean_build_s": 1.64863,
+      "max_valid_build_s": 3.091,
+      "over_budget": 0,
+      "G3": true
+    },
+    "scripted": {
+      "solver": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 20,
+        "as_expected": 20,
+        "mean_return": 1.532553167832254
+      },
+      "idle": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.00016094594965127457
+      },
+      "away": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": -0.010987330580389842
+      },
+      "G4": true,
+      "margin": 1.5323922218826027,
+      "G5": true
+    }
+  },
+  "pick": {
+    "starts": {
+      "stage": "pick",
+      "tried": 100,
+      "built": 96,
+      "valid": 93,
+      "idle_kept": 93,
+      "idle_fraction": 0.96875,
+      "mean_build_s": 2.11133,
+      "max_valid_build_s": 3.97,
+      "over_budget": 3,
+      "G3": true
+    },
+    "scripted": {
+      "solver": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 20,
+        "as_expected": 20,
+        "mean_return": 1.254418175212679
+      },
+      "idle": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.0
+      },
+      "close_only": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.2590657252845057
+      },
+      "push": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": -0.975
+      },
+      "G4": true,
+      "margin": 0.9953524499281734,
+      "G5": true
+    }
+  },
+  "carry": {
+    "starts": {
+      "stage": "carry",
+      "tried": 100,
+      "built": 93,
+      "valid": 89,
+      "idle_kept": 89,
+      "idle_fraction": 0.956989247311828,
+      "mean_build_s": 2.8861000000000003,
+      "max_valid_build_s": 3.317,
+      "over_budget": 7,
+      "G3": true
+    },
+    "scripted": {
+      "solver": {
+        "tried": 20,
+        "planned": 15,
+        "successes": 15,
+        "as_expected": 15,
+        "mean_return": 0.926450909642736
+      },
+      "idle": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.0006193944438578659
+      },
+      "release": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": -1.0
+      },
+      "wrong_way": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": -0.05962712547717024
+      },
+      "shake": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.00018803907651965528
+      },
+      "G4": true,
+      "margin": 0.9258315151988782,
+      "G5": true
+    }
+  },
+  "drop": {
+    "starts": {
+      "stage": "drop",
+      "tried": 100,
+      "built": 93,
+      "valid": 85,
+      "idle_kept": 88,
+      "idle_fraction": 0.946236559139785,
+      "mean_build_s": 4.97683,
+      "max_valid_build_s": 6.214,
+      "over_budget": 7,
+      "G3": true
+    },
+    "scripted": {
+      "solver": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 20,
+        "as_expected": 20,
+        "mean_return": 1.225
+      },
+      "idle": {
+        "tried": 20,
+        "planned": 20,
+        "successes": 0,
+        "as_expected": 20,
+        "mean_return": 0.0
+      },
+      "release_beside": {
+        "tried": 20,
+        "planned": 16,
+        "successes": 0,
+        "as_expected": 16,
+        "mean_return": -0.8302418928669806
+      },
+      "G4": true,
+      "margin": 1.225,
+      "G5": true
+    }
+  }
+}

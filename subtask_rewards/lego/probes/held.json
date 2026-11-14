@@ -1,0 +1,38 @@
+[
+  {
+    "seed": 0,
+    "color": "red",
+    "held": false,
+    "last_failure": "gripper/object pose collides with something"
+  },
+  {
+    "seed": 1,
+    "color": "yellow",
+    "held": false,
+    "last_failure": "no IK (pos err 0.0944 m, rot err 0.016 rad)"
+  },
+  {
+    "seed": 2,
+    "color": "blue",
+    "held": false,
+    "last_failure": "no IK (pos err 0.0528 m, rot err 0.041 rad)"
+  },
+  {
+    "seed": 3,
+    "color": "red",
+    "held": false,
+    "last_failure": "gripper/object pose collides with something"
+  },
+  {
+    "seed": 4,
+    "color": "yellow",
+    "held": false,
+    "last_failure": "no IK (pos err 0.0136 m, rot err 0.258 rad)"
+  },
+  {
+    "seed": 5,
+    "color": "blue",
+    "held": false,
+    "last_failure": "gripper/object pose collides with something"
+  }
+]

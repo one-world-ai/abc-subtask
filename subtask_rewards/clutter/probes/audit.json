@@ -1,0 +1,3330 @@
+{
+  "checkout": "/projects/work/yang-lab/projects/policy-finetuning/abc-audit-clutter/abc_sim/__init__.py",
+  "resets": [
+    {
+      "seed": 0,
+      "reward": 0.0,
+      "success": false,
+      "category": "yogurt",
+      "variant": "yogurt_2",
+      "objects": 11,
+      "target_y": -0.2993,
+      "box_y": 0.5245,
+      "same_side": false
+    },
+    {
+      "seed": 1,
+      "reward": 0.0,
+      "success": false,
+      "category": "tomato",
+      "variant": "tomato_2",
+      "objects": 15,
+      "target_y": -0.1539,
+      "box_y": -0.5195,
+      "same_side": true
+    },
+    {
+      "seed": 2,
+      "reward": 0.0,
+      "success": false,
+      "category": "sponge",
+      "variant": "sponge_4",
+      "objects": 9,
+      "target_y": 0.305,
+      "box_y": -0.5128,
+      "same_side": false
+    },
+    {
+      "seed": 3,
+      "reward": 0.0,
+      "success": false,
+      "category": "can",
+      "variant": "can_16",
+      "objects": 13,
+      "target_y": 0.0006,
+      "box_y": 0.5062,
+      "same_side": true
+    },
+    {
+      "seed": 4,
+      "reward": 0.0,
+      "success": false,
+      "category": "can",
+      "variant": "can_12",
+      "objects": 13,
+      "target_y": -0.2977,
+      "box_y": 0.5188,
+      "same_side": false
+    },
+    {
+      "seed": 5,
+      "reward": 0.0,
+      "success": false,
+      "category": "cereal",
+      "variant": "cereal_1",
+      "objects": 16,
+      "target_y": 0.3019,
+      "box_y": -0.509,
+      "same_side": false
+    },
+    {
+      "seed": 6,
+      "reward": 0.0,
+      "success": false,
+      "category": "cupcake",
+      "variant": "cupcake_2",
+      "objects": 16,
+      "target_y": 0.2946,
+      "box_y": -0.5143,
+      "same_side": false
+    },
+    {
+      "seed": 7,
+      "reward": 0.0,
+      "success": false,
+      "category": "apple",
+      "variant": "apple_5",
+      "objects": 15,
+      "target_y": -0.0006,
+      "box_y": 0.5141,
+      "same_side": false
+    },
+    {
+      "seed": 8,
+      "reward": 0.0,
+      "success": false,
+      "category": "tomato",
+      "variant": "tomato_2",
+      "objects": 11,
+      "target_y": -0.1493,
+      "box_y": -0.5204,
+      "same_side": true
+    },
+    {
+      "seed": 9,
+      "reward": 0.0,
+      "success": false,
+      "category": "can",
+      "variant": "can_16",
+      "objects": 15,
+      "target_y": 0.2953,
+      "box_y": -0.508,
+      "same_side": false
+    },
+    {
+      "seed": 10,
+      "reward": 0.0,
+      "success": false,
+      "category": "yogurt",
+      "variant": "yogurt_1",
+      "objects": 15,
+      "target_y": 0.0047,
+      "box_y": 0.5066,
+      "same_side": true
+    },
+    {
+      "seed": 11,
+      "reward": 0.0,
+      "success": false,
+      "category": "lemon",
+      "variant": "lemon_3",
+      "objects": 15,
+      "target_y": -0.1443,
+      "box_y": 0.5178,
+      "same_side": false
+    },
+    {
+      "seed": 12,
+      "reward": 0.0,
+      "success": false,
+      "category": "boxed_drink",
+      "variant": "boxed_drink_7",
+      "objects": 12,
+      "target_y": -0.2952,
+      "box_y": 0.5083,
+      "same_side": false
+    },
+    {
+      "seed": 13,
+      "reward": 0.0,
+      "success": false,
+      "category": "jar",
+      "variant": "Jar002",
+      "objects": 14,
+      "target_y": -0.1447,
+      "box_y": -0.5134,
+      "same_side": true
+    },
+    {
+      "seed": 14,
+      "reward": 0.0,
+      "success": false,
+      "category": "jar",
+      "variant": "Jar002",
+      "objects": 11,
+      "target_y": 0.003,
+      "box_y": -0.5164,
+      "same_side": false
+    },
+    {
+      "seed": 15,
+      "reward": 0.0,
+      "success": false,
+      "category": "mustard",
+      "variant": "Mustard002",
+      "objects": 10,
+      "target_y": 0.1544,
+      "box_y": -0.5238,
+      "same_side": false
+    },
+    {
+      "seed": 16,
+      "reward": 0.0,
+      "success": false,
+      "category": "jar",
+      "variant": "Jar005",
+      "objects": 14,
+      "target_y": -0.3053,
+      "box_y": 0.5235,
+      "same_side": false
+    },
+    {
+      "seed": 17,
+      "reward": 0.0,
+      "success": false,
+      "category": "sponge",
+      "variant": "sponge_1",
+      "objects": 14,
+      "target_y": -0.2999,
+      "box_y": 0.518,
+      "same_side": false
+    },
+    {
+      "seed": 18,
+      "reward": 0.0,
+      "success": false,
+      "category": "mustard",
+      "variant": "Mustard003",
+      "objects": 12,
+      "target_y": 0.303,
+      "box_y": 0.5184,
+      "same_side": true
+    },
+    {
+      "seed": 19,
+      "reward": 0.0,
+      "success": false,
+      "category": "apple",
+      "variant": "apple_10",
+      "objects": 16,
+      "target_y": 0.1496,
+      "box_y": 0.5138,
+      "same_side": true
+    },
+    {
+      "seed": 20,
+      "reward": 0.0,
+      "success": false,
+      "category": "soap_dispenser",
+      "variant": "soap_dispenser_1",
+      "objects": 9,
+      "target_y": 0.3004,
+      "box_y": 0.52,
+      "same_side": true
+    },
+    {
+      "seed": 21,
+      "reward": 0.0,
+      "success": false,
+      "category": "coffee_cup",
+      "variant": "coffee_cup_1",
+      "objects": 11,
+      "target_y": 0.1527,
+      "box_y": -0.5184,
+      "same_side": false
+    },
+    {
+      "seed": 22,
+      "reward": 0.0,
+      "success": false,
+      "category": "bowl",
+      "variant": "bowl_10",
+      "objects": 16,
+      "target_y": 0.1502,
+      "box_y": -0.5215,
+      "same_side": false
+    },
+    {
+      "seed": 23,
+      "reward": 0.0,
+      "success": false,
+      "category": "cupcake",
+      "variant": "cupcake_2",
+      "objects": 11,
+      "target_y": 0.3026,
+      "box_y": -0.5143,
+      "same_side": false
+    },
+    {
+      "seed": 24,
+      "reward": 0.0,
+      "success": false,
+      "category": "water_bottle",
+      "variant": "water_bottle_1",
+      "objects": 12,
+      "target_y": -0.3026,
+      "box_y": -0.5107,
+      "same_side": true
+    },
+    {
+      "seed": 25,
+      "reward": 0.0,
+      "success": false,
+      "category": "ketchup",
+      "variant": "ketchup_1",
+      "objects": 9,
+      "target_y": 0.1487,
+      "box_y": 0.5173,
+      "same_side": true
+    },
+    {
+      "seed": 26,
+      "reward": 0.0,
+      "success": false,
+      "category": "canned_food",
+      "variant": "canned_food_19",
+      "objects": 15,
+      "target_y": -0.1526,
+      "box_y": -0.5056,
+      "same_side": true
+    },
+    {
+      "seed": 27,
+      "reward": 0.0,
+      "success": false,
+      "category": "jar",
+      "variant": "Jar004",
+      "objects": 15,
+      "target_y": 0.1461,
+      "box_y": 0.5141,
+      "same_side": true
+    },
+    {
+      "seed": 28,
+      "reward": 0.0,
+      "success": false,
+      "category": "jar",
+      "variant": "Jar004",
+      "objects": 12,
+      "target_y": -0.3024,
+      "box_y": 0.5057,
+      "same_side": false
+    },
+    {
+      "seed": 29,
+      "reward": 0.0,
+      "success": false,
+      "category": "apple",
+      "variant": "apple_12",
+      "objects": 12,
+      "target_y": 0.1448,
+      "box_y": -0.5077,
+      "same_side": false
+    },
+    {
+      "seed": 30,
+      "reward": 0.0,
+      "success": false,
+      "category": "coffee_cup",
+      "variant": "coffee_cup_11",
+      "objects": 14,
+      "target_y": 0.1557,
+      "box_y": -0.5151,
+      "same_side": false
+    },
+    {
+      "seed": 31,
+      "reward": 0.0,
+      "success": false,
+      "category": "orange",
+      "variant": "orange_0",
+      "objects": 10,
+      "target_y": 0.302,
+      "box_y": -0.5241,
+      "same_side": false
+    },
+    {
+      "seed": 32,
+      "reward": 0.0,
+      "success": false,
+      "category": "yogurt",
+      "variant": "yogurt_2",
+      "objects": 9,
+      "target_y": 0.297,
+      "box_y": -0.5056,
+      "same_side": false
+    },
+    {
+      "seed": 33,
+      "reward": 0.0,
+      "success": false,
+      "category": "mug",
+      "variant": "mug_10",
+      "objects": 9,
+      "target_y": -0.0036,
+      "box_y": 0.5051,
+      "same_side": false
+    },
+    {
+      "seed": 34,
+      "reward": 0.0,
+      "success": false,
+      "category": "bowl",
+      "variant": "bowl_1",
+      "objects": 13,
+      "target_y": -0.2959,
+      "box_y": -0.5156,
+      "same_side": true
+    },
+    {
+      "seed": 35,
+      "reward": 0.0,
+      "success": false,
+      "category": "potato",
+      "variant": "potato_3",
+      "objects": 12,
+      "target_y": -0.3026,
+      "box_y": 0.516,
+      "same_side": false
+    },
+    {
+      "seed": 36,
+      "reward": 0.0,
+      "success": false,
+      "category": "orange",
+      "variant": "orange_2",
+      "objects": 10,
+      "target_y": 0.0049,
+      "box_y": -0.5061,
+      "same_side": false
+    },
+    {
+      "seed": 37,
+      "reward": 0.0,
+      "success": false,
+      "category": "cereal",
+      "variant": "cereal_11",
+      "objects": 10,
+      "target_y": 0.1461,
+      "box_y": -0.5072,
+      "same_side": false
+    },
+    {
+      "seed": 38,
+      "reward": 0.0,
+      "success": false,
+      "category": "water_bottle",
+      "variant": "water_bottle_1",
+      "objects": 11,
+      "target_y": 0.1441,
+      "box_y": -0.5115,
+      "same_side": false
+    },
+    {
+      "seed": 39,
+      "reward": 0.0,
+      "success": false,
+      "category": "mustard",
+      "variant": "Mustard004",
+      "objects": 11,
+      "target_y": -0.2956,
+      "box_y": 0.5241,
+      "same_side": false
+    }
+  ],
+  "poses": [
+    {
+      "seed": 0,
+      "pose": "center_float",
+      "category": "yogurt",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.19999999999999996
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "pose": "above_rim_float",
+      "category": "yogurt",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.28
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "pose": "below_floor",
+      "category": "yogurt",
+      "local_origin": [
+        0.0,
+        0.0,
+        -0.040000000000000036
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "pose": "outside_above",
+      "category": "yogurt",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.3999999999999999
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "pose": "table_beside",
+      "category": "yogurt",
+      "local_origin": [
+        0.14,
+        -9.918719614967838e-18,
+        0.040000000000000036
+      ],
+      "contacts": [],
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "pose": "origin_on_rim",
+      "category": "yogurt",
+      "local_origin": [
+        3.216749589249293e-17,
+        0.07000000000000002,
+        0.12
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall"
+      ],
+      "reward": 0.13998675346374512,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "pose": "wrong_object_in_box",
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "pose": "tipped_box_goal_float",
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "pose": "center_float",
+      "category": "tomato",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.19999999999999996
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "pose": "above_rim_float",
+      "category": "tomato",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.28
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "pose": "below_floor",
+      "category": "tomato",
+      "local_origin": [
+        0.0,
+        0.0,
+        -0.040000000000000036
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "pose": "outside_above",
+      "category": "tomato",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.3999999999999999
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "pose": "table_beside",
+      "category": "tomato",
+      "local_origin": [
+        0.13999999999999996,
+        -2.206877250682316e-17,
+        0.040000000000000036
+      ],
+      "contacts": [],
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "pose": "origin_on_rim",
+      "category": "tomato",
+      "local_origin": [
+        3.7411324099985816e-17,
+        0.06999999999999999,
+        0.12
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall"
+      ],
+      "reward": 0.13998740911483765,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "pose": "wrong_object_in_box",
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "pose": "tipped_box_goal_float",
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "pose": "center_float",
+      "category": "sponge",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.19999999999999996
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "pose": "above_rim_float",
+      "category": "sponge",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.28
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "pose": "below_floor",
+      "category": "sponge",
+      "local_origin": [
+        0.0,
+        0.0,
+        -0.040000000000000036
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "pose": "outside_above",
+      "category": "sponge",
+      "local_origin": [
+        0.0,
+        0.0,
+        0.3999999999999999
+      ],
+      "contacts": [],
+      "reward": 1.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "pose": "table_beside",
+      "category": "sponge",
+      "local_origin": [
+        0.14,
+        -2.3948939052933715e-17,
+        0.040000000000000036
+      ],
+      "contacts": [],
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "pose": "origin_on_rim",
+      "category": "sponge",
+      "local_origin": [
+        4.609079267613211e-19,
+        0.06999999999999998,
+        0.12
+      ],
+      "contacts": [],
+      "reward": 0.13998669385910034,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "pose": "wrong_object_in_box",
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "pose": "tipped_box_goal_float",
+      "reward": 1.0,
+      "success": true
+    }
+  ],
+  "settles": [
+    {
+      "seed": 0,
+      "trial": 0,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.5146582017441522,
+        -0.17599610034167024,
+        0.04041746962114159
+      ],
+      "contacts": [
+        "",
+        "left_wall_collision",
+        "table_plane"
+      ],
+      "qvel_norm": 0.02325879808383758,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 1,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.011498915229396426,
+        0.006683419205946112,
+        0.029235177003408604
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 2.3614140699756285e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 2,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.003982325426836722,
+        0.012397021965115218,
+        0.04592606457760191
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 2.773551985787061e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 3,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.15717304314052358,
+        -0.06042469317771701,
+        0.03067258234847158
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.699539069503781e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 4,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.02223902135796249,
+        -0.13931190309680017,
+        0.01727709192347295
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.6476464251587704e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 5,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.06940449624352941,
+        -0.12392161088303302,
+        0.02863540234847295
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.3015329213912224e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 6,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        0.10514017409279322,
+        -0.014069483767258383,
+        0.1277079842845258
+      ],
+      "contacts": [
+        "back_wall_collision",
+        "grab_clutter_target_box_back_wall"
+      ],
+      "qvel_norm": 0.0026767784285485485,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 7,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.12464464516590618,
+        -0.21514114102282547,
+        0.02863540234847293
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.805616155035699e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 8,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.03315268496204198,
+        -0.008253478013205287,
+        0.029235176152192136
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.105327320118122e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 9,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.0213840741229688,
+        0.016166630453227037,
+        0.04619438619039202
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.003085528590272628,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 10,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.02838918843934754,
+        -0.023446855938678516,
+        0.04263066658102643
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 7.694869547513736e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 11,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.04860848256863659,
+        -0.05772829328691847,
+        0.12123588763288513
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall",
+        "grab_clutter_target_box_right_wall"
+      ],
+      "qvel_norm": 8.558529866493226e-08,
+      "reward": 0.07279515266418457,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 12,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.1491686507160984,
+        0.006256926538404269,
+        0.033967980348473044
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.39902335816616e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 13,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.0813946295778836,
+        0.04460863005235189,
+        0.1308320921080699
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall",
+        "left_wall_collision"
+      ],
+      "qvel_norm": 0.014987034823443456,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 14,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.016559078810724936,
+        -0.01935053998507999,
+        0.029235177003759265
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.3781418402626225e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 15,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.10772995445943023,
+        -0.12634542667696733,
+        0.02863540234847295
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.355024307528265e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 16,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.4603110899242945,
+        -0.9812024649817197,
+        0.01727709277347306
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.5609840331824196e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 17,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        0.05867226504422501,
+        0.059796324381070444,
+        0.12123587755331139
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 7.619731834274486e-08,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 18,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.010815854257066349,
+        0.024095239572796936,
+        0.05409580240437478
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.0032734391591853792,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 19,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.24788031660071533,
+        -1.0304143372683021,
+        0.017277799093473108
+      ],
+      "contacts": [
+        "",
+        "table_plane"
+      ],
+      "qvel_norm": 1.9292343668793126e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 20,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.1289008907603474,
+        0.017334890401629166,
+        0.039549498036610835
+      ],
+      "contacts": [
+        "left_wall_collision",
+        "table_plane"
+      ],
+      "qvel_norm": 0.0026678257864509716,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 21,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.008858556657001186,
+        -0.013795480796655647,
+        0.029235176153748575
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 3.4420803468662596e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 22,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.19043383848681872,
+        0.394819854597718,
+        0.017277091923472914
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.734198860251246e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 23,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        0.0049037302534678615,
+        0.09250443273801114,
+        0.13600758146669942
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "left_wall_collision"
+      ],
+      "qvel_norm": 0.0009509880862569125,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 24,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.0014837943591391532,
+        0.09680196535962048,
+        0.13278515110247832
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "left_wall_collision"
+      ],
+      "qvel_norm": 0.04156448284000408,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 25,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.018960741512924116,
+        -0.09759717504255727,
+        0.030672582348473046
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 8.058043843439786e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 26,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.13334434480692764,
+        -1.1397426261385093,
+        0.017277092773473064
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.560730763942745e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 27,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -1.893680293381237,
+        -0.6581330181793924,
+        0.02863540234847299
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.766675543501392e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 28,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.03534199467399599,
+        -0.16136608036329356,
+        0.017277091923473056
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.4334302631980796e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 29,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.13143667265376902,
+        -0.16890654581729656,
+        0.03396798034847307
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.590717155085517e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 30,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.025425405982700353,
+        -0.009428637231651325,
+        0.05965059294127549
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 0.04995439891954309,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 31,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.011914806351044652,
+        -0.829211874212372,
+        0.028635402348473
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.885859899498e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 32,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.32243518988245967,
+        -0.1953775522325979,
+        0.017277092773473016
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.3438104423633733e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 33,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.011699876756145644,
+        0.022909723684869772,
+        0.029235176156207222
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.105221494010005e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 34,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.027614538283730786,
+        0.004032049322721872,
+        0.055134193622300945
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 0.036155948060204834,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 35,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.002823309813828723,
+        0.02914138565699318,
+        0.04059348657948944
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.914405591618375e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 36,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.027535934705401437,
+        0.0177817191231159,
+        0.04263066657811773
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.418955289322949e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 37,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.036604648082175374,
+        -0.13108294183584696,
+        0.02863540234847294
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.706697445861466e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 38,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.11316716835475897,
+        -0.045427716090063706,
+        0.03396798034847305
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.975288255708636e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 39,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.05268628812532659,
+        0.09860745985675234,
+        0.028635402348472904
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.682952199123409e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 40,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.00238389301045471,
+        0.022397912108058464,
+        0.029235176153834183
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.172544041573119e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 41,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.004078347270891754,
+        0.019218421127706577,
+        0.02923517615350274
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 4.4899989347658995e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 42,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.9786199091832943,
+        1.752358007488728,
+        0.03396798034847273
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.343002081402144e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 43,
+      "category": "yogurt",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.02143171218273324,
+        0.07699936363827051,
+        0.12279164348418974
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "left_wall_collision"
+      ],
+      "qvel_norm": 0.0023743546449959798,
+      "reward": 0.018019378185272217,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 44,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.1341976060398066,
+        -0.09168171703444017,
+        0.017277091923473015
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.3894528302664526e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 45,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        -0.43813968628594385,
+        -0.36052778343648423,
+        0.02863610866847302
+      ],
+      "contacts": [
+        "",
+        "table_plane"
+      ],
+      "qvel_norm": 6.130630408481804e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 46,
+      "category": "yogurt",
+      "class": "table_supported",
+      "local_origin": [
+        0.20088780871690914,
+        -0.48613426340252885,
+        0.03438515177893201
+      ],
+      "contacts": [
+        "clutter_obj_07_geom",
+        "table_plane"
+      ],
+      "qvel_norm": 0.0011605904781239109,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 0,
+      "trial": 47,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.022871077604197074,
+        0.0203165119350476,
+        0.04711543000256263
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.0001428655388885529,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 48,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.02866539783544132,
+        -0.010377673250308866,
+        0.04619593854950269
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_front_wall"
+      ],
+      "qvel_norm": 0.002640880168299097,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 0,
+      "trial": 49,
+      "category": "yogurt",
+      "class": "inside_supported",
+      "local_origin": [
+        0.002416163461853624,
+        -0.021508771004134685,
+        0.042630666580658595
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.272556607337746e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 0,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.06591722869360746,
+        -0.1546967582433911,
+        0.036493901116795194
+      ],
+      "contacts": [
+        "clutter_obj_11_geom",
+        "table_plane"
+      ],
+      "qvel_norm": 0.046701520077291565,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 1,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.003507431407744052,
+        -1.2968467412297208e-05,
+        0.033502802831991266
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.666328219398705e-10,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 2,
+      "category": "tomato",
+      "class": "outside_box_supported",
+      "local_origin": [
+        0.1127752559328969,
+        0.08492127270135563,
+        0.03031267090120258
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "table_plane"
+      ],
+      "qvel_norm": 0.004993089453030743,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 3,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.16425471931299584,
+        -0.09326218988348178,
+        0.024134792348473037
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.709069750818085e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 4,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.039537918487823134,
+        -0.02874828311370903,
+        0.03612411113278798
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 8.862599087097777e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 5,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.047420401859228814,
+        -0.18429385149070157,
+        0.031452832431497546
+      ],
+      "contacts": [
+        "clutter_obj_11_geom",
+        "table_plane"
+      ],
+      "qvel_norm": 0.002419968146206367,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 6,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.11977452886990976,
+        -0.050641405112695805,
+        0.02188629434847299
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.3894407218988928e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 7,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.11525192581898044,
+        -0.010236221935648979,
+        0.024134792346484336
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.173641261915263e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 8,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.150217914110864,
+        -0.02242354271928336,
+        0.024134792348473058
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.399049413359604e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 9,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.14568818455239885,
+        0.08268086791575634,
+        0.02188629434847289
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.6472113357491875e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 10,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.010585894076246213,
+        0.09679508111380937,
+        0.02416599864847302
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.4716162224421664e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 11,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.1961269190533094,
+        0.006952403651837467,
+        0.024134792348472902
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.873730178513528e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 12,
+      "category": "tomato",
+      "class": "rim_supported",
+      "local_origin": [
+        0.030067758554752137,
+        0.09523703668477213,
+        0.11856536992291487
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "right_wall_collision"
+      ],
+      "qvel_norm": 0.0022443841814669204,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 13,
+      "category": "tomato",
+      "class": "rim_supported",
+      "local_origin": [
+        0.06372477998991202,
+        0.057339938565748476,
+        0.12809362908108274
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 1.4787771438438689e-08,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 14,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.19529739288426246,
+        -0.03457779618747066,
+        0.02154469034847306
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.1701684392016555e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 15,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.07095875534012906,
+        -0.15204421133656562,
+        0.024103586048473062
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.404661973520761e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 16,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.15634582882594888,
+        -0.13441918251311455,
+        0.02188629434847301
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.693079787998962e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 17,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.12144798995178042,
+        0.012305330528314479,
+        0.02413479234847303
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.575555640504799e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 18,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.007918208017040398,
+        -0.14809237022529842,
+        0.024134792348473072
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.5761148453242725e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 19,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.06137479253706953,
+        -0.1255084319360268,
+        0.024134792348473058
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.385333994286352e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 20,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.23134600890765852,
+        -0.08162391821056945,
+        0.02188629434847302
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.9536109689452098e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 21,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.07446701948886428,
+        0.10351258870481403,
+        0.021544690348471698
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.9967366870485564e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 22,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.004282413746468873,
+        -0.01942437645293279,
+        0.033502802832056894
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 4.158024452695118e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 23,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.01863835251058731,
+        0.006428381581734922,
+        0.03350280283196822
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 3.322702463025993e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 24,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.010082784108370688,
+        -0.2001421309681677,
+        0.02413479234847304
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.446965779986972e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 25,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.030289098215605336,
+        -0.15008621667761182,
+        0.024165998648472894
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.161471098773522e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 26,
+      "category": "tomato",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.008775962771607523,
+        0.09680292792094207,
+        0.12816445334566606
+      ],
+      "contacts": [
+        "grab_clutter_target_box_left_wall",
+        "right_wall_collision"
+      ],
+      "qvel_norm": 0.09697656162191359,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 27,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.09226675389049442,
+        -0.16121782096047424,
+        0.02413479234847294
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.999712497905426e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 28,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.2022943930736583,
+        1.4110503453860608,
+        0.021544690348472884
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.690608072125063e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 29,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.11564438969651573,
+        -0.023898095291456645,
+        0.02413479234847301
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.2433540346771404e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 30,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.03843132208468124,
+        0.03164487025329684,
+        0.04227908865621284
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.0037850401571334685,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 31,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.021132583208640327,
+        0.010012445695421816,
+        0.0335028028319734
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 4.036825696785568e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 32,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.0341306232671316,
+        -0.15008065987102326,
+        0.02413479234847307
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.161314437050736e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 33,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.021635792722681804,
+        0.03940882305249611,
+        0.033844406831946075
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 9.020683481459609e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 34,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.04370403898704194,
+        -0.534366382747909,
+        0.02413479234847307
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.305475882454352e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 35,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.0021380000858195677,
+        0.024766240904063954,
+        0.049407189404788866
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.0390936024182535,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 36,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.029259631256971477,
+        0.012284518652812952,
+        0.03609290483132405
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.3947177420330445e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 37,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.045440415458053975,
+        -0.12482600977057556,
+        0.02413479234847301
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.501953005335949e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 38,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.01844798764801526,
+        0.01873288734178866,
+        0.03384440683208398
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 4.9681798422807295e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 39,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.018479616623332633,
+        0.0009578074376863004,
+        0.03609290483180437
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 3.0035416556233337e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 40,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.00960010570050335,
+        0.0028130240474988195,
+        0.0338444068319986
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 1.6719850069123182e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 41,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.010198436484638784,
+        -0.18266652409129755,
+        0.024134792348472947
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.7997252823855166e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 42,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.14335695986385022,
+        -0.04857471576961581,
+        0.02413479234847305
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.417419897987924e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 43,
+      "category": "tomato",
+      "class": "inside_supported",
+      "local_origin": [
+        0.009524844950939767,
+        0.0005315900738642641,
+        0.03609290483201104
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 1.5588606335543538e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 1,
+      "trial": 44,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.1726860915283696,
+        -0.01651706507910961,
+        0.024103586048472965
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.47950020755024e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 45,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.17408626391576498,
+        -0.023576286283871307,
+        0.021544690348473044
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.43278992063317e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 46,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.12039200751392175,
+        -0.029717060979898062,
+        0.02154469034847306
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.7364910530533534e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 47,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.09545648312041038,
+        -0.09769655228111325,
+        0.021544690348471614
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.6904796191483848e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 48,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        -0.14032384937482456,
+        0.059644929443119714,
+        0.021886294348473005
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 1.6063150389052255e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 1,
+      "trial": 49,
+      "category": "tomato",
+      "class": "table_supported",
+      "local_origin": [
+        0.1385052880803503,
+        -0.04427649006143968,
+        0.024134792348471726
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 6.137343511690642e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 0,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.1684972220165794,
+        0.103948106181961,
+        0.011511482348472966
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.2568203138363805e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 1,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.011858400314487497,
+        -0.16779999201184317,
+        0.011511482348472987
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.2143911047974794e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 2,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.13417135966648996,
+        -0.015089664545822381,
+        0.026115033088246024
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.838790352286049e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 3,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.15667318177437525,
+        0.04730342735822884,
+        0.02611421840869999
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 8.01318047693382e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 4,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        0.049395418832651215,
+        0.024842643458858355,
+        0.048922828478001286
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 7.4293595834820985e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 5,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.16117762976910008,
+        0.07319069631547832,
+        0.011511482348472992
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.2577032974182265e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 6,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.17142198678754375,
+        0.03862559625409323,
+        0.011511482348472981
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.3224285128913777e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 7,
+      "category": "sponge",
+      "class": "outside_box_supported",
+      "local_origin": [
+        -0.11873104362973867,
+        -0.040940273774059815,
+        0.020984475824704012
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall",
+        "table_plane"
+      ],
+      "qvel_norm": 0.008108894411153157,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 8,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.15458165663674928,
+        0.09325888276731589,
+        0.01151148234847299
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.1048200215347858e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 9,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.8772072587285001,
+        -0.6798904622150621,
+        0.0369156960080729
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.64998162382858e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 10,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.929879345938292,
+        -0.4585257746285137,
+        0.026115033088245934
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.696821699324111e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 11,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.012175280717514106,
+        0.14844451944536255,
+        0.026114218408699954
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.2490075339525497e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 12,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.026710544151214453,
+        0.11619490664050075,
+        0.011511482348472981
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.3365150870099182e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 13,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.0011820331787884078,
+        0.02228163231896852,
+        0.023469651337598735
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 3.636034586888885e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 14,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.1286069083881085,
+        -0.09937735092236194,
+        0.026115033088244578
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.431855215164037e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 15,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.09760950070118736,
+        0.13793224265450552,
+        0.011511482348472983
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.2574846446155618e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 16,
+      "category": "sponge",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.10161648459304144,
+        -0.0035818037802704,
+        0.13344764146819624
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall",
+        "right_wall_collision"
+      ],
+      "qvel_norm": 0.004861253030625362,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 17,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.058109478215820035,
+        0.1297765634776235,
+        0.03464859434564937
+      ],
+      "contacts": [
+        "right_wall_collision",
+        "table_plane"
+      ],
+      "qvel_norm": 0.01310468425916882,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 18,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.1612685411409956,
+        0.08386434591096774,
+        0.02611421840869862
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.2427054003374087e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 19,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.039486392800577065,
+        0.004959587611027242,
+        0.023469651337605046
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 5.044330824868543e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 20,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.12895725857482898,
+        -0.03624214637909353,
+        0.026114218408699964
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 5.356638349737451e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 21,
+      "category": "sponge",
+      "class": "rim_supported",
+      "local_origin": [
+        0.06426699270743699,
+        -0.058134504965919535,
+        0.11547035077830688
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_right_wall"
+      ],
+      "qvel_norm": 1.0781287950073888e-08,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 22,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        0.04288565249127519,
+        -0.026687338672284316,
+        0.0489228284780043
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.940929099101296e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 23,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.010076713530479014,
+        0.01652286443449672,
+        0.023469651337592913
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 2.975530807146302e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 24,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.14685287011986328,
+        -0.07915414475681513,
+        0.02611421840869998
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.4366318528281416e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 25,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.10464884615549121,
+        -0.10758421415869027,
+        0.011511482348472999
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.278776570284475e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 26,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.03197236014222786,
+        -0.1305185172774742,
+        0.011511482348473006
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.0623592911994287e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 27,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        0.03265274671664815,
+        -0.006515580350325996,
+        0.049968440730337814
+      ],
+      "contacts": [
+        "grab_clutter_target_box_back_wall",
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 0.0005338945503183997,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 28,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.12999578367670006,
+        0.12765267450663917,
+        0.011511482348472985
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.1706140223054426e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 29,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.025209393438703244,
+        0.005966197757660255,
+        0.03934788612985042
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor",
+        "grab_clutter_target_box_front_wall"
+      ],
+      "qvel_norm": 0.0013020142343462436,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 30,
+      "category": "sponge",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.07152917282969083,
+        0.025123201449137385,
+        0.1154688566702822
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall"
+      ],
+      "qvel_norm": 2.1237838864472187e-08,
+      "reward": 0.06856459379196167,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 31,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.060233196917386725,
+        -0.14816558346011838,
+        0.011511482348472993
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.278668628430694e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 32,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.13077903687182682,
+        -0.04852259514987103,
+        0.039338966497585684
+      ],
+      "contacts": [
+        "right_wall_collision",
+        "table_plane"
+      ],
+      "qvel_norm": 0.0726747743432855,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 33,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.0033531040359334996,
+        0.012905731326452728,
+        0.023469651337598874
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 2.146116108144963e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 34,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.08209019545317056,
+        -0.15380741207580598,
+        0.011511482348472997
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.4387340660074172e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 35,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.0033969736542273955,
+        0.20208096511607107,
+        0.026114218408699937
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.7911674219388083e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 36,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        0.007230011122115945,
+        -0.00962251336358891,
+        0.023469651337597555
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 1.8123536878853665e-09,
+      "reward": 1.0,
+      "success": true
+    },
+    {
+      "seed": 2,
+      "trial": 37,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.8900538813252334,
+        0.03211265967777056,
+        0.026115739408245943
+      ],
+      "contacts": [
+        "",
+        "table_plane"
+      ],
+      "qvel_norm": 6.990092945640571e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 38,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.12185327129968858,
+        0.1413181267747928,
+        0.011511482348472964
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.102218022068594e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 39,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.1338598293063768,
+        -0.027767401271550796,
+        0.026115033088246024
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.709670400252604e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 40,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.14448180834812263,
+        0.04675757672063447,
+        0.011511482348472988
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 2.278364487575631e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 41,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.09350841323025705,
+        -0.15683118354539655,
+        0.026114218408699992
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.6410519702418924e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 42,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.12806880348115865,
+        -0.060330351415011696,
+        0.029957478375648227
+      ],
+      "contacts": [
+        "right_wall_collision",
+        "table_plane"
+      ],
+      "qvel_norm": 0.009331001432454787,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 43,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.10581470394810517,
+        -0.13774895162729345,
+        0.026114218408699992
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 7.73676375909901e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 44,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.04501514956478094,
+        0.12535858545174436,
+        0.03691569600807162
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.037084587706206e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 45,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        -0.10879650962698742,
+        -0.02047173780075373,
+        0.02611503308824471
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.294460627546275e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 46,
+      "category": "sponge",
+      "class": "rim_supported",
+      "local_origin": [
+        -0.03648225044522572,
+        0.05667440221568446,
+        0.1227857764177183
+      ],
+      "contacts": [
+        "grab_clutter_target_box_front_wall",
+        "grab_clutter_target_box_left_wall"
+      ],
+      "qvel_norm": 0.009593242647960252,
+      "reward": 0.17189955711364746,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 47,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.06469393869496014,
+        0.17741529463468958,
+        0.026114218408699957
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 4.7662788561928984e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 48,
+      "category": "sponge",
+      "class": "table_supported",
+      "local_origin": [
+        0.1194214172482281,
+        -0.07453917282550326,
+        0.036915696008073
+      ],
+      "contacts": [
+        "table_plane"
+      ],
+      "qvel_norm": 8.384251368310347e-14,
+      "reward": 0.0,
+      "success": false
+    },
+    {
+      "seed": 2,
+      "trial": 49,
+      "category": "sponge",
+      "class": "inside_supported",
+      "local_origin": [
+        -0.04047061925554978,
+        0.026632045766324372,
+        0.0489228284780012
+      ],
+      "contacts": [
+        "grab_clutter_target_box_floor"
+      ],
+      "qvel_norm": 6.700569921710579e-09,
+      "reward": 1.0,
+      "success": true
+    }
+  ],
+  "summary": {
+    "reset_tries": 40,
+    "reset_errors": 0,
+    "reset_nonzero_reward": 0,
+    "reset_success": 0,
+    "same_side": 13,
+    "settle_classes": {
+      "table_supported|success=False": 93,
+      "inside_supported|success=True": 41,
+      "rim_supported|success=False": 14,
+      "outside_box_supported|success=False": 2
+    }
+  }
+}

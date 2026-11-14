@@ -1,0 +1,4 @@
+ok test_either_consistent_partition_succeeds
+ok test_mixed_bins_and_one_bin_are_not_complete
+ok test_bin_pose_and_size_define_live_regions
+ok test_active_mask_excludes_parked_parts

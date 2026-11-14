@@ -1,0 +1,1272 @@
+{
+  "counts": {
+    "('table_or_other', False, False)": 76,
+    "('bin_supported', False, False)": 13,
+    "('bin_supported', True, True)": 86,
+    "('moving', False, False)": 1,
+    "('moving', True, True)": 2,
+    "('bin_supported', False, True)": 2
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "trial": 0,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 1,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 2,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 3,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 4,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 5,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 6,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 7,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 8,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 9,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 10,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 11,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 12,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 13,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 14,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 15,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 16,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 17,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 18,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 19,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 20,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 21,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 22,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 23,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 24,
+      "class": "moving",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 25,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 26,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 27,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 28,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 29,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 30,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 31,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 32,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 33,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 34,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 35,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 36,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 37,
+      "class": "moving",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 38,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 39,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 40,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 41,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 42,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 43,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 44,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 45,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 46,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 47,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 48,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 49,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 50,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 51,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 52,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 53,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 0,
+      "trial": 54,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 55,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 56,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 57,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 58,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 0,
+      "trial": 59,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 0,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 1,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 2,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 3,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 4,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 5,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 6,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 7,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 8,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 9,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 10,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 11,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 12,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 13,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 14,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 15,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 16,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 17,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 18,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 19,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 20,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 21,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 22,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 23,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 24,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 25,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 26,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 27,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 28,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 29,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 30,
+      "class": "moving",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 31,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 32,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 33,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 34,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 35,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 36,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 37,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 38,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 39,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 40,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 41,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 42,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 43,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 44,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 45,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 46,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 47,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 48,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 49,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 50,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 51,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 52,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 53,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 54,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 1,
+      "trial": 55,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 56,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 57,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 58,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 1,
+      "trial": 59,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 0,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 1,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 2,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 3,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 4,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 5,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 6,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 7,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 8,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 9,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 10,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 11,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 12,
+      "class": "bin_supported",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 13,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 14,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 15,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 16,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 17,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 18,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 19,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 20,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 21,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 22,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 23,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 24,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 25,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 26,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 27,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 28,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 29,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 30,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 31,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 32,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 33,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 34,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 35,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 36,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 37,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 38,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 39,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 40,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 41,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 42,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 43,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 44,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 45,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 46,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 47,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 48,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 49,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 50,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 51,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 52,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 53,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 54,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 55,
+      "class": "table_or_other",
+      "old_correct": 0,
+      "new_correct": 0
+    },
+    {
+      "seed": 2,
+      "trial": 56,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 57,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 58,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    },
+    {
+      "seed": 2,
+      "trial": 59,
+      "class": "bin_supported",
+      "old_correct": 1,
+      "new_correct": 1
+    }
+  ]
+}

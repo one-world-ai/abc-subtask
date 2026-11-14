@@ -1,0 +1,2 @@
+abc_sim from /projects/work/yang-lab/projects/policy-finetuning/abc-audit-lego/abc_sim/__init__.py
+{"world": "world-08", "seed": 64265693, "steps": 22000, "recorded_success": false, "old_final": 0.9375, "old_max": 0.9375, "new_final": 0.9375, "new_max": 0.9375, "new_success": false, "first_old_full": null, "first_new_success": null, "cut_short_by_old_success": false}

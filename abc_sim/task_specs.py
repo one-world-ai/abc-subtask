@@ -153,6 +153,26 @@ _TASK_SPECS: tuple[SimTaskSpec, ...] = (
             "put one object relative to another",
         ),
     ),
+    SimTaskSpec(name="grab_specific_object_from_clutter__reach", env_task="grab_clutter",
+                prompt="clutter subtask: approach the prompted target",
+                description="Clutter reach subtask: start with env.reset_to_stage.",
+                evaluator_name="clutter_subtask", evaluator_options=(("stage", "reach"),)),
+    SimTaskSpec(name="grab_specific_object_from_clutter__pick", env_task="grab_clutter",
+                prompt="clutter subtask: grasp and lift the prompted target",
+                description="Clutter pick subtask: start with env.reset_to_stage.",
+                evaluator_name="clutter_subtask", evaluator_options=(("stage", "pick"),)),
+    SimTaskSpec(name="grab_specific_object_from_clutter__handoff", env_task="grab_clutter",
+                prompt="clutter subtask: hand the prompted target to the box-side arm",
+                description="Clutter handoff subtask (opposite-side scenes): start with env.reset_to_stage.",
+                evaluator_name="clutter_subtask", evaluator_options=(("stage", "handoff"),)),
+    SimTaskSpec(name="grab_specific_object_from_clutter__carry", env_task="grab_clutter",
+                prompt="clutter subtask: carry the prompted target over the box",
+                description="Clutter carry subtask: start with env.reset_to_stage.",
+                evaluator_name="clutter_subtask", evaluator_options=(("stage", "carry"),)),
+    SimTaskSpec(name="grab_specific_object_from_clutter__place", env_task="grab_clutter",
+                prompt="clutter subtask: lower the prompted target into the box and release",
+                description="Clutter place subtask: start with env.reset_to_stage.",
+                evaluator_name="clutter_subtask", evaluator_options=(("stage", "place"),)),
     SimTaskSpec(
         name="grab_specific_object_from_clutter",
         env_task="grab_clutter",
@@ -305,11 +325,91 @@ _TASK_SPECS: tuple[SimTaskSpec, ...] = (
         evaluator_options=(("stage", "place"),),
     ),
     SimTaskSpec(
+        name="put_relative__reach",
+        env_task="put_relative",
+        prompt="put relative subtask: move a gripper to the object to move",
+        description="put_relative subtask 'reach' for single-stage RL: start with env.reset_to_stage (put_relative_subtask.py).",
+        evaluator_name="put_relative_subtask",
+        evaluator_options=(("stage", "reach"),),
+    ),
+    SimTaskSpec(
+        name="put_relative__pick",
+        env_task="put_relative",
+        prompt="put relative subtask: grasp the object to move and lift it",
+        description="put_relative subtask 'pick' for single-stage RL: start with env.reset_to_stage (put_relative_subtask.py).",
+        evaluator_name="put_relative_subtask",
+        evaluator_options=(("stage", "pick"),),
+    ),
+    SimTaskSpec(
+        name="put_relative__handoff",
+        env_task="put_relative",
+        prompt="put relative subtask: hand the object to the other arm",
+        description="put_relative subtask 'handoff' (cross-table episodes) for single-stage RL: start with env.reset_to_stage (put_relative_subtask.py).",
+        evaluator_name="put_relative_subtask",
+        evaluator_options=(("stage", "handoff"),),
+    ),
+    SimTaskSpec(
+        name="put_relative__carry",
+        env_task="put_relative",
+        prompt="put relative subtask: carry the object to its goal",
+        description="put_relative subtask 'carry' for single-stage RL: start with env.reset_to_stage (put_relative_subtask.py).",
+        evaluator_name="put_relative_subtask",
+        evaluator_options=(("stage", "carry"),),
+    ),
+    SimTaskSpec(
+        name="put_relative__place",
+        env_task="put_relative",
+        prompt="put relative subtask: put the object down at its goal",
+        description="put_relative subtask 'place' for single-stage RL: start with env.reset_to_stage (put_relative_subtask.py).",
+        evaluator_name="put_relative_subtask",
+        evaluator_options=(("stage", "place"),),
+    ),
+    SimTaskSpec(
         name="sweep_away_paper_scraps_from_table",
         env_task="sweep",
         prompt="sweep away paper scraps from the table",
         evaluator_name="sweep_away",
         aliases=("sim_sweep_away_paper_scraps_from_the_table", "sweep"),
+    ),
+    SimTaskSpec(
+        name="sort_nuts_and_bolts__reach",
+        env_task="nuts_bolts_sorting",
+        prompt="nuts bolts subtask: move a gripper to the closest unsorted part",
+        description="Nuts/bolts reach subtask; start with env.reset_to_stage.",
+        evaluator_name="nuts_bolts_subtask",
+        evaluator_options=(("stage", "reach"),),
+    ),
+    SimTaskSpec(
+        name="sort_nuts_and_bolts__pick",
+        env_task="nuts_bolts_sorting",
+        prompt="nuts bolts subtask: grasp the target part and lift it",
+        description="Nuts/bolts pick subtask; start with env.reset_to_stage.",
+        evaluator_name="nuts_bolts_subtask",
+        evaluator_options=(("stage", "pick"),),
+    ),
+    SimTaskSpec(
+        name="sort_nuts_and_bolts__handoff",
+        env_task="nuts_bolts_sorting",
+        prompt="nuts bolts subtask: hand the target part to the gripper on its bin's side",
+        description="Nuts/bolts handoff subtask (cross-side parts only); start with env.reset_to_stage.",
+        evaluator_name="nuts_bolts_subtask",
+        evaluator_options=(("stage", "handoff"),),
+    ),
+    SimTaskSpec(
+        name="sort_nuts_and_bolts__carry",
+        env_task="nuts_bolts_sorting",
+        prompt="nuts bolts subtask: carry the target part over its assigned bin",
+        description="Nuts/bolts carry subtask; start with env.reset_to_stage.",
+        evaluator_name="nuts_bolts_subtask",
+        evaluator_options=(("stage", "carry"),),
+    ),
+    SimTaskSpec(
+        name="sort_nuts_and_bolts__drop",
+        env_task="nuts_bolts_sorting",
+        prompt="nuts bolts subtask: release the target part into its assigned bin",
+        description="Nuts/bolts drop subtask; start with env.reset_to_stage.",
+        evaluator_name="nuts_bolts_subtask",
+        evaluator_options=(("stage", "drop"),),
     ),
     SimTaskSpec(
         name="sort_nuts_and_bolts",
@@ -340,6 +440,46 @@ _TASK_SPECS: tuple[SimTaskSpec, ...] = (
             "sim_sort_lego_blocks",
             "sim_sort_the_lego_blocks",
         ),
+    ),
+    SimTaskSpec(
+        name="sort_lego_blocks__reach",
+        env_task="lego_blocks_sorting",
+        prompt="lego sorting subtask: move a gripper to the target block",
+        description="LEGO subtask reach: start with env.reset_to_stage.",
+        evaluator_name="lego_subtask",
+        evaluator_options=(("stage", "reach"),),
+    ),
+    SimTaskSpec(
+        name="sort_lego_blocks__pick",
+        env_task="lego_blocks_sorting",
+        prompt="lego sorting subtask: grasp the target block and lift it",
+        description="LEGO subtask pick: start with env.reset_to_stage.",
+        evaluator_name="lego_subtask",
+        evaluator_options=(("stage", "pick"),),
+    ),
+    SimTaskSpec(
+        name="sort_lego_blocks__handoff",
+        env_task="lego_blocks_sorting",
+        prompt="lego sorting subtask: hand the target block to the arm on its bin's side",
+        description="LEGO subtask handoff (cross-side blocks only): start with env.reset_to_stage.",
+        evaluator_name="lego_subtask",
+        evaluator_options=(("stage", "handoff"),),
+    ),
+    SimTaskSpec(
+        name="sort_lego_blocks__carry",
+        env_task="lego_blocks_sorting",
+        prompt="lego sorting subtask: carry the target block over its matching bin",
+        description="LEGO subtask carry: start with env.reset_to_stage.",
+        evaluator_name="lego_subtask",
+        evaluator_options=(("stage", "carry"),),
+    ),
+    SimTaskSpec(
+        name="sort_lego_blocks__drop",
+        env_task="lego_blocks_sorting",
+        prompt="lego sorting subtask: release the target block into its matching bin",
+        description="LEGO subtask drop: start with env.reset_to_stage.",
+        evaluator_name="lego_subtask",
+        evaluator_options=(("stage", "drop"),),
     ),
     SimTaskSpec(
         name="load_plates_into_dish_rack",
@@ -437,8 +577,188 @@ _TASK_SPECS: tuple[SimTaskSpec, ...] = (
         evaluator_options=(("word", "agi"),),
         aliases=("sim_spell_agi",),
     ),
+    # OpenWAM-added tasks (randomization/tasks/openwam_tasks.py, task_eval/openwam_tasks.py). The randomizer sets
+    # the per-world prompt; the spec prompt is the generic form.
+    SimTaskSpec(
+        name="open_drawer",
+        env_task="drawer_open",
+        prompt="open the drawer",
+        description="Open the named drawer (top, middle or bottom) of the three-drawer cabinet; leave the others closed.",
+        evaluator_name="drawer_open_close",
+        evaluator_options=(("mode", "open"), ("open_m", 0.12), ("other_max_m", 0.05)),
+        aliases=("sim_open_drawer", "open the top drawer", "open the middle drawer", "open the bottom drawer"),
+    ),
+    SimTaskSpec(
+        name="close_drawer",
+        env_task="drawer_close",
+        prompt="close the drawer",
+        description="Close the named drawer, which starts 14-19 cm open; leave the others closed.",
+        evaluator_name="drawer_open_close",
+        evaluator_options=(("mode", "close"), ("closed_m", 0.015), ("other_max_m", 0.05)),
+        aliases=("sim_close_drawer", "close the top drawer", "close the middle drawer", "close the bottom drawer"),
+    ),
+    SimTaskSpec(
+        name="put_fruit_on_plate",
+        env_task="fruit_on_plate",
+        prompt="put the fruit on the plate",
+        description="Put the named fruit (apple, lemon, orange, pear or tomato) on the plate; the other fruits stay off it.",
+        evaluator_name="fruit_on_plate",
+        aliases=("sim_put_fruit_on_plate", "fruit_on_plate"),
+    ),
+    SimTaskSpec(
+        name="stack_plates",
+        env_task="plates_stack",
+        prompt="stack the plates",
+        description="Stack 2-3 plates spread on the table into one nested stack.",
+        evaluator_name="plates_stack",
+        evaluator_options=(("mode", "stack"),),
+        aliases=("sim_stack_plates", "stack_the_plates"),
+    ),
+    SimTaskSpec(
+        name="unstack_plates",
+        env_task="plates_unstack",
+        prompt="unstack the plates",
+        description="Take a stack of 2-3 plates apart, laying each plate on the table on its own.",
+        evaluator_name="plates_stack",
+        evaluator_options=(("mode", "unstack"),),
+        aliases=("sim_unstack_plates", "unstack_the_plates"),
+    ),
+    SimTaskSpec(
+        name="wipe_whiteboard",
+        env_task="whiteboard",
+        prompt="wipe the whiteboard clean",
+        description="Pick up the duster and wipe the marker strokes off the whiteboard lying on the table.",
+        evaluator_name="wipe_whiteboard",
+        evaluator_options=(("erased_frac", 0.9),),
+        aliases=("sim_wipe_whiteboard", "wipe the whiteboard"),
+    ),
+    SimTaskSpec(
+        name="hang_headphones",
+        env_task="headphones",
+        prompt="hang the headphones on the stand",
+        description="Pick up the headphones lying on the table and hang them on the headset stand.",
+        evaluator_name="hang_headphones",
+        aliases=("sim_hang_headphones", "hang the headphones"),
+    ),
 )
 
+
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"put_plastic_bottles_in_bin__{stage}",
+        env_task="put_bottles",
+        prompt=prompt,
+        description=f"Bottle subtask '{stage}': start with env.reset_to_stage (bottles_subtask.py).",
+        evaluator_name="bottles_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for stage, prompt in (
+        ("reach", "bottle subtask: move a gripper to the target bottle"),
+        ("pick", "bottle subtask: grasp the target bottle and lift it"),
+        ("carry", "bottle subtask: carry the target bottle over the bin opening"),
+        ("drop", "bottle subtask: release the target bottle into the bin"),
+    )
+)
+
+
+# Sweep hand-pick chain H (approved 2026-11-14); see subtask_rewards/sweep/.
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"sweep_away_paper_scraps_from_table__{stage}",
+        env_task="sweep",
+        prompt=prompt,
+        description=f"Sweep subtask '{stage}' (hand-pick chain): start with env.reset_to_stage (sweep_subtask.py).",
+        evaluator_name="sweep_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for stage, prompt in (
+        ("reach", "sweep subtask: move a gripper to the target paper scrap"),
+        ("pick", "sweep subtask: grasp the target paper scrap and lift it"),
+        ("carry", "sweep subtask: carry the target paper scrap over the bin opening"),
+        ("drop", "sweep subtask: release the target paper scrap into the bin"),
+    )
+)
+
+# inhand_transfer_item_to_other_side subtasks (subtask_rewards/inhand; approved stage table 2026-11-14).
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"inhand_transfer_item_to_other_side__{stage}",
+        env_task="inhand_transfer",
+        prompt=prompt,
+        description=f"Inhand transfer subtask '{stage}': start with env.reset_to_stage (inhand_subtask.py).",
+        evaluator_name="inhand_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for stage, prompt in (
+        ("reach", "inhand transfer subtask: reach the item with the near arm"),
+        ("pick", "inhand transfer subtask: grasp and lift the item with the near arm"),
+        ("present", "inhand transfer subtask: bring the item to the middle"),
+        ("handoff", "inhand transfer subtask: hand the item to the other arm"),
+        ("carry", "inhand transfer subtask: carry the item to the other side"),
+        ("place", "inhand transfer subtask: set the item down on the other side"),
+    )
+)
+
+# Mug-rack subtasks (subtask_rewards/mug_rack): one block per task so worktrees merge cleanly.
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"hang_mug_on_mug_rack__{stage}",
+        env_task="mug_tree",
+        prompt=prompt,
+        description=f"Mug-rack subtask '{stage}': start with env.reset_to_stage (mug_rack_subtask.py).",
+        evaluator_name="mug_rack_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for stage, prompt in (
+        ("reach", "mug rack subtask: move a gripper to the target mug"),
+        ("pick", "mug rack subtask: grasp the target mug away from its handle and lift it"),
+        ("align", "mug rack subtask: line the target mug's handle up with a free peg"),
+        ("insert", "mug rack subtask: slide the target mug's handle onto the peg"),
+        ("release", "mug rack subtask: let go of the target mug on the rack"),
+    )
+)
+
+# open_drawer / close_drawer subtasks (subtask_rewards/drawer; task_eval/drawer_subtask.py). The live prompt names the
+# target drawer (drawer_stages.OPEN_LIVE / CLOSE_LIVE); the spec prompt is the generic form.
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"{task}__{stage}",
+        env_task=env_task,
+        prompt=prompt,
+        description=f"{task} subtask '{stage}' for single-stage RL: start with env.reset_to_stage (drawer_subtask.py).",
+        evaluator_name=f"{task}_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for task, env_task, prompts in (
+        ("open_drawer", "drawer_open", (
+            ("reach", "open drawer subtask: move a gripper to the drawer handle"),
+            ("grasp", "open drawer subtask: grasp the drawer handle"),
+            ("pull", "open drawer subtask: pull the drawer open"),
+            ("release", "open drawer subtask: let go of the drawer"))),
+        ("close_drawer", "drawer_close", (
+            ("reach", "close drawer subtask: move a gripper to the front of the drawer"),
+            ("push", "close drawer subtask: push the drawer closed"),
+            ("release", "close drawer subtask: move the gripper away from the drawer"))),
+    )
+    for stage, prompt in prompts
+)
+
+# Dish-rack subtasks (subtask_rewards/dishrack): reach/pick STOPPED at G1, carry/insert/release only.
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=f"load_plates_into_dish_rack__{stage}",
+        env_task="dishrack",
+        prompt=prompt,
+        description=f"Dish-rack subtask '{stage}': start with env.reset_to_stage (dishrack_subtask.py).",
+        evaluator_name="dishrack_subtask",
+        evaluator_options=(("stage", stage),),
+    )
+    for stage, prompt in (
+        ("carry", "dish rack subtask: carry the plate upright above the dish rack"),
+        ("insert", "dish rack subtask: lower the plate into the rack slot"),
+        ("release", "dish rack subtask: release the plate in the rack"),
+    )
+)
 
 _LOOKUP: dict[str, SimTaskSpec] = {}
 for _spec in _TASK_SPECS:

@@ -1,0 +1,4 @@
+abc_sim from /projects/work/yang-lab/projects/policy-finetuning/abc-audit-nuts-bolts/abc_sim/__init__.py
+WARNING: Nan, Inf or huge value in QACC at DOF 199. The simulation is unstable. Time = 7.8860.
+
+{"world": "world-00", "seed": 1755786703, "steps": 22000, "recorded_success": false, "old_final": 0.05263157933950424, "old_max": 0.07894736528396606, "new_final": 0.05263157933950424, "new_max": 0.07894736528396606, "new_success": false, "first_old_full": null, "first_new_success": null, "cut_short_by_old_success": false}

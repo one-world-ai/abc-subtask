@@ -35,6 +35,11 @@ from dataclasses import dataclass, field
 import mujoco
 import numpy as np
 
+from abc_sim.task_eval.stagekit.scene import ObjectScene, free_joints_matching
+from abc_sim.task_eval.stagekit.scene import geoms_of as _geoms_of  # noqa: F401  (kept for old imports)
+from abc_sim.task_eval.stagekit.scene import subtree as _subtree  # noqa: F401
+from abc_sim.task_eval.stagekit.tracker import StageTracker
+
 STAGES = ("reach", "pick", "rotate", "place", "done")
 FALLEN = len(STAGES)  # label index for a mug off the table
 LABELS = STAGES + ("fallen",)
@@ -68,79 +73,21 @@ class StageConfig:
     span: dict = field(default_factory=lambda: {"reach": 0.30, "pick": 1.0, "rotate": 1.95, "place": 0.15})
 
 
-def _subtree(model: mujoco.MjModel, root: int) -> set[int]:
-    out = {root}
-    for body in range(root + 1, model.nbody):
-        if int(model.body_parentid[body]) in out:
-            out.add(body)
-    return out
-
-
-def _geoms_of(model: mujoco.MjModel, bodies: set[int]) -> np.ndarray:
-    return np.asarray([g for g in range(model.ngeom) if int(model.geom_bodyid[g]) in bodies], dtype=np.int32)
-
-
-class MugScene:
+class MugScene(ObjectScene):
     """Per-mug observations of a mug-flip MjData: tilt, lift, contacts per finger, grasp-site distance."""
 
     def __init__(self, model: mujoco.MjModel) -> None:
-        self.model = model
-        mugs = []
-        for j in range(model.njnt):
-            name = model.jnt(j).name or ""
-            if name.startswith("mug_") and name.endswith("_jnt") and name[4:-4].isdigit():
-                mugs.append((int(name[4:-4]), f"mug_{name[4:-4]}", j))
-        mugs.sort()
-        self.mug_names = [n for _, n, _ in mugs]
-        self.qpos_adr = np.asarray([int(model.jnt_qposadr[j]) for _, _, j in mugs], dtype=np.int64)
-        self.mug_bodies = [int(model.jnt_bodyid[j]) for _, _, j in mugs]
-        self.owner = np.full((model.ngeom, 2), -1, dtype=np.int32)  # geom -> (0, mug k) | (1, finger arm*2+side)
-        for k, body in enumerate(self.mug_bodies):
-            self.owner[_geoms_of(model, _subtree(model, body))] = (0, k)
-        for a, arm in enumerate(ARMS):
-            for s, side in enumerate(("link_left_finger", "link_right_finger")):
-                body = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, f"{arm}_{side}")
-                if body < 0:
-                    raise ValueError(f"body {arm}_{side} not found")
-                self.owner[_geoms_of(model, _subtree(model, body))] = (1, a * 2 + s)
-        self.sites = [mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_SITE, f"{arm}_grasp_site") for arm in ARMS]
-        if min(self.sites) < 0:
-            raise ValueError("left/right_grasp_site not found")
-
-    def heights(self, data: mujoco.MjData) -> np.ndarray:
-        return np.asarray([data.qpos[a + 2] for a in self.qpos_adr], dtype=np.float64)
+        super().__init__(model, free_joints_matching(model, r"mug_(\d+)_jnt"))
+        self.mug_names = self.names
+        self.mug_bodies = self.bodies
 
     def observe(self, data: mujoco.MjData, rest_height: np.ndarray) -> dict[str, np.ndarray]:
         """Arrays over mugs. Needs mj_forward/mj_step to have run (contacts, site_xpos, subtree_com)."""
-        m = len(self.mug_names)
-        hits = np.zeros((m, 4), dtype=bool)
-        for i in range(int(data.ncon)):
-            c = data.contact[i]
-            o1, o2 = self.owner[int(c.geom1)], self.owner[int(c.geom2)]
-            if o1[0] == 0 and o2[0] == 1:
-                hits[o1[1], o2[1]] = True
-            elif o1[0] == 1 and o2[0] == 0:
-                hits[o2[1], o1[1]] = True
-        per_arm = hits.reshape(m, 2, 2).sum(axis=2)  # fingers of each arm on the mug
-        both = per_arm == 2
-        grasp_arm = np.where(both[:, 0] & both[:, 1], 2, np.where(both[:, 0], 0, np.where(both[:, 1], 1, -1)))
+        m = len(self.names)
         quat = np.stack([data.qpos[a + 3:a + 7] for a in self.qpos_adr]) if m else np.zeros((0, 4))
         w, x, y, _z = quat.T if m else (np.zeros(0),) * 4
         upz = 1.0 - 2.0 * (x * x + y * y)  # world z of the mug's local z axis
-        sites = np.asarray(data.site_xpos[self.sites], dtype=np.float64)
-        com = np.asarray(data.subtree_com[self.mug_bodies], dtype=np.float64).reshape(m, 3)
-        dist = np.linalg.norm(com[:, None, :] - sites[None, :, :], axis=-1)  # (m, 2 arms)
-        return {
-            "upz": upz,
-            "lift": self.heights(data) - rest_height,
-            "hits": hits,
-            "fingers": per_arm.max(axis=1),
-            "grasp_arm": grasp_arm,
-            "grasped": grasp_arm >= 0,
-            "touched": hits.any(axis=1),
-            "dist": dist.min(axis=1),
-            "near_arm": dist.argmin(axis=1),
-        }
+        return {"upz": upz, **super().observe(data, rest_height)}
 
 
 def classify(obs: dict[str, np.ndarray], prev: np.ndarray, cfg: StageConfig) -> np.ndarray:
@@ -187,33 +134,8 @@ def chunk_reward(stage: int, phi0: float, phi1: float, label1: int, cfg: StageCo
     return (1 if d > eps else -1 if d < -eps else 0), False
 
 
-class MugStageTracker:
+class MugStageTracker(StageTracker):
     """Debounced per-mug stage labels over an episode. ``update`` returns the mugs whose committed stage changed."""
 
     def __init__(self, scene: MugScene, cfg: StageConfig | None = None) -> None:
-        self.scene, self.cfg = scene, cfg or StageConfig()
-        self.rest_height: np.ndarray | None = None
-        self.committed = self.candidate = self.count = None
-
-    def reset(self, data: mujoco.MjData, rest_height: np.ndarray | None = None,
-              labels: np.ndarray | None = None) -> np.ndarray:
-        """Start an episode. A restored mid-episode start passes the original rest heights (and labels)."""
-        self.rest_height = self.scene.heights(data) if rest_height is None else np.asarray(rest_height, np.float64)
-        m = len(self.scene.mug_names)
-        self.obs = self.scene.observe(data, self.rest_height)
-        if labels is None:
-            labels = np.full(m, R, dtype=np.int64)
-            for _ in range(3):  # settle hysteresis from the start state
-                labels = classify(self.obs, labels, self.cfg)
-        self.committed = np.asarray(labels, dtype=np.int64).copy()
-        self.candidate, self.count = self.committed.copy(), np.zeros(m, dtype=np.int64)
-        return self.committed
-
-    def update(self, data: mujoco.MjData) -> list[int]:
-        self.obs = self.scene.observe(data, self.rest_height)
-        raw = classify(self.obs, self.committed, self.cfg)
-        self.count = np.where(raw == self.candidate, self.count + 1, 1)
-        self.candidate = raw
-        changed = np.flatnonzero((raw != self.committed) & (self.count >= self.cfg.hold))
-        self.committed[changed] = raw[changed]
-        return changed.tolist()
+        super().__init__(scene, classify, cfg or StageConfig(), start_label=R)

@@ -1,0 +1,12 @@
+abc_sim /projects/work/yang-lab/projects/policy-finetuning/abc-audit-nuts-bolts/abc_sim/__init__.py
+reset 40
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.3080.
+
+settled seed 0
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 5.3880.
+
+settled seed 1
+WARNING: Nan, Inf or huge value in QACC at DOF 16. The simulation is unstable. Time = 0.1840.
+
+settled seed 2
+written /projects/work/yang-lab/projects/policy-finetuning/abc-audit-nuts-bolts/subtask_rewards/nuts_bolts/probes/audit.json

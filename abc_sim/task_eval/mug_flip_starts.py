@@ -21,246 +21,55 @@ The result is a dict that ``env.reset_to_snapshot(seed, state)`` restores exactl
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 
 import mujoco
 import numpy as np
 
 from abc_sim.task_eval.mug_flip_stages import P, PL, R, ROT, STAGES, MugScene, StageConfig, classify
-
-ARMS = ("left", "right")
-GRIP_MAX = 0.0475  # finger joint travel; env action 1 = open, 0 = closed
-STATE_SPEC = int(mujoco.mjtState.mjSTATE_INTEGRATION)
-
-
-# -- small rigid-transform helpers -----------------------------------------------------------------------------------
-
-def _T(pos, quat) -> np.ndarray:
-    T = np.eye(4)
-    m = np.empty(9)
-    mujoco.mju_quat2Mat(m, np.asarray(quat, np.float64))
-    T[:3, :3], T[:3, 3] = m.reshape(3, 3), pos
-    return T
+from abc_sim.task_eval.stagekit import holding as _holding
+from abc_sim.task_eval.stagekit.geometry import T as _T  # noqa: F401  (old private names, used by tooling)
+from abc_sim.task_eval.stagekit.geometry import axis_angle_quat as _axis_angle_quat
+from abc_sim.task_eval.stagekit.geometry import inv as _inv  # noqa: F401
+from abc_sim.task_eval.stagekit.geometry import qmul as _qmul
+from abc_sim.task_eval.stagekit.geometry import quat_of as _quat  # noqa: F401
+from abc_sim.task_eval.stagekit.holding import hold_action as _hold_action
+from abc_sim.task_eval.stagekit.holding import object_variant, place_gripper  # noqa: F401
+from abc_sim.task_eval.stagekit.holding import set_object_pose as _set_mug
+from abc_sim.task_eval.stagekit.holding import touches_other as _touches_other  # noqa: F401
+from abc_sim.task_eval.stagekit.robot import ARMS, GRIP_MAX, STATE_SPEC, ArmIds, arm_ids, ik_link6  # noqa: F401
+from abc_sim.task_eval.stagekit.scene import is_desc as _is_desc  # noqa: F401
 
 
-def _inv(T: np.ndarray) -> np.ndarray:
-    Ti = np.eye(4)
-    Ti[:3, :3] = T[:3, :3].T
-    Ti[:3, 3] = -T[:3, :3].T @ T[:3, 3]
-    return Ti
-
-
-def _quat(Rm: np.ndarray) -> np.ndarray:
-    q = np.empty(4)
-    mujoco.mju_mat2Quat(q, np.ascontiguousarray(Rm).reshape(9))
-    return q
-
-
-def _axis_angle_quat(axis, angle) -> np.ndarray:
-    q = np.empty(4)
-    mujoco.mju_axisAngle2Quat(q, np.asarray(axis, np.float64), float(angle))
-    return q
-
-
-def _qmul(a, b) -> np.ndarray:
-    q = np.empty(4)
-    mujoco.mju_mulQuat(q, np.asarray(a, np.float64), np.asarray(b, np.float64))
-    return q
-
-
-# -- model lookups ---------------------------------------------------------------------------------------------------
-
-@dataclass
-class ArmIds:
-    qadr: np.ndarray  # 6 arm joints
-    dadr: np.ndarray
-    rng: np.ndarray
-    finger_qadr: tuple[int, int]
-    finger_dadr: tuple[int, int]
-    link6: int
-
-
-def arm_ids(model: mujoco.MjModel, arm: str) -> ArmIds:
-    j = [mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, f"{arm}_joint{k}") for k in range(1, 7)]
-    f = [mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, f"{arm}_{s}_finger") for s in ("left", "right")]
-    return ArmIds(
-        qadr=np.array([model.jnt_qposadr[i] for i in j]), dadr=np.array([model.jnt_dofadr[i] for i in j]),
-        rng=np.array([model.jnt_range[i] for i in j]),
-        finger_qadr=tuple(int(model.jnt_qposadr[i]) for i in f), finger_dadr=tuple(int(model.jnt_dofadr[i]) for i in f),
-        link6=mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, f"{arm}_link_6"),
-    )
-
+# -- mug lookups -----------------------------------------------------------------------------------------------------
 
 def mug_variant(model: mujoco.MjModel, scene: MugScene, k: int) -> str:
     """Mesh variant of mug k (its child body is named mug_<i>_<variant>_object)."""
-    body = scene.mug_bodies[k]
-    for b in range(model.nbody):
-        if int(model.body_parentid[b]) == body:
-            name = model.body(b).name
-            parts = name.split("_")
-            if len(parts) >= 4 and name.endswith("_object"):
-                return "_".join(parts[2:-1])
-    return "?"
+    return object_variant(model, scene.mug_bodies[k])
 
 
 def mug_T(data: mujoco.MjData, scene: MugScene, k: int) -> np.ndarray:
-    a = int(scene.qpos_adr[k])
-    return _T(data.qpos[a:a + 3], data.qpos[a + 3:a + 7])
+    return scene.object_T(data, k)
 
 
 # -- grasps ----------------------------------------------------------------------------------------------------------
 
 def grasp_from_state(model: mujoco.MjModel, data: mujoco.MjData, scene: MugScene, k: int, arm: int) -> dict:
     """The grasp ``arm`` has on mug k right now: link_6 pose in the mug frame, the mug's world orientation and
-    the finger openings."""
-    ids = arm_ids(model, ARMS[arm])
-    T6 = _T(data.xpos[ids.link6], data.xquat[ids.link6])
-    a = int(scene.qpos_adr[k])
-    return {"arm": arm, "T_mug_link6": _inv(mug_T(data, scene, k)) @ T6,
-            "mug_quat": np.array(data.qpos[a + 3:a + 7]),  # world orientation the mug was held at
-            "fingers": np.array([data.qpos[ids.finger_qadr[0]], data.qpos[ids.finger_qadr[1]]]),
-            "variant": mug_variant(model, scene, k)}
-
-
-def ik_link6(model: mujoco.MjModel, data: mujoco.MjData, arm: str, T_goal: np.ndarray, *, seeds: int = 6,
-             iters: int = 200, rng: np.random.Generator | None = None) -> tuple[np.ndarray | None, float, float]:
-    """Damped-least-squares IK of link_6's full pose. -> (6 joint values, position error m, rotation error rad)."""
-    ids = arm_ids(model, arm)
-    rng = rng or np.random.default_rng(0)
-    d2 = mujoco.MjData(model)
-    best = (None, np.inf, np.inf)
-    jp, jr = np.zeros((3, model.nv)), np.zeros((3, model.nv))
-    for s in range(seeds):
-        d2.qpos[:] = data.qpos
-        if s > 0:
-            d2.qpos[ids.qadr] = rng.uniform(ids.rng[:, 0], ids.rng[:, 1])
-        for _ in range(iters):
-            mujoco.mj_kinematics(model, d2)
-            mujoco.mj_comPos(model, d2)
-            p, Rm = d2.xpos[ids.link6], d2.xmat[ids.link6].reshape(3, 3)
-            ep = T_goal[:3, 3] - p
-            Re = T_goal[:3, :3] @ Rm.T
-            er = np.empty(3)
-            mujoco.mju_quat2Vel(er, _quat(Re), 1.0)
-            mujoco.mj_jacBody(model, d2, jp, jr, ids.link6)
-            J = np.vstack([jp[:, ids.dadr], jr[:, ids.dadr]])
-            e = np.concatenate([ep, 0.5 * er])
-            dq = J.T @ np.linalg.solve(J @ J.T + 1e-4 * np.eye(6), e)
-            d2.qpos[ids.qadr] = np.clip(d2.qpos[ids.qadr] + np.clip(dq, -0.2, 0.2), ids.rng[:, 0], ids.rng[:, 1])
-            if np.linalg.norm(ep) < 2e-4 and np.linalg.norm(er) < 2e-3:
-                break
-        pe, re = float(np.linalg.norm(ep)), float(np.linalg.norm(er))
-        if pe + 0.05 * re < best[1] + 0.05 * best[2]:
-            best = (d2.qpos[ids.qadr].copy(), pe, re)
-        if pe < 2e-3 and re < 0.03:
-            break
-    return best
+    the finger openings (mug-library keys ``T_mug_link6`` / ``mug_quat``)."""
+    g = _holding.grasp_from_state(model, data, scene, k, arm)
+    return {"arm": g["arm"], "T_mug_link6": g["T_obj_link6"], "mug_quat": g["obj_quat"], "fingers": g["fingers"],
+            "variant": g["variant"]}
 
 
 # -- holding a mug ---------------------------------------------------------------------------------------------------
 
-def _hold_action(env, arm: int, q: np.ndarray, grip: float) -> np.ndarray:
-    """14-D action: ``arm`` at joints q with gripper ``grip`` (1 open, 0 closed), the other arm where it is now."""
-    act = np.zeros(14, np.float32)
-    for i, ci in enumerate(env._ctrl_indices):  # current targets
-        act[i] = env.data.ctrl[ci] / GRIP_MAX if i in env._gripper_set else env.data.ctrl[ci]
-    other = 1 - arm
-    act[other * 7:other * 7 + 6] = env.get_init_q()[other * 7:other * 7 + 6]
-    act[other * 7 + 6] = 1.0
-    act[arm * 7:arm * 7 + 6], act[arm * 7 + 6] = q, grip
-    return act
-
-
-def _touches_other(model, data, scene: MugScene, k: int, arm: int) -> bool:
-    """Mug k touches something other than ``arm``'s fingers (table, tray, other mug, other arm)."""
-    own = {arm * 2, arm * 2 + 1}
-    for i in range(int(data.ncon)):
-        c = data.contact[i]
-        o1, o2 = scene.owner[int(c.geom1)], scene.owner[int(c.geom2)]
-        for a, b in ((o1, o2), (o2, o1)):
-            if a[0] == 0 and a[1] == k and not (b[0] == 1 and int(b[1]) in own):
-                return True
-    return False
-
-
-def place_gripper(env, scene: MugScene, k: int, grasp: dict, *, open_extra: float = 0.0,
-                  rng: np.random.Generator | None = None) -> tuple[bool, dict]:
-    """Teleport grasp['arm'] so its link_6 sits at the grasp pose on mug k (as it is now); fingers at the grasp's
-    opening plus ``open_extra`` (m). Returns (ok, info) with the joint solution."""
-    model, data = env.model, env.data
-    arm = int(grasp["arm"])
-    T_goal = mug_T(data, scene, k) @ grasp["T_mug_link6"]
-    q, pe, re = ik_link6(model, data, ARMS[arm], T_goal, rng=rng)
-    if q is None or pe > 3e-3 or re > 0.05:
-        return False, {"why": f"no IK (pos err {pe:.4f} m, rot err {re:.3f} rad)"}
-    ids = arm_ids(model, ARMS[arm])
-    data.qpos[ids.qadr], data.qvel[ids.dadr] = q, 0.0
-    f = np.clip(np.abs(grasp["fingers"]) + open_extra, 0.0, GRIP_MAX)
-    data.qpos[ids.finger_qadr[0]], data.qpos[ids.finger_qadr[1]] = f[0], -f[1]
-    data.qvel[list(ids.finger_dadr)] = 0.0
-    mujoco.mj_forward(model, data)
-    return True, {"q": q, "ik_pos_err": pe, "ik_rot_err": re}
-
-
 def hold_mug(env, scene: MugScene, k: int, grasp: dict, *, hold_steps: int = 30, close_steps: int = 10,
              rng: np.random.Generator | None = None) -> tuple[bool, dict]:
     """Make grasp['arm'] hold mug k (already at its target pose) with ``grasp``. -> (ok, info)."""
-    model, data = env.model, env.data
-    arm = int(grasp["arm"])
-    a = int(scene.qpos_adr[k])
-    mug_q = data.qpos[a:a + 7].copy()
-    ok, info = place_gripper(env, scene, k, grasp, open_extra=0.01, rng=rng)
-    if not ok:
-        return False, info
-    data.qpos[a:a + 7] = mug_q
-    dof = int(model.jnt_dofadr[mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, f"{scene.mug_names[k]}_jnt")])
-    data.qvel[dof:dof + 6] = 0.0
-    mujoco.mj_forward(model, data)
-    if _touches_other(model, data, scene, k, arm):
-        return False, {**info, "why": "gripper/mug pose collides with something"}
-    act = _hold_action(env, arm, info["q"], 0.0)
-    sub = [b for b in range(model.nbody) if _is_desc(model, b, scene.mug_bodies[k])]
-    gc = model.body_gravcomp[sub].copy()
-    model.body_gravcomp[sub] = 1.0
-    try:
-        for _ in range(close_steps):  # close on the weightless mug
-            env.step(act, render_obs=False)
-    finally:
-        model.body_gravcomp[sub] = gc
-    for _ in range(hold_steps):
-        env.step(act, render_obs=False)
-    obs = scene.observe(data, np.zeros(len(scene.mug_names)))
-    drift = float(np.linalg.norm(data.qpos[a:a + 3] - mug_q[:3]))
-    speed = float(np.linalg.norm(data.qvel[dof:dof + 3]))
-    held = int(obs["grasp_arm"][k]) in (arm, 2)
-    info.update(drift=round(drift, 4), speed=round(speed, 4), held=held)
-    if not held:
-        return False, {**info, "why": "mug not held by both fingers"}
-    if drift > 0.03 or speed > 0.05:
-        return False, {**info, "why": f"mug slipped (drift {drift:.3f} m, speed {speed:.3f} m/s)"}
-    if _touches_other(model, data, scene, k, arm):
-        return False, {**info, "why": "held mug touches something else"}
-    return True, info
-
-
-def _is_desc(model, b: int, root: int) -> bool:
-    while b > 0:
-        if b == root:
-            return True
-        b = int(model.body_parentid[b])
-    return False
+    return _holding.hold_object(env, scene, k, grasp, hold_steps=hold_steps, close_steps=close_steps, rng=rng)
 
 
 # -- stage starts ----------------------------------------------------------------------------------------------------
-
-def _set_mug(env, scene: MugScene, k: int, pos, quat) -> None:
-    model, data = env.model, env.data
-    a = int(scene.qpos_adr[k])
-    data.qpos[a:a + 3], data.qpos[a + 3:a + 7] = pos, np.asarray(quat) / np.linalg.norm(quat)
-    dof = int(model.jnt_dofadr[mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, f"{scene.mug_names[k]}_jnt")])
-    data.qvel[dof:dof + 6] = 0.0
-    mujoco.mj_forward(model, data)
-
 
 def _tilt_toward_upright(quat: np.ndarray, frac: float) -> np.ndarray:
     """Rotate the mug a fraction of the way from ``quat`` to upright, about the horizontal axis that does it."""

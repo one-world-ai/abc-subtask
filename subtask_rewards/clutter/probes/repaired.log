@@ -1,0 +1,86 @@
+reset {'seed': 0, 'reward': 0.0, 'success': False, 'category': 'yogurt', 'variant': 'yogurt_2', 'objects': 11, 'target_y': -0.2993, 'box_y': 0.5245, 'same_side': False}
+reset {'seed': 1, 'reward': 0.0, 'success': False, 'category': 'tomato', 'variant': 'tomato_2', 'objects': 15, 'target_y': -0.1539, 'box_y': -0.5195, 'same_side': True}
+reset {'seed': 2, 'reward': 0.0, 'success': False, 'category': 'sponge', 'variant': 'sponge_4', 'objects': 9, 'target_y': 0.305, 'box_y': -0.5128, 'same_side': False}
+reset {'seed': 3, 'reward': 0.0, 'success': False, 'category': 'can', 'variant': 'can_16', 'objects': 13, 'target_y': 0.0006, 'box_y': 0.5062, 'same_side': True}
+reset {'seed': 4, 'reward': 0.0, 'success': False, 'category': 'can', 'variant': 'can_12', 'objects': 13, 'target_y': -0.2977, 'box_y': 0.5188, 'same_side': False}
+reset {'seed': 5, 'reward': 0.0, 'success': False, 'category': 'cereal', 'variant': 'cereal_1', 'objects': 16, 'target_y': 0.3019, 'box_y': -0.509, 'same_side': False}
+reset {'seed': 6, 'reward': 0.0, 'success': False, 'category': 'cupcake', 'variant': 'cupcake_2', 'objects': 16, 'target_y': 0.2946, 'box_y': -0.5143, 'same_side': False}
+reset {'seed': 7, 'reward': 0.0, 'success': False, 'category': 'apple', 'variant': 'apple_5', 'objects': 15, 'target_y': -0.0006, 'box_y': 0.5141, 'same_side': False}
+reset {'seed': 8, 'reward': 0.0, 'success': False, 'category': 'tomato', 'variant': 'tomato_2', 'objects': 11, 'target_y': -0.1493, 'box_y': -0.5204, 'same_side': True}
+reset {'seed': 9, 'reward': 0.0, 'success': False, 'category': 'can', 'variant': 'can_16', 'objects': 15, 'target_y': 0.2953, 'box_y': -0.508, 'same_side': False}
+reset {'seed': 10, 'reward': 0.0, 'success': False, 'category': 'yogurt', 'variant': 'yogurt_1', 'objects': 15, 'target_y': 0.0047, 'box_y': 0.5066, 'same_side': True}
+reset {'seed': 11, 'reward': 0.0, 'success': False, 'category': 'lemon', 'variant': 'lemon_3', 'objects': 15, 'target_y': -0.1443, 'box_y': 0.5178, 'same_side': False}
+reset {'seed': 12, 'reward': 0.0, 'success': False, 'category': 'boxed_drink', 'variant': 'boxed_drink_7', 'objects': 12, 'target_y': -0.2952, 'box_y': 0.5083, 'same_side': False}
+reset {'seed': 13, 'reward': 0.0, 'success': False, 'category': 'jar', 'variant': 'Jar002', 'objects': 14, 'target_y': -0.1447, 'box_y': -0.5134, 'same_side': True}
+reset {'seed': 14, 'reward': 0.0, 'success': False, 'category': 'jar', 'variant': 'Jar002', 'objects': 11, 'target_y': 0.003, 'box_y': -0.5164, 'same_side': False}
+reset {'seed': 15, 'reward': 0.0, 'success': False, 'category': 'mustard', 'variant': 'Mustard002', 'objects': 10, 'target_y': 0.1544, 'box_y': -0.5238, 'same_side': False}
+reset {'seed': 16, 'reward': 0.0, 'success': False, 'category': 'jar', 'variant': 'Jar005', 'objects': 14, 'target_y': -0.3053, 'box_y': 0.5235, 'same_side': False}
+reset {'seed': 17, 'reward': 0.0, 'success': False, 'category': 'sponge', 'variant': 'sponge_1', 'objects': 14, 'target_y': -0.2999, 'box_y': 0.518, 'same_side': False}
+reset {'seed': 18, 'reward': 0.0, 'success': False, 'category': 'mustard', 'variant': 'Mustard003', 'objects': 12, 'target_y': 0.303, 'box_y': 0.5184, 'same_side': True}
+reset {'seed': 19, 'reward': 0.0, 'success': False, 'category': 'apple', 'variant': 'apple_10', 'objects': 16, 'target_y': 0.1496, 'box_y': 0.5138, 'same_side': True}
+reset {'seed': 20, 'reward': 0.0, 'success': False, 'category': 'soap_dispenser', 'variant': 'soap_dispenser_1', 'objects': 9, 'target_y': 0.3004, 'box_y': 0.52, 'same_side': True}
+reset {'seed': 21, 'reward': 0.0, 'success': False, 'category': 'coffee_cup', 'variant': 'coffee_cup_1', 'objects': 11, 'target_y': 0.1527, 'box_y': -0.5184, 'same_side': False}
+reset {'seed': 22, 'reward': 0.0, 'success': False, 'category': 'bowl', 'variant': 'bowl_10', 'objects': 16, 'target_y': 0.1502, 'box_y': -0.5215, 'same_side': False}
+reset {'seed': 23, 'reward': 0.0, 'success': False, 'category': 'cupcake', 'variant': 'cupcake_2', 'objects': 11, 'target_y': 0.3026, 'box_y': -0.5143, 'same_side': False}
+reset {'seed': 24, 'reward': 0.0, 'success': False, 'category': 'water_bottle', 'variant': 'water_bottle_1', 'objects': 12, 'target_y': -0.3026, 'box_y': -0.5107, 'same_side': True}
+reset {'seed': 25, 'reward': 0.0, 'success': False, 'category': 'ketchup', 'variant': 'ketchup_1', 'objects': 9, 'target_y': 0.1487, 'box_y': 0.5173, 'same_side': True}
+reset {'seed': 26, 'reward': 0.0, 'success': False, 'category': 'canned_food', 'variant': 'canned_food_19', 'objects': 15, 'target_y': -0.1526, 'box_y': -0.5056, 'same_side': True}
+reset {'seed': 27, 'reward': 0.0, 'success': False, 'category': 'jar', 'variant': 'Jar004', 'objects': 15, 'target_y': 0.1461, 'box_y': 0.5141, 'same_side': True}
+reset {'seed': 28, 'reward': 0.0, 'success': False, 'category': 'jar', 'variant': 'Jar004', 'objects': 12, 'target_y': -0.3024, 'box_y': 0.5057, 'same_side': False}
+reset {'seed': 29, 'reward': 0.0, 'success': False, 'category': 'apple', 'variant': 'apple_12', 'objects': 12, 'target_y': 0.1448, 'box_y': -0.5077, 'same_side': False}
+reset {'seed': 30, 'reward': 0.0, 'success': False, 'category': 'coffee_cup', 'variant': 'coffee_cup_11', 'objects': 14, 'target_y': 0.1557, 'box_y': -0.5151, 'same_side': False}
+reset {'seed': 31, 'reward': 0.0, 'success': False, 'category': 'orange', 'variant': 'orange_0', 'objects': 10, 'target_y': 0.302, 'box_y': -0.5241, 'same_side': False}
+reset {'seed': 32, 'reward': 0.0, 'success': False, 'category': 'yogurt', 'variant': 'yogurt_2', 'objects': 9, 'target_y': 0.297, 'box_y': -0.5056, 'same_side': False}
+reset {'seed': 33, 'reward': 0.0, 'success': False, 'category': 'mug', 'variant': 'mug_10', 'objects': 9, 'target_y': -0.0036, 'box_y': 0.5051, 'same_side': False}
+reset {'seed': 34, 'reward': 0.0, 'success': False, 'category': 'bowl', 'variant': 'bowl_1', 'objects': 13, 'target_y': -0.2959, 'box_y': -0.5156, 'same_side': True}
+reset {'seed': 35, 'reward': 0.0, 'success': False, 'category': 'potato', 'variant': 'potato_3', 'objects': 12, 'target_y': -0.3026, 'box_y': 0.516, 'same_side': False}
+reset {'seed': 36, 'reward': 0.0, 'success': False, 'category': 'orange', 'variant': 'orange_2', 'objects': 10, 'target_y': 0.0049, 'box_y': -0.5061, 'same_side': False}
+reset {'seed': 37, 'reward': 0.0, 'success': False, 'category': 'cereal', 'variant': 'cereal_11', 'objects': 10, 'target_y': 0.1461, 'box_y': -0.5072, 'same_side': False}
+reset {'seed': 38, 'reward': 0.0, 'success': False, 'category': 'water_bottle', 'variant': 'water_bottle_1', 'objects': 11, 'target_y': 0.1441, 'box_y': -0.5115, 'same_side': False}
+reset {'seed': 39, 'reward': 0.0, 'success': False, 'category': 'mustard', 'variant': 'Mustard004', 'objects': 11, 'target_y': -0.2956, 'box_y': 0.5241, 'same_side': False}
+pose {'seed': 0, 'pose': 'center_float', 'category': 'yogurt', 'local_origin': [0.0, 0.0, 0.19999999999999996], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 0, 'pose': 'above_rim_float', 'category': 'yogurt', 'local_origin': [0.0, 0.0, 0.28], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 0, 'pose': 'below_floor', 'category': 'yogurt', 'local_origin': [0.0, 0.0, -0.040000000000000036], 'contacts': ['table_plane'], 'reward': 1.0, 'success': False}
+pose {'seed': 0, 'pose': 'outside_above', 'category': 'yogurt', 'local_origin': [0.0, 0.0, 0.3999999999999999], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 0, 'pose': 'table_beside', 'category': 'yogurt', 'local_origin': [0.14, -9.918719614967838e-18, 0.040000000000000036], 'contacts': [], 'reward': 0.0, 'success': False}
+pose {'seed': 0, 'pose': 'origin_on_rim', 'category': 'yogurt', 'local_origin': [3.216749589249293e-17, 0.07000000000000002, 0.12], 'contacts': ['grab_clutter_target_box_left_wall'], 'reward': 0.13998675346374512, 'success': False}
+pose {'seed': 0, 'pose': 'wrong_object_in_box', 'reward': 0.0, 'success': False}
+pose {'seed': 0, 'pose': 'tipped_box_goal_float', 'reward': 1.0, 'success': True}
+settle {'seed': 0, 'trial': 0, 'category': 'yogurt', 'class': 'table_supported', 'local_origin': [-0.5146582017447483, -0.17599610034198815, 0.04041746962114436], 'contacts': ['', 'left_wall_collision', 'table_plane'], 'qvel_norm': 0.023258798082696548, 'reward': 0.0, 'success': False}
+settle {'seed': 0, 'trial': 1, 'category': 'yogurt', 'class': 'inside_supported', 'local_origin': [-0.011498915229374525, 0.006683419205930849, 0.029235177003408764], 'contacts': ['grab_clutter_target_box_floor'], 'qvel_norm': 2.3614140578750416e-09, 'reward': 1.0, 'success': True}
+settles done seed 0
+pose {'seed': 1, 'pose': 'center_float', 'category': 'tomato', 'local_origin': [0.0, 0.0, 0.19999999999999996], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 1, 'pose': 'above_rim_float', 'category': 'tomato', 'local_origin': [0.0, 0.0, 0.28], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 1, 'pose': 'below_floor', 'category': 'tomato', 'local_origin': [0.0, 0.0, -0.040000000000000036], 'contacts': ['table_plane'], 'reward': 1.0, 'success': False}
+pose {'seed': 1, 'pose': 'outside_above', 'category': 'tomato', 'local_origin': [0.0, 0.0, 0.3999999999999999], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 1, 'pose': 'table_beside', 'category': 'tomato', 'local_origin': [0.13999999999999996, -2.206877250682316e-17, 0.040000000000000036], 'contacts': [], 'reward': 0.0, 'success': False}
+pose {'seed': 1, 'pose': 'origin_on_rim', 'category': 'tomato', 'local_origin': [3.7411324099985816e-17, 0.06999999999999999, 0.12], 'contacts': ['grab_clutter_target_box_left_wall'], 'reward': 0.13998740911483765, 'success': False}
+pose {'seed': 1, 'pose': 'wrong_object_in_box', 'reward': 0.0, 'success': False}
+pose {'seed': 1, 'pose': 'tipped_box_goal_float', 'reward': 1.0, 'success': True}
+settle {'seed': 1, 'trial': 0, 'category': 'tomato', 'class': 'table_supported', 'local_origin': [0.06591722869361728, -0.15469675824339124, 0.03649390111679231], 'contacts': ['clutter_obj_11_geom', 'table_plane'], 'qvel_norm': 0.04670152007738619, 'reward': 0.0, 'success': False}
+settle {'seed': 1, 'trial': 1, 'category': 'tomato', 'class': 'inside_supported', 'local_origin': [0.0035074314077444416, -1.2968467413005287e-05, 0.03350280283199138], 'contacts': ['grab_clutter_target_box_floor'], 'qvel_norm': 5.666328303049026e-10, 'reward': 1.0, 'success': True}
+settles done seed 1
+pose {'seed': 2, 'pose': 'center_float', 'category': 'sponge', 'local_origin': [0.0, 0.0, 0.19999999999999996], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 2, 'pose': 'above_rim_float', 'category': 'sponge', 'local_origin': [0.0, 0.0, 0.28], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 2, 'pose': 'below_floor', 'category': 'sponge', 'local_origin': [0.0, 0.0, -0.040000000000000036], 'contacts': ['table_plane'], 'reward': 1.0, 'success': False}
+pose {'seed': 2, 'pose': 'outside_above', 'category': 'sponge', 'local_origin': [0.0, 0.0, 0.3999999999999999], 'contacts': [], 'reward': 1.0, 'success': False}
+pose {'seed': 2, 'pose': 'table_beside', 'category': 'sponge', 'local_origin': [0.14, -2.3948939052933715e-17, 0.040000000000000036], 'contacts': [], 'reward': 0.0, 'success': False}
+pose {'seed': 2, 'pose': 'origin_on_rim', 'category': 'sponge', 'local_origin': [4.609079267613211e-19, 0.06999999999999998, 0.12], 'contacts': [], 'reward': 0.13998669385910034, 'success': False}
+pose {'seed': 2, 'pose': 'wrong_object_in_box', 'reward': 0.0, 'success': False}
+pose {'seed': 2, 'pose': 'tipped_box_goal_float', 'reward': 1.0, 'success': True}
+settle {'seed': 2, 'trial': 0, 'category': 'sponge', 'class': 'table_supported', 'local_origin': [0.16849722201658074, 0.10394810618196171, 0.011511482348472966], 'contacts': ['table_plane'], 'qvel_norm': 2.1916209909180473e-14, 'reward': 0.0, 'success': False}
+settle {'seed': 2, 'trial': 1, 'category': 'sponge', 'class': 'table_supported', 'local_origin': [-0.011858400314487427, -0.16779999201184342, 0.011511482348472987], 'contacts': ['table_plane'], 'qvel_norm': 1.9752933951185076e-14, 'reward': 0.0, 'success': False}
+settles done seed 2
+{
+  "reset_tries": 40,
+  "reset_errors": 0,
+  "reset_nonzero_reward": 0,
+  "reset_success": 0,
+  "same_side": 13,
+  "settle_classes": {
+    "table_supported|success=False": 93,
+    "inside_supported|success=True": 41,
+    "rim_supported|success=False": 14,
+    "outside_box_supported|success=False": 2
+  }
+}

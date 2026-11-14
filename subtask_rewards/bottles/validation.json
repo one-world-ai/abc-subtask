@@ -1,0 +1,225 @@
+{
+  "date": "2026-11-13",
+  "scope": "CPU single-world; 32-action chunks; progress reward; no RL training",
+  "stages": {
+    "reach": {
+      "starts": {
+        "stage": "reach",
+        "tried": 100,
+        "built": 100,
+        "valid": 99,
+        "idle_kept": 100,
+        "idle_fraction": 1.0,
+        "mean_build_s": 2.0187299999999997,
+        "G3": true,
+        "max_valid_build_s": 5.247,
+        "over_budget": 1,
+        "timing_excluded_seeds": [
+          920000075
+        ]
+      },
+      "scripted": {
+        "solver": {
+          "tried": 20,
+          "planned": 14,
+          "successes": 13,
+          "as_expected": 13,
+          "mean_return": 1.0259184305717486
+        },
+        "idle": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -0.0034375007084551843
+        },
+        "away": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -0.018049142392664537
+        },
+        "G4": true,
+        "margin": 1.0293559312802039,
+        "G5": true
+      },
+      "status": "PASSED"
+    },
+    "pick": {
+      "starts": {
+        "stage": "pick",
+        "tried": 100,
+        "built": 85,
+        "valid": 83,
+        "idle_kept": 85,
+        "idle_fraction": 1.0,
+        "mean_build_s": 2.6190300000000004,
+        "G3": true,
+        "max_valid_build_s": 7.545,
+        "over_budget": 2,
+        "timing_excluded_seeds": [
+          920000068,
+          920000075
+        ]
+      },
+      "scripted": {
+        "solver": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 20,
+          "as_expected": 20,
+          "mean_return": 1.2625
+        },
+        "idle": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": 0.0
+        },
+        "close_only": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": 0.25
+        },
+        "push": {
+          "tried": 20,
+          "planned": 17,
+          "successes": 0,
+          "as_expected": 17,
+          "mean_return": -0.75625
+        },
+        "G4": true,
+        "margin": 1.0125,
+        "G5": true
+      },
+      "status": "PASSED"
+    },
+    "carry": {
+      "starts": {
+        "stage": "carry",
+        "tried": 100,
+        "built": 96,
+        "valid": 95,
+        "idle_kept": 96,
+        "idle_fraction": 1.0,
+        "mean_build_s": 2.62473,
+        "G3": true,
+        "max_valid_build_s": 8.766,
+        "over_budget": 1,
+        "timing_excluded_seeds": [
+          920000068
+        ]
+      },
+      "scripted": {
+        "solver": {
+          "tried": 20,
+          "planned": 17,
+          "successes": 17,
+          "as_expected": 17,
+          "mean_return": 1.2032205616447027
+        },
+        "idle": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -0.00358753243349234
+        },
+        "release": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -1.0
+        },
+        "wrong_way": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -0.05741860770281335
+        },
+        "shake": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -0.006158245918584698
+        },
+        "G4": true,
+        "margin": 1.2068080940781951,
+        "G5": true
+      },
+      "status": "PASSED"
+    },
+    "drop": {
+      "starts": {
+        "stage": "drop",
+        "tried": 100,
+        "built": 84,
+        "valid": 80,
+        "idle_kept": 82,
+        "idle_fraction": 0.9761904761904762,
+        "mean_build_s": 3.6573599999999997,
+        "G3": true,
+        "max_valid_build_s": 9.878,
+        "over_budget": 4,
+        "timing_excluded_seeds": [
+          920000057,
+          920000068
+        ]
+      },
+      "scripted": {
+        "solver": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 20,
+          "as_expected": 20,
+          "mean_return": 1.0
+        },
+        "idle": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": 0.0
+        },
+        "release_beside": {
+          "tried": 20,
+          "planned": 20,
+          "successes": 0,
+          "as_expected": 20,
+          "mean_return": -1.002350433556207
+        },
+        "G4": true,
+        "margin": 1.0,
+        "G5": true
+      },
+      "status": "PASSED"
+    }
+  },
+  "tests": {
+    "bottles": {
+      "passed": 14,
+      "total": 14
+    },
+    "mug_regression": {
+      "passed": 9,
+      "total": 9
+    }
+  },
+  "source_sha256": {
+    "abc_sim/task_eval/bottles_stages.py": "007ff58fe97de423090398648e6d723967a67d7cdc8940e99587935aa9320144",
+    "abc_sim/task_eval/bottles_subtask.py": "c5b980f00bc913aa8560b9a6fd86b1fbe7e0a8f7a6be2f64748c59a101525d07",
+    "abc_sim/task_eval/bottles_starts.py": "e27d07e0862406b17291390eeb21a70f016f93b9facb38eaf89016ab36506137",
+    "abc_sim/task_eval/registry.py": "2305273b629cf24a4be4df80c3075c49c382269576d1367ea1bbad44fe3074a1",
+    "abc_sim/task_specs.py": "37246ccbdff73b31627c9c95645de55c52c857a2c087b200575cb0652d185d54",
+    "tests/test_bottles_subtasks.py": "7e7722d4d1ffed90f6c549bf3fe35af1d4ec05c25b6c859dd3319ac045a23f13"
+  },
+  "overall": "PASSED",
+  "timing_review": "Per-valid-start <=10s enforced; original physics/idle data retained in timing_review_original. First20 scripted trial seeds unchanged; no reward or physics changes."
+}

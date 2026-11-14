@@ -1,0 +1,116 @@
+[
+  {
+    "seed": 0,
+    "trial": 59,
+    "local": [
+      0.05652375741704116,
+      0.028225584180948917,
+      0.014758377717796397
+    ],
+    "goal_center": [
+      0.0,
+      0.0,
+      0.04580789431929588
+    ],
+    "goal_halfsize": [
+      0.05621878057718277,
+      0.052054423838853836,
+      0.04164354130625725
+    ],
+    "wall_hits": [
+      {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "distance": 0.0701668639607556,
+        "geom": "red_lego_sorting_bin_collision_5"
+      },
+      {
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "distance": 0.06990441801009979,
+        "geom": "red_lego_sorting_bin_collision_1"
+      },
+      {
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.06302923148151107,
+        "geom": "red_lego_sorting_bin_collision_3"
+      },
+      {
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.062371990320038796,
+        "geom": "red_lego_sorting_bin_collision_2"
+      }
+    ]
+  },
+  {
+    "seed": 1,
+    "trial": 35,
+    "local": [
+      -0.06247409429543925,
+      0.029867613760878944,
+      0.011072074780457195
+    ],
+    "goal_center": [
+      0.0,
+      0.0,
+      0.049946121871471405
+    ],
+    "goal_halfsize": [
+      0.06129751354455948,
+      0.05675695464015007,
+      0.045405562967061996
+    ],
+    "wall_hits": [
+      {
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "distance": 0.07650564878939839,
+        "geom": "yellow_lego_sorting_bin_collision_5"
+      },
+      {
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "distance": 0.07621949390745662,
+        "geom": "yellow_lego_sorting_bin_collision_1"
+      },
+      {
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "distance": 0.06872134551960667,
+        "geom": "yellow_lego_sorting_bin_collision_3"
+      },
+      {
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "distance": 0.06800525488576303,
+        "geom": "yellow_lego_sorting_bin_collision_2"
+      }
+    ]
+  }
+]

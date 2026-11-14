@@ -1,0 +1,5 @@
+ok test_resets_score_zero
+ok test_above_rim_and_below_floor_are_not_inside
+ok test_real_placements_survive_settling
+ok test_wrong_object_does_not_satisfy_target
+ok test_batched_geometry_uses_each_target_pose
