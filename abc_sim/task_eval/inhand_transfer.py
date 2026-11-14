@@ -17,6 +17,14 @@ class InhandTransferOtherSideEvaluator:
     The item must cross the configured y band, remain within the tabletop,
     and sit below the resting-height limit. The start side comes from reset
     metadata.
+
+    It must also be released and at rest (phase-0 audit, subtask_rewards/inhand):
+    no robot geom may touch it, and with MjData (``evaluate_model_data``, the
+    path ``env.evaluate_task`` takes) its linear speed must be below
+    ``max_rest_speed_mps``. Without these, an item still held low over the far
+    side, or flying/sliding through the band, scored success and ended the
+    episode. The qpos-only path (``evaluate_qpos_batch``) recomputes contacts
+    with ``mj_forward`` but has no velocities, so it cannot check rest.
     """
 
     def __init__(
@@ -28,12 +36,14 @@ class InhandTransferOtherSideEvaluator:
         table_geom_name: str = "table_plane",
         other_side_min_y_m: float = 0.10,
         max_resting_height_m: float = 0.10,
+        max_rest_speed_mps: float = 0.02,
     ) -> None:
         self.spec = spec
         self._object_joint_name = object_joint_name
         self._table_geom_name = table_geom_name
         self.other_side_min_y_m = float(other_side_min_y_m)
         self.max_resting_height_m = float(max_resting_height_m)
+        self.max_rest_speed_mps = float(max_rest_speed_mps)
         self._start_sign: float | None = None
         self._spawn_y: float | None = None
         self._bind_model(model)
@@ -46,11 +56,43 @@ class InhandTransferOtherSideEvaluator:
         self._object_adr = self._resolve_free_joint_qpos_adr(
             model, self._object_joint_name
         )
+        joint_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_JOINT, self._object_joint_name)
+        self._object_dof_adr = int(model.jnt_dofadr[joint_id])
+        self._object_geom_mask = self._subtree_geom_mask(model, [int(model.jnt_bodyid[joint_id])])
+        robot_roots = [
+            body
+            for body in (
+                mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, name)
+                for name in ("left_arm", "right_arm")
+            )
+            if body >= 0
+        ]
+        if len(robot_roots) != 2:
+            raise ValueError("left_arm/right_arm bodies not found; cannot check that the item is released")
+        self._robot_geom_mask = self._subtree_geom_mask(model, robot_roots)
+        self._scratch_data: mujoco.MjData | None = None
         (
             self._table_x_bounds,
             self._table_y_bounds,
             self._table_z,
         ) = self._resolve_table(model, self._table_geom_name)
+
+    @staticmethod
+    def _subtree_geom_mask(model: mujoco.MjModel, roots: list[int]) -> np.ndarray:
+        in_tree = np.zeros(model.nbody, dtype=bool)
+        in_tree[roots] = True
+        for body in range(1, model.nbody):  # parents precede children
+            if in_tree[int(model.body_parentid[body])]:
+                in_tree[body] = True
+        return in_tree[np.asarray(model.geom_bodyid)]
+
+    def _robot_touches_object(self, data: mujoco.MjData) -> bool:
+        if int(data.ncon) == 0:
+            return False
+        g1 = np.asarray(data.contact.geom1[: data.ncon])
+        g2 = np.asarray(data.contact.geom2[: data.ncon])
+        obj, rob = self._object_geom_mask, self._robot_geom_mask
+        return bool(np.any((obj[g1] & rob[g2]) | (obj[g2] & rob[g1])))
 
     def reset(self, *, nworld: int = 1) -> None:
         self._nworld = int(nworld)
@@ -120,12 +162,39 @@ class InhandTransferOtherSideEvaluator:
             float(pos[2]),
         )
 
+    def evaluate_model_data(self, model: mujoco.MjModel, data: mujoco.MjData) -> TaskEvalResult:
+        """Score the live simulation: contacts and velocities come from ``data``."""
+        if model is not self.model:
+            self._bind_model(model)
+            self.reset(nworld=self._nworld)
+        qpos = np.asarray(data.qpos, dtype=np.float32)[None, :]
+        touching = np.asarray([self._robot_touches_object(data)])
+        dof = self._object_dof_adr
+        speed = np.asarray([float(np.linalg.norm(data.qvel[dof : dof + 3]))], dtype=np.float32)
+        return self._evaluate(qpos, touching, speed)
+
     def evaluate_qpos_batch(self, qpos_batch: np.ndarray) -> TaskEvalResult:
         qpos_batch = np.asarray(qpos_batch, dtype=np.float32)
         if qpos_batch.ndim != 2 or qpos_batch.shape[1] != self.model.nq:
             raise ValueError(
                 f"Expected qpos batch shape (B, {self.model.nq}), got {qpos_batch.shape}"
             )
+        touching = np.zeros((qpos_batch.shape[0],), dtype=bool)
+        if self._start_sign is not None:
+            if self._scratch_data is None:
+                self._scratch_data = mujoco.MjData(self.model)
+            for world, qpos in enumerate(qpos_batch):
+                self._scratch_data.qpos[:] = qpos
+                mujoco.mj_forward(self.model, self._scratch_data)
+                touching[world] = self._robot_touches_object(self._scratch_data)
+        return self._evaluate(qpos_batch, touching, None)
+
+    def _evaluate(
+        self,
+        qpos_batch: np.ndarray,
+        robot_touching: np.ndarray,
+        speed: np.ndarray | None,
+    ) -> TaskEvalResult:
         if qpos_batch.shape[0] != self._nworld:
             self.reset(nworld=qpos_batch.shape[0])
 
@@ -153,7 +222,13 @@ class InhandTransferOtherSideEvaluator:
             & (pos[:, 1] >= y_lo)
             & (pos[:, 1] <= y_hi)
         )
-        success = crossed & placed & on_table
+        released = ~np.asarray(robot_touching, dtype=bool)
+        at_rest = (
+            np.ones((batch,), dtype=bool)
+            if speed is None
+            else np.asarray(speed) <= self.max_rest_speed_mps
+        )
+        success = crossed & placed & on_table & released & at_rest
         self._ever_success |= success
 
         # Progress: the object's signed travel from its spawn y to the far
@@ -176,6 +251,9 @@ class InhandTransferOtherSideEvaluator:
                 "crossed_to_other_side": crossed,
                 "object_placed": placed,
                 "object_on_table": on_table,
+                "object_released": released,
+                "object_at_rest": at_rest,
+                "rest_checked": speed is not None,
                 "ever_success": self._ever_success.copy(),
             },
         )

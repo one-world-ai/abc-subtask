@@ -6,7 +6,13 @@ import mujoco
 import numpy as np
 
 from abc_sim.task_eval.base import TaskEvalResult
-from abc_sim.task_eval.bottles import _quat_to_rotmat_batch
+from abc_sim.task_eval.bottles import (
+    _body_subtree_ids,
+    _quat_to_rotmat,
+    _quat_to_rotmat_batch,
+    _resolve_bottle_center_offsets,
+    _subtree_body_transforms,
+)
 from abc_sim.task_specs import SimTaskSpec
 
 
@@ -31,7 +37,61 @@ class GrabClutterTargetInBoxEvaluator:
             model,
             goal_site_name,
         )
+        self._target_center_offset = _resolve_bottle_center_offsets(model, ["target_object"])[0]
+        self._target_collision_points = self._resolve_target_collision_points(model)
+        self._box_floor_z, self._box_rim_z = self._resolve_box_heights(model)
         self.reset(nworld=1)
+
+    @staticmethod
+    def _resolve_target_collision_points(model: mujoco.MjModel) -> np.ndarray:
+        """Collision-mesh vertices in the target freejoint frame.
+
+        Primitive geoms use their bounding-box corners (conservative for curved
+        primitives). The test only rejects objects wholly above the opening;
+        using an outer bound cannot reject a real intersection with the box.
+        """
+        root = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, "target_object")
+        transforms = _subtree_body_transforms(model, root)
+        bodies = _body_subtree_ids(model, root)
+        corners = np.asarray([[x, y, z] for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)])
+        points = []
+        for g in range(model.ngeom):
+            if int(model.geom_bodyid[g]) not in bodies:
+                continue
+            if int(model.geom_contype[g]) == 0 and int(model.geom_conaffinity[g]) == 0:
+                continue
+            kind = int(model.geom_type[g])
+            if kind == int(mujoco.mjtGeom.mjGEOM_MESH):
+                mesh = int(model.geom_dataid[g])
+                start, count = int(model.mesh_vertadr[mesh]), int(model.mesh_vertnum[mesh])
+                local = np.asarray(model.mesh_vert[start:start + count], dtype=np.float64)
+            else:
+                size = np.asarray(model.geom_size[g], dtype=np.float64)
+                if kind == int(mujoco.mjtGeom.mjGEOM_SPHERE):
+                    extent = np.full(3, size[0])
+                elif kind in (int(mujoco.mjtGeom.mjGEOM_CAPSULE), int(mujoco.mjtGeom.mjGEOM_CYLINDER)):
+                    extent = np.array([size[0], size[0], size[1] + (size[0] if kind == int(mujoco.mjtGeom.mjGEOM_CAPSULE) else 0)])
+                else:
+                    extent = size
+                local = corners * extent
+            bp, br = transforms[int(model.geom_bodyid[g])]
+            gr = _quat_to_rotmat(model.geom_quat[g])
+            points.append((local @ gr.T + model.geom_pos[g]) @ br.T + bp)
+        if not points:
+            raise ValueError("Target object has no collision geometry")
+        return np.concatenate(points).astype(np.float32)
+
+    @staticmethod
+    def _resolve_box_heights(model: mujoco.MjModel) -> tuple[float, float]:
+        """Physical floor top and wall rim in the box frame, not the visual goal site."""
+        floor = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, "grab_clutter_target_box_floor")
+        walls = [mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, f"grab_clutter_target_box_{s}_wall")
+                 for s in ("back", "front", "left", "right")]
+        if floor < 0 or min(walls) < 0:
+            raise ValueError("Target box floor/wall collision geoms are missing")
+        def top(g):
+            return float(model.geom_pos[g, 2] + np.abs(_quat_to_rotmat(model.geom_quat[g])[2]) @ model.geom_size[g])
+        return top(floor), max(top(g) for g in walls)
 
     def reset(self, *, nworld: int = 1) -> None:
         self._nworld = int(nworld)
@@ -92,7 +152,21 @@ class GrabClutterTargetInBoxEvaluator:
         rel_world = target_pos - box_pos
         rel_box = np.einsum("bij,bj->bi", np.swapaxes(rot_world_from_box, 1, 2), rel_world)
         delta = np.abs(rel_box - self._goal_local_center[None, :])
-        success = np.all(delta <= self._goal_half_size[None, :], axis=1)
+        in_goal_region = np.all(delta <= self._goal_half_size[None, :], axis=1)
+        # The goal site's deliberately generous vertical extent includes empty
+        # air above the rim and space below the floor. Those points alone do not
+        # constitute an object in the box. Preserve tall/partly protruding true
+        # placements by measuring each target's actual collision geometry.
+        target_quat = qpos_batch[:, self._target_qpos_addr + 3:self._target_qpos_addr + 7]
+        rot_box_from_target = np.einsum("bji,bjk->bik", rot_world_from_box, _quat_to_rotmat_batch(target_quat))
+        lowest_target_z = rel_box[:, 2] + np.min(
+            np.einsum("bj,nj->bn", rot_box_from_target[:, 2], self._target_collision_points), axis=1
+        )
+        target_center_z = rel_box[:, 2] + np.einsum(
+            "bj,j->b", rot_box_from_target[:, 2], self._target_center_offset
+        )
+        geometry_in_box = (target_center_z >= self._box_floor_z - 0.005) & (lowest_target_z <= self._box_rim_z + 0.005)
+        success = in_goal_region & geometry_in_box
         self._ever_success |= success
 
         world_goal_center = box_pos + np.einsum(
@@ -120,6 +194,9 @@ class GrabClutterTargetInBoxEvaluator:
                 ).copy(),
                 "target_box_xy_distance_m": xy_distance.astype(np.float32),
                 "target_in_box": success.copy(),
+                "target_in_goal_region": in_goal_region.copy(),
+                "target_geometry_in_box": geometry_in_box.copy(),
+                "target_lowest_z_in_box_frame": lowest_target_z.astype(np.float32),
                 "ever_success": self._ever_success.copy(),
             },
         )

@@ -35,6 +35,12 @@ def _quat_to_rotmat_batch(quat_batch: np.ndarray) -> np.ndarray:
 class SweepAwayEvaluator:
     """Score sweep success from active paper scraps ending inside the bin.
 
+    A scrap is in the bin when its centre lies inside the bin's tapered inner wall (radius interpolated between the
+    measured bottom and top radii of the ``gc_inner`` mesh at the scrap's height, plus a small margin), between the
+    bin floor and rim, and the bin stands upright (axis within ``bin_max_tilt_rad`` of vertical). The cylinder that
+    used the rim radius at every height accepted scraps lying on the table against the outside of the bin's base,
+    also under the lifted edge of a tilted bin; a tipped-over bin never counts.
+
     Reset metadata defines the active set; without it, z height is used.
     """
 
@@ -47,6 +53,7 @@ class SweepAwayEvaluator:
         active_z_min: float = -0.25,
         bin_radial_margin_m: float = 0.005,
         bin_height_margin_m: float = 0.005,
+        bin_max_tilt_rad: float = float(np.pi / 4.0),
     ) -> None:
         self.model = model
         self.spec = spec
@@ -54,10 +61,17 @@ class SweepAwayEvaluator:
         self.active_z_min = float(active_z_min)
         self.bin_radial_margin_m = float(bin_radial_margin_m)
         self.bin_height_margin_m = float(bin_height_margin_m)
+        self.bin_min_up_z = float(np.cos(bin_max_tilt_rad))
 
         self.trash_names, self._trash_qpos_addrs = self._resolve_trash_qpos_addrs(model)
         self._bin_qpos_adr = self._resolve_joint_qpos_adr(model, "bin_joint")
-        self._bin_radius, self._bin_bottom_y, self._bin_top_y = self._resolve_bin_local_bounds(model)
+        (
+            self._bin_radius_bottom,
+            self._bin_radius_top,
+            self._bin_bottom_y,
+            self._bin_top_y,
+        ) = self._resolve_bin_local_bounds(model)
+        self._bin_radius = max(self._bin_radius_bottom, self._bin_radius_top)
         self._nworld = 1
         self._active_trash_mask = np.zeros((1, len(self.trash_names)), dtype=bool)
         self._fixed_active_trash_mask = False
@@ -172,7 +186,8 @@ class SweepAwayEvaluator:
         return names, addrs
 
     @staticmethod
-    def _resolve_bin_local_bounds(model: mujoco.MjModel) -> tuple[float, float, float]:
+    def _resolve_bin_local_bounds(model: mujoco.MjModel) -> tuple[float, float, float, float]:
+        """Inner wall of the bin in its own frame (+y up): (bottom radius, top radius, bottom y, top y)."""
         geom_id = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, "gc_inner")
         if geom_id >= 0 and int(model.geom_type[geom_id]) == mujoco.mjtGeom.mjGEOM_MESH:
             mesh_id = int(model.geom_dataid[geom_id])
@@ -184,13 +199,17 @@ class SweepAwayEvaluator:
             geom_rot = geom_rot.reshape(3, 3)
             local_points = verts @ geom_rot.T + np.asarray(model.geom_pos[geom_id], dtype=np.float64)
             radial = np.linalg.norm(local_points[:, [0, 2]], axis=1)
+            height = local_points[:, 1]
+            bottom_y, top_y = float(height.min()), float(height.max())
+            band = 0.1 * (top_y - bottom_y)
             return (
-                float(radial.max()),
-                float(local_points[:, 1].min()),
-                float(local_points[:, 1].max()),
+                float(radial[height <= bottom_y + band].max()),
+                float(radial[height >= top_y - band].max()),
+                bottom_y,
+                top_y,
             )
 
-        return 0.087, -0.084, 0.118
+        return 0.087, 0.087, -0.084, 0.118
 
     def evaluate_qpos_batch(self, qpos_batch: np.ndarray) -> TaskEvalResult:
         qpos_batch = np.asarray(qpos_batch, dtype=np.float32)
@@ -216,12 +235,21 @@ class SweepAwayEvaluator:
 
         bin_radial = np.linalg.norm(rel_bin[..., [0, 2]], axis=-1)
         bin_height = rel_bin[..., 1]
-        bin_radial_margin = self._bin_radius + self.bin_radial_margin_m - bin_radial
+        # Inner wall radius at the scrap's height (the bin tapers from bottom to rim), clamped to the wall's extent.
+        height_fraction = np.clip(
+            (bin_height - self._bin_bottom_y) / max(self._bin_top_y - self._bin_bottom_y, 1e-6), 0.0, 1.0
+        )
+        wall_radius = self._bin_radius_bottom + height_fraction * (self._bin_radius_top - self._bin_radius_bottom)
+        bin_radial_margin = wall_radius + self.bin_radial_margin_m - bin_radial
+        # World z of the bin's local up axis (+y): 1 upright, ~0 lying on its side.
+        bin_up_z = rot_world_from_bin[:, 2, 1]
+        bin_upright = bin_up_z >= self.bin_min_up_z
         bin_lower_margin = bin_height - (self._bin_bottom_y - self.bin_height_margin_m)
         bin_upper_margin = (self._bin_top_y + self.bin_height_margin_m) - bin_height
         bin_height_margin = np.minimum(bin_lower_margin, bin_upper_margin)
         in_bin_mask = (
             self._active_trash_mask
+            & bin_upright[:, None]
             & (bin_radial_margin >= 0.0)
             & (bin_lower_margin >= 0.0)
             & (bin_upper_margin >= 0.0)
@@ -280,7 +308,12 @@ class SweepAwayEvaluator:
             "trash_names": list(self.trash_names),
             "table_bounds": self.table_bounds,
             "active_z_min": self.active_z_min,
+            "bin_up_z": bin_up_z.astype(np.float32),
+            "bin_upright": bin_upright,
+            "bin_min_up_z": self.bin_min_up_z,
             "bin_radius": self._bin_radius,
+            "bin_radius_bottom": self._bin_radius_bottom,
+            "bin_radius_top": self._bin_radius_top,
             "bin_bottom_y": self._bin_bottom_y,
             "bin_top_y": self._bin_top_y,
         }

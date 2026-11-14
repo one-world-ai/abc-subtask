@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import re
+from itertools import combinations
+from typing import Any
 
 import mujoco
 import numpy as np
 
 from abc_sim.task_eval.base import TaskEvalResult
-from abc_sim.task_eval.bottles import _quat_to_rotmat_batch
+from abc_sim.task_eval.bottles import _quat_to_rotmat_batch, _subtree_body_transforms
 from abc_sim.task_specs import SimTaskSpec
 
 
@@ -29,6 +31,8 @@ class LegoBlocksSortingEvaluator:
         self._block_qpos_addrs: dict[str, np.ndarray] = {}
         self._bin_qpos_addrs: dict[str, int] = {}
         self._goal_regions: dict[str, tuple[np.ndarray, np.ndarray]] = {}
+        self._bin_collision_planes: dict[str, list[tuple[np.ndarray, np.ndarray]]] = {}
+        self._bin_xy_bounds: dict[str, tuple[np.ndarray, np.ndarray]] = {}
         self.block_names: dict[str, list[str]] = {}
         for color in _LEGO_COLORS:
             names, addrs = self._resolve_block_qpos_addrs(model, color)
@@ -41,6 +45,9 @@ class LegoBlocksSortingEvaluator:
             self._goal_regions[color] = self._resolve_goal_site(
                 model,
                 f"{color}_lego_bin_goal_region",
+            )
+            self._bin_collision_planes[color], self._bin_xy_bounds[color] = self._measure_bin_cavity(
+                model, f"{color}_lego_sorting_bin"
             )
         self.reset(nworld=1)
 
@@ -121,10 +128,90 @@ class LegoBlocksSortingEvaluator:
         rel_world = positions - bin_pos[:, None, :]
         rot_world_from_bin = _quat_to_rotmat_batch(bin_quat)
         rel_bin = np.einsum("bij,bnj->bni", np.swapaxes(rot_world_from_bin, 1, 2), rel_world)
-        return np.all(
-            np.abs(rel_bin - goal_local_center[None, None, :]) <= goal_size[None, None, :],
-            axis=-1,
-        )
+        # A sideways or inverted container is not a sorting receptacle. The
+        # opening is local +z; yaw and ordinary rocking preserve its upward
+        # direction. Use only a numerical margin here, leaving stricter tilt
+        # limits to the subtask's bin-movement failure policy.
+        opening_up = rot_world_from_bin[:, 2, 2] > 1e-6
+        # The authored site is too narrow: physically settled blocks against
+        # an inner wall can sit outside its xy box. Use the actual collision
+        # cavity instead. A segment from the cavity centre to a block centre
+        # must not cross any of the convex wall/floor collision pieces.
+        lo, hi = self._bin_xy_bounds[color]
+        inside = opening_up[:, None] & np.all((rel_bin[..., :2] >= lo) & (rel_bin[..., :2] <= hi), axis=-1)
+        inside &= np.abs(rel_bin[..., 2] - goal_local_center[2]) <= goal_size[2]
+        if not np.any(inside):
+            return inside
+        for normals, offsets in self._bin_collision_planes[color]:
+            a = np.einsum("...i,fi->...f", rel_bin[..., :2], normals[:, :2])
+            b = rel_bin[..., 2, None] * normals[:, 2] + offsets
+            parallel = np.abs(a) < 1e-10
+            possible = ~np.any(parallel & (b > 1e-7), axis=-1)
+            ratio = -b / np.where(parallel, 1.0, a)
+            entry = np.maximum(0.0, np.max(np.where(a < -1e-10, ratio, -np.inf), axis=-1))
+            exit = np.minimum(1.0, np.min(np.where(a > 1e-10, ratio, np.inf), axis=-1))
+            crosses_solid = possible & (entry <= exit + 1e-7)
+            inside &= ~crosses_solid
+        return inside
+
+    @staticmethod
+    def _measure_bin_cavity(model: mujoco.MjModel, name: str):
+        """Convex collision-piece planes in bin coordinates, measured per model.
+
+        MuJoCo collides against each mesh's convex hull, even when its exported
+        triangle faces are not convex. Recover hull planes from the small set
+        of distinct collision vertices without adding a geometry dependency.
+        """
+        root = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, name)
+        if root < 0:
+            raise ValueError(f"Bin body {name!r} not found")
+        transforms = _subtree_body_transforms(model, root)
+        pieces, all_vertices = [], []
+        for g in range(model.ngeom):
+            body = int(model.geom_bodyid[g])
+            if body not in transforms or not (model.geom_contype[g] or model.geom_conaffinity[g]):
+                continue
+            if model.geom_type[g] != mujoco.mjtGeom.mjGEOM_MESH:
+                raise ValueError(f"Expected convex mesh collider for {name}, got {model.geom(g).name}")
+            mesh = int(model.geom_dataid[g])
+            vertices = np.asarray(model.mesh_vert[model.mesh_vertadr[mesh]:
+                                                  model.mesh_vertadr[mesh] + model.mesh_vertnum[mesh]], dtype=np.float64)
+            geom_rot = _quat_to_rotmat_batch(np.asarray(model.geom_quat[g])[None, :])[0].astype(np.float64)
+            pos, rot = transforms[body]
+            vertices = (vertices @ geom_rot.T + model.geom_pos[g]) @ rot.T + pos
+            graph = int(model.mesh_graphadr[mesh])
+            if graph >= 0:
+                # MuJoCo 3.8 user_mesh.cc MakeGraph/CopyGraph stores hull
+                # triangles after the vertex and adjacency graph arrays:
+                # https://github.com/google-deepmind/mujoco/blob/3.8.0/src/user/user_mesh.cc
+                nv, nf = map(int, model.mesh_graph[graph:graph + 2])
+                fa = graph + 2 + 3 * nv + 3 * nf
+                faces = np.asarray(model.mesh_graph[fa:fa + 3 * nf]).reshape(-1, 3)
+                triangles = vertices[faces]
+            else:
+                vertices = np.unique(np.round(vertices, 9), axis=0)
+                if len(vertices) > 128:
+                    raise ValueError(f"Unexpectedly large uncompiled collision hull for {model.geom(g).name}")
+                triangles = vertices[np.asarray(list(combinations(range(len(vertices)), 3)), dtype=np.int64)]
+            normals = np.cross(triangles[:, 1] - triangles[:, 0], triangles[:, 2] - triangles[:, 0])
+            lengths = np.linalg.norm(normals, axis=1)
+            valid = lengths > 1e-12
+            normals = normals[valid] / lengths[valid, None]
+            offsets = -np.einsum("ij,ij->i", normals, triangles[valid, 0])
+            signed = vertices @ normals.T + offsets
+            supported = np.all(signed <= 1e-8, axis=0) | np.all(signed >= -1e-8, axis=0)
+            normals, offsets = normals[supported], offsets[supported]
+            flip = normals @ vertices.mean(axis=0) + offsets > 0
+            normals[flip] *= -1; offsets[flip] *= -1
+            if np.max(vertices @ normals.T + offsets) > 2e-6:
+                raise ValueError(f"Invalid collision hull {model.geom(g).name}")
+            planes = np.unique(np.round(np.column_stack([normals, offsets]), 9), axis=0)
+            pieces.append((planes[:, :3], planes[:, 3]))
+            all_vertices.append(vertices)
+        if not pieces:
+            raise ValueError(f"No collision meshes for {name}")
+        vertices = np.concatenate(all_vertices)
+        return pieces, (vertices[:, :2].min(axis=0), vertices[:, :2].max(axis=0))
 
     def evaluate_qpos_batch(self, qpos_batch: np.ndarray) -> TaskEvalResult:
         qpos_batch = np.asarray(qpos_batch, dtype=np.float32)

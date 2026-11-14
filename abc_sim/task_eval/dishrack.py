@@ -63,6 +63,37 @@ def _gripper_geom_ids(model: mujoco.MjModel) -> set[int]:
     return _geom_ids_for_bodies(model, gripper_bodies)
 
 
+def _collision_geom_ids(model: mujoco.MjModel, geom_ids: set[int]) -> list[int]:
+    return sorted(
+        g for g in geom_ids if int(model.geom_contype[g]) != 0 or int(model.geom_conaffinity[g]) != 0
+    )
+
+
+_BOX_CORNERS = np.array([[sx, sy, sz] for sx in (-1, 1) for sy in (-1, 1) for sz in (-1, 1)], dtype=np.float64)
+
+
+def _geom_points_world(model: mujoco.MjModel, data: mujoco.MjData, geom_id: int) -> np.ndarray:
+    """Points spanning a collision geom (mesh vertices or box corners; bounding-sphere box otherwise), world frame."""
+    geom_type = int(model.geom_type[geom_id])
+    if geom_type == int(mujoco.mjtGeom.mjGEOM_MESH):
+        mesh_id = int(model.geom_dataid[geom_id])
+        start = int(model.mesh_vertadr[mesh_id])
+        local = np.asarray(model.mesh_vert[start : start + int(model.mesh_vertnum[mesh_id])], dtype=np.float64)
+    elif geom_type == int(mujoco.mjtGeom.mjGEOM_BOX):
+        local = _BOX_CORNERS * np.asarray(model.geom_size[geom_id], dtype=np.float64)
+    elif geom_type in (int(mujoco.mjtGeom.mjGEOM_CAPSULE), int(mujoco.mjtGeom.mjGEOM_CYLINDER)):
+        radius, half = float(model.geom_size[geom_id][0]), float(model.geom_size[geom_id][1])
+        cap = radius if geom_type == int(mujoco.mjtGeom.mjGEOM_CAPSULE) else 0.0
+        local = _BOX_CORNERS * np.array([radius, radius, half + cap])
+    elif geom_type in (int(mujoco.mjtGeom.mjGEOM_SPHERE), int(mujoco.mjtGeom.mjGEOM_ELLIPSOID)):
+        size = np.asarray(model.geom_size[geom_id], dtype=np.float64)
+        local = _BOX_CORNERS * (size if geom_type == int(mujoco.mjtGeom.mjGEOM_ELLIPSOID) else size[0])
+    else:
+        local = _BOX_CORNERS * float(model.geom_rbound[geom_id])
+    rot = np.asarray(data.geom_xmat[geom_id], dtype=np.float64).reshape(3, 3)
+    return local @ rot.T + np.asarray(data.geom_xpos[geom_id], dtype=np.float64)
+
+
 def _plate_joint_name(index: int) -> str:
     return "plate_joint" if index == 0 else f"plate_joint_{index}"
 
@@ -91,6 +122,7 @@ class DishrackEvaluator:
         height_max_m: float = 0.45,
         upright_normal_z_max: float = 0.55,
         horizontal_normal_z_min: float = 0.75,
+        footprint_tolerance_m: float = 0.01,
     ) -> None:
         self.model = model
         self.spec = spec
@@ -99,10 +131,16 @@ class DishrackEvaluator:
         self.height_max_m = float(height_max_m)
         self.upright_normal_z_max = float(upright_normal_z_max)
         self.horizontal_normal_z_min = float(horizontal_normal_z_min)
+        # A plate counts only if its centre and its lowest point lie over the rack's own footprint (tight
+        # rack-frame box of the rack's collision geometry, plus this tolerance). Without it a plate leaning on the
+        # outside of the rack with its edge on the table scored (exp12 worlds 12 and 54, 2026-11-13).
+        self.footprint_tolerance_m = float(footprint_tolerance_m)
         self.plate_indices: list[int] = []
         self._rack_body_id: int | None = None
         self._rack_geom_ids: set[int] = set()
         self._gripper_geom_ids: set[int] = set()
+        self._rack_collision_geom_ids: list[int] = []
+        self._plate_collision_geom_ids: dict[int, list[int]] = {}
         self._refresh_model(model)
         self.reset(nworld=1)
 
@@ -139,6 +177,37 @@ class DishrackEvaluator:
                 model, _body_subtree_ids(model, self._rack_body_id)
             )
         self._gripper_geom_ids = _gripper_geom_ids(model)
+        self._rack_collision_geom_ids = _collision_geom_ids(model, self._rack_geom_ids)
+        self._plate_collision_geom_ids = {}
+        for index in self.plate_indices:
+            plate_body_id = _body_id(model, _plate_body_name(index))
+            self._plate_collision_geom_ids[index] = _collision_geom_ids(
+                model, _geom_ids_for_bodies(model, _body_subtree_ids(model, plate_body_id))
+            )
+
+    def _rack_footprint(self, data: mujoco.MjData) -> tuple[np.ndarray, np.ndarray]:
+        """Tight (lo, hi) xy box of the rack's collision geometry in the rack body frame."""
+        if self._rack_body_id is None:
+            raise ValueError("Dishrack body not found in current model")
+        rack_pos = np.asarray(data.xpos[self._rack_body_id], dtype=np.float64)
+        rack_rot = np.asarray(data.xmat[self._rack_body_id], dtype=np.float64).reshape(3, 3)
+        points = [
+            (_geom_points_world(self.model, data, g) - rack_pos) @ rack_rot for g in self._rack_collision_geom_ids
+        ]
+        if not points:
+            return np.full(2, -np.inf), np.full(2, np.inf)
+        stacked = np.concatenate(points)
+        return stacked[:, :2].min(axis=0), stacked[:, :2].max(axis=0)
+
+    def _plate_bottom_world(self, data: mujoco.MjData, index: int) -> np.ndarray:
+        """Mean of the plate's collision points within 3 mm of its lowest point (the edge it stands on)."""
+        geom_ids = self._plate_collision_geom_ids.get(index, [])
+        if not geom_ids:
+            body_id = _body_id(self.model, _plate_body_name(index))
+            return np.asarray(data.xpos[body_id], dtype=np.float64)
+        points = np.concatenate([_geom_points_world(self.model, data, g) for g in geom_ids])
+        low = points[points[:, 2] <= points[:, 2].min() + 0.003]
+        return low.mean(axis=0)
 
     def _rack_half_extents(self, data: mujoco.MjData) -> tuple[float, float]:
         if self._rack_body_id is None:
@@ -225,6 +294,9 @@ class DishrackEvaluator:
         rack_pos = np.asarray(data.xpos[self._rack_body_id], dtype=np.float64)
         rack_from_world = _quat_to_rotmat(np.asarray(data.xquat[self._rack_body_id], dtype=np.float64)).T
         rack_half_x, rack_half_y = self._rack_half_extents(data)
+        footprint_lo, footprint_hi = self._rack_footprint(data)
+        footprint_lo = footprint_lo - self.footprint_tolerance_m
+        footprint_hi = footprint_hi + self.footprint_tolerance_m
 
         in_rack_mask: list[bool] = []
         upright_mask: list[bool] = []
@@ -235,6 +307,8 @@ class DishrackEvaluator:
         spatial_mask: list[bool] = []
         rack_contact_mask: list[bool] = []
         gripper_contact_mask: list[bool] = []
+        over_footprint_mask: list[bool] = []
+        bottom_local_xy: list[list[float]] = []
         plate_names: list[str] = []
         normal_abs_z: list[float] = []
 
@@ -251,8 +325,15 @@ class DishrackEvaluator:
                 and float(local[2]) - self.height_min_m >= 0.0
                 and self.height_max_m - float(local[2]) >= 0.0
             )
+            bottom_local = rack_from_world @ (self._plate_bottom_world(data, index) - rack_pos)
+            over_footprint = bool(
+                np.all(local[:2] >= footprint_lo)
+                and np.all(local[:2] <= footprint_hi)
+                and np.all(bottom_local[:2] >= footprint_lo)
+                and np.all(bottom_local[:2] <= footprint_hi)
+            )
             has_rack_contact, has_gripper_contact = self._contact_flags_for_plate(data, body_id)
-            in_rack = spatially_in_rack and has_rack_contact and not has_gripper_contact
+            in_rack = spatially_in_rack and over_footprint and has_rack_contact and not has_gripper_contact
             plate_normal_abs_z = abs(float((_quat_to_rotmat(quat)[:, 2])[2]))
             upright = plate_normal_abs_z <= self.upright_normal_z_max
             horizontal = plate_normal_abs_z >= self.horizontal_normal_z_min
@@ -261,6 +342,8 @@ class DishrackEvaluator:
             spatial_mask.append(bool(spatially_in_rack))
             rack_contact_mask.append(bool(has_rack_contact))
             gripper_contact_mask.append(bool(has_gripper_contact))
+            over_footprint_mask.append(over_footprint)
+            bottom_local_xy.append([float(bottom_local[0]), float(bottom_local[1])])
             in_rack_mask.append(bool(in_rack))
             upright_mask.append(bool(upright))
             horizontal_mask.append(bool(horizontal))
@@ -308,6 +391,9 @@ class DishrackEvaluator:
             "plate_spatially_in_rack_mask": spatial_mask,
             "plate_rack_contact_mask": rack_contact_mask,
             "plate_gripper_contact_mask": gripper_contact_mask,
+            "plate_over_rack_footprint_mask": over_footprint_mask,
+            "plate_bottom_rack_xy": bottom_local_xy,
+            "rack_footprint_xy": [footprint_lo.tolist(), footprint_hi.tolist()],
             "plate_in_rack_mask": in_rack_mask,
             "plate_upright_mask": upright_mask,
             "plate_horizontal_mask": horizontal_mask,
