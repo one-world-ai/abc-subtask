@@ -1,5 +1,7 @@
 # ABC subtask rewards — task queue
 
+**Using the rewards for RL: see [QUICKSTART.md](QUICKSTART.md)** (usable stages, minimal loop, saved starts, paths).
+
 Pipeline (paths relative to the abc repo root): `.claude/skills/abc-subtask-reward` (scorer checks: `.claude/skills/abc-scorer-audit`).
 One ledger per task: `subtask_rewards/<short>/STATUS.md`. Update the status column when a task changes state.
 
