@@ -484,15 +484,18 @@ class PutRelativeRandomizer(SceneRandomizer):
         request: Any | None = None,
     ) -> RandomizationState:
         rng = np.random.default_rng(seed)
+        # A layout whose objects can't all be placed apart is resampled like one with no valid prompt. (It used to
+        # abort the reset: make_env's unseeded prepare_env reset failed now and then.) Seeds that sampled fine before
+        # draw the same random numbers in the same order, so their scenes are unchanged.
         for _ in range(_PUT_RELATIVE_MAX_PROMPT_TRIES):
-            selections = self._sample_selections(rng)
             try:
+                selections = self._sample_selections(rng)
                 prompt_info = _put_relative_sample_prompt(selections, rng)
                 break
             except RuntimeError:
                 continue
         else:
-            raise RuntimeError("put_relative could not sample a valid relative prompt")
+            raise RuntimeError("put_relative could not sample a non-overlapping layout with a valid relative prompt")
 
         xml = _put_relative_build_xml(selections)
         xml = _put_relative_apply_scene_transforms(
