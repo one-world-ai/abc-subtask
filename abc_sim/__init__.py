@@ -54,6 +54,11 @@ def __getattr__(name: str):
             "maybe_get_task_spec": maybe_get_task_spec,
         }[name]
 
+    if name in {"StartSet", "load_starts"}:
+        from abc_sim.task_eval.stagekit.starts import StartSet, load_starts
+
+        return {"StartSet": StartSet, "load_starts": load_starts}[name]
+
     if name in {"TaskEvalResult", "TaskEvaluator", "make_task_evaluator"}:
         from abc_sim.task_eval import TaskEvalResult, TaskEvaluator, make_task_evaluator
 
@@ -367,6 +372,8 @@ __all__ = [
     "get_task_spec",
     "list_task_specs",
     "maybe_get_task_spec",
+    "StartSet",
+    "load_starts",
     "TaskEvalResult",
     "TaskEvaluator",
     "make_task_evaluator",

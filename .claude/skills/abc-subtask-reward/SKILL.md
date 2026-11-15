@@ -18,7 +18,8 @@ Goal of stage k = precondition of stage k+1, so trained subtasks chain back into
 |---|---|
 | sim code (branch `substage-mug` until told otherwise) | `abc_sim/task_eval/` — shared kit `stagekit/`, per task `<short>_stages.py`, `<short>_starts.py`, `<short>_subtask.py` (like mug_flip_*) |
 | other repos used (siblings of this one under policy-finetuning/) | `../simulation` (tooling + venv, branch `torch`), `../envs/mesa-cpu`, `../mug_substages.md` |
-| task specs / registry | `abc_sim/task_specs.py`, `abc_sim/task_eval/registry.py` |
+| task specs / registry | generated: set `TASK, ENV_TASK, NAME` on the evaluator class (`abc_sim/task_eval/subtasks.py`); never edit `task_specs.py` / `registry.py` for a subtask |
+| user API | `env.reset_to_stage`, `env.subtask`, `env.advance_stage`, `abc_sim.load_starts` / `stagekit.save_starts` (`subtask_rewards/QUICKSTART.md`) |
 | tests | `tests/test_<short>_subtasks.py` |
 | tooling (replay, starts, scripted checks, renders) | `../simulation/experiments/subtask_rewards/<short>/` (mug: `../simulation/experiments/mug_stages/`) |
 | outputs | `../simulation/outputs/subtask_rewards/<short>/` |

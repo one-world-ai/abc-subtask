@@ -28,9 +28,12 @@ class StageConfig: hold: int = 5; span: dict; eps: dict; ...   # each threshold:
 class <Task>Scene(ObjectScene): observe(...) adds task measurements (goal distance, orientation, ...)
 def classify(obs, prev, cfg) -> labels                   # sim state only + hysteresis
 def progress(stage, obs) -> np.ndarray
-class <Task>SubtaskEvaluator(SubtaskEvaluator): hooks above; register in task_eval/registry.py
+class <Task>SubtaskEvaluator(SubtaskEvaluator): hooks above, plus
+    TASK, ENV_TASK, NAME = "<task>", "<env_task>", "<short>_subtask"   # self-registration (task_eval/subtasks.py)
 def build_start(env, seed, stage, library, rng) -> (start | None, log)    # start: seed, stage, target, arm, state, rest_height, labels
 ```
-Specs: `<task>__<stage>` in `task_specs.py` with `evaluator_name=<task>_subtask`, `evaluator_options=(("stage", s),)`,
-description "… start with env.reset_to_stage". Rules: goal of stage k ⇔ classify ≥ k+1; the final goal reuses the
+Specs: **do not edit `task_specs.py` or `task_eval/registry.py`.** `abc_sim/task_eval/subtasks.py` finds every
+`<short>_subtask.py` module and turns each class's `STAGE_PROMPTS` keys into `<TASK>__<stage>` specs (prompt from
+`STAGE_PROMPTS`, `evaluator_options=(("stage", s),)`); only list the stages that should be registered. Duplicate
+names or prompts fail at first lookup. Rules: goal of stage k ⇔ classify ≥ k+1; the final goal reuses the
 stock evaluator's per-object success.

@@ -78,42 +78,64 @@ Each `<stage>.npz` holds N starts (N = 80–217), one per row. Example: row 0 of
 - The shapes of `state`, `rest_height` and `labels` vary by task.
 - Handoff carry/drop files add `handoff_scene` and `source`, saying which chain built the row.
 - Mug flip files add `grasp`, `upz`, `lift`, `variant` and `mugs`.
-- `reset_to_stage(seed, row)` uses only `seed`, `state`, `target`/`mug`, `rest_height` and `labels`.
+- `reset_to_stage(seed, row)` uses only `seed`, `state`, `target`, `rest_height` and `labels`.
+- Load files with `abc_sim.load_starts`: it gives every file the same row format (fills `stage`, maps mug flip's
+  `mug` to `target`, makes `seed`/`target`/`arm` plain ints). Write new ones with `stagekit.save_starts`.
 
 ## Minimal loop
 
 ```python
 import numpy as np, abc_sim
 
-task = "put_plastic_bottles_in_bin__carry"           # "<task>__<stage>"
-env = abc_sim.make_env(task=task, render_cameras=False)   # True for images in obs
-z = np.load("final_starts/put_plastic_bottles_in_bin/carry.npz", allow_pickle=True)
-
-def start_row(i):                                     # some keys are scalars (e.g. stage)
-    return {k: (z[k][i] if z[k].ndim else z[k].item()) for k in z.files}
+task, stage = "put_plastic_bottles_in_bin", "carry"
+env = abc_sim.make_env(task=f"{task}__{stage}", render_cameras=False)   # True for images in obs
+starts = abc_sim.load_starts("final_starts", task, stage)                # or set $ABC_SUBTASK_STARTS, pass None
+rng = np.random.default_rng(0)
 
 for ep in range(N):
-    row = start_row(np.random.randint(len(z["seed"])))
-    obs, info = env.reset_to_stage(int(row["seed"]), row)  # exact restore, ms
-    ev = env._task_evaluator                          # fetch AFTER every reset (reset may rebuild it)
-    prompt = info["prompt"]                           # stage prompt, e.g. "carry over the bin opening bottle 5"
+    row = starts.sample(rng)
+    obs, info = env.reset_to_stage(row["seed"], row)   # exact restore, ms
+    prompt = info["prompt"]                            # stage prompt, e.g. "carry over the bin opening bottle 5"
     for chunk in range(MAX_CHUNKS):
         for _ in range(32):
-            obs, _, _, _, _ = env.step(policy(obs))   # 14-D action, see below
-        reward, done = ev.chunk_reward()
-        if done:                                      # +1 success or -1 failure: episode over
+            obs, _, _, _, _ = env.step(policy(obs))    # 14-D action, see below
+        reward, done = env.subtask.chunk_reward()
+        if done:                                       # +1 env.subtask.success, or -1 env.subtask.failure
             break
 ```
+
+`env.subtask` is the current stage's evaluator: `chunk_reward()`, `success`, `failure` (reason string), `last`
+(metrics of the latest step: label, progress, task extras), `next_stage()`. Read it through `env.subtask` each time:
+a reset can rebuild it.
+
+### Chaining stages in one episode
+
+Stages connect: a stage's goal is the next stage's starting condition. After a +1, `env.advance_stage()` switches
+to the stage the target is now in, without a reset (same sim state, same target, labels carried over):
+
+```python
+obs, info = env.reset_to_stage(row["seed"], row)       # e.g. a reach start
+while True:
+    ...                                                # run the policy for this stage until done
+    if not env.subtask.success or env.subtask.next_stage() is None:
+        break                                          # failed, or the target is done
+    info = env.advance_stage()                         # reach -> pick -> (handoff) -> carry -> drop
+```
+
+The next stage is the one the scene actually needs (a same-side LEGO block skips handoff). `advance_stage("x")`
+refuses a stage the target is not in. With the scripted solvers this chains reach → drop in 9 of 20 bottles
+episodes; the misses are solver planning failures. A policy trained only on saved starts may see slightly different
+states when chained (e.g. reach can end anywhere within 5 cm of the object), so mix in chained starts if needed.
 
 ## Critical points
 
 - **Action:** 14-D, 7 per arm, left then right: 6 absolute joint targets, then the gripper in [0, 1] (1 = open).
   `obs["state"]` holds the robot state. Images are in `obs["images"]` if `render_cameras=True`.
-- **The reward ignores env.step's reward.** Use `ev.chunk_reward()`. It returns `(reward, done)` for everything since
+- **The reward ignores env.step's reward.** Use `env.subtask.chunk_reward()`. It returns `(reward, done)` for everything since
   the last call.
 - **32 is not fixed.** The evaluator checks the goal and the failures after every physics step. `chunk_reward()`
   can be called at any interval: every 32 actions (our runs, matching the policy's action chunk), every step, etc.
-- **Reward modes:** set `ev.reward_mode` after each reset.
+- **Reward modes:** set `env.subtask.reward_mode` after each reset.
   - `"progress"` (default) is potential-based. The in-between rewards sum to 0.5 × progress gained, so going
     slowly or wobbling earns nothing extra.
   - `"sign"` gives ±1 per chunk of progress. `"best"` gives +1 per new best. Both need a discount or a per-chunk
@@ -125,8 +147,8 @@ for ep in range(N):
   - `reset_to_stage(seed)` without `row` builds a fresh start: it randomizes the scene, scripts the earlier stages,
     checks the result is valid and that it holds still. That takes about 1–10 s of CPU, too slow per episode.
   - Use the saved pools (80–217 starts per stage, all checked), or prebuild your own with
-    `env._task_evaluator.build_start(env, seed)`. It returns `(start, log)`, and `start` is `None` when that seed
-    has no valid start. To save a pool, stack the returned dicts key by key into an npz in the same format.
+    `env.subtask.build_start(env, seed)`. It returns `(start, log)`, and `start` is `None` when that seed has no
+    valid start. Save a pool with `abc_sim.task_eval.stagekit.save_starts(path, rows, stage=...)`.
   - Seeds don't overlap across tasks.
 - **Speed:** about 5–15 ms per physics step on one CPU core, with no cameras. Run many envs in parallel processes.
 - **Setup:** the `simulation` venv (MuJoCo 3.8.1) with `PYTHONPATH=<abc checkout>`.
@@ -138,11 +160,12 @@ for ep in range(N):
 | what | where |
 |---|---|
 | **Saved start pools** (not in git) | HF dataset `OneWorld-AI/abc-subtask-starts` (see "Get the start states"); our local copy: `simulation/outputs/subtask_rewards/final_starts/` |
-| reset / restore | `abc_sim/env.py` → `reset_to_stage` |
+| reset / restore / chaining | `abc_sim/env.py` → `reset_to_stage`, `subtask`, `advance_stage` |
+| start files | `abc_sim/task_eval/stagekit/starts.py` (`load_starts`, `read_starts`, `save_starts`) |
 | reward kit (`chunk_reward`, reward modes) | `abc_sim/task_eval/stagekit/subtask.py` (+ `scene.py`, `tracker.py`, `holding.py`) |
 | shared handoff stage | `abc_sim/task_eval/handoff_stage.py` |
 | per-task stage logic | `abc_sim/task_eval/<short>_subtask.py`, `<short>_stages.py`, `<short>_starts.py` |
-| spec names (`<task>__<stage>`) | `abc_sim/task_specs.py` |
+| spec names (`<task>__<stage>`) | generated from each evaluator class (`TASK`, `ENV_TASK`, `NAME`, `STAGE_PROMPTS`) by `abc_sim/task_eval/subtasks.py` |
 | stage definitions (goals, failures) | `subtask_rewards/<short>/stage_table.md` |
 | gate results and known issues | `subtask_rewards/<short>/STATUS.md`, `design.md`; overview in `subtask_rewards/README.md` |
 | tests | `tests/test_<short>_subtasks.py` (plain scripts: `python tests/test_bottles_subtasks.py`) |

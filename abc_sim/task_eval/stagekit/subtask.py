@@ -42,6 +42,10 @@ class SubtaskEvaluator:
     FALLEN: int = -1  # label index of an object off the table
     STAGE_PROMPTS: dict[str, str] = {}
     TARGET_KEY = "object"  # metrics key naming the target (mug flip: "mug")
+    # Registration (abc_sim/task_eval/subtasks.py): a subclass that sets TASK gets one task spec per STAGE_PROMPTS key.
+    TASK: str = ""  # parent task, e.g. "put_plastic_bottles_in_bin"; specs are "<TASK>__<stage>"
+    ENV_TASK: str = ""  # scene the specs run in, e.g. "put_bottles"
+    NAME: str = ""  # evaluator key in the specs, e.g. "bottles_subtask"
 
     def __init__(self, *, model: mujoco.MjModel, spec: SimTaskSpec, stage: str, drop_margin_m: float = 0.01,
                  reward_mode: str = "progress", shaping_total: float = 0.5) -> None:
@@ -138,6 +142,41 @@ class SubtaskEvaluator:
 
     def _phi(self) -> float:
         return float(self.progress(self.stage, self.tracker.obs)[self.target])
+
+    # -- chaining ------------------------------------------------------------------------------------------------
+
+    def next_stage(self) -> str | None:
+        """The stage the target is in now, if it is a trainable stage after this one (else None).
+
+        After a +1 this is where the episode continues: stage labels are physical, so it is not always
+        ``STAGES[stage + 1]`` (a same-side LEGO block skips handoff and goes from pick to carry)."""
+        if self.target is None:
+            return None
+        name = self.LABELS[int(self.tracker.committed[self.target])]
+        later = name in self.STAGES and self.STAGES.index(name) > self.stage
+        return name if later and name in self.STAGE_PROMPTS else None
+
+    @property
+    def last(self) -> dict[str, Any]:
+        """Metrics of the latest evaluation (label, progress, failed, terminal, task extras, stock_success)."""
+        return dict(self._last)
+
+    @property
+    def success(self) -> bool:
+        """The stage goal was reached (the episode is over)."""
+        return bool(self._success and not self._failed)
+
+    @property
+    def failure(self) -> str:
+        """The latched failure reason ("" if none; the episode is over when set)."""
+        return self._failed
+
+    def episode_state(self) -> dict[str, Any]:
+        """What another stage's evaluator needs to continue this episode in place: ``begin(**episode_state())``."""
+        if self.target is None:
+            raise RuntimeError("no episode: evaluate (env.step) first")
+        return {"target": self.target, "rest_height": np.array(self.tracker.rest_height, copy=True),
+                "labels": np.array(self.tracker.committed, copy=True)}
 
     # -- evaluation ----------------------------------------------------------------------------------------------
 

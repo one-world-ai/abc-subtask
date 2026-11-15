@@ -345,37 +345,27 @@ class MuJoCoYAMEnv(gym.Env):
 
         self._reset_camera_backend()
         if self._task_evaluator is not None:
-            self._task_evaluator.reset(nworld=1)
-            if self._last_randomization is not None and hasattr(
-                self._task_evaluator,
-                "configure_from_randomization",
-            ):
-                self._task_evaluator.configure_from_randomization(
-                    self.model,
-                    self._last_randomization,
-                )
-            if self._last_randomization is not None and hasattr(
-                self._task_evaluator, "set_active_trash_joints"
-            ):
-                trash_joints = getattr(self._last_randomization, "metadata", {}).get(
-                    "trash_joints"
-                )
-                if trash_joints is not None:
-                    self._task_evaluator.set_active_trash_joints(trash_joints)
-            if self._last_randomization is not None and hasattr(
-                self._task_evaluator, "set_active_object_joints"
-            ):
-                active_joints = getattr(self._last_randomization, "metadata", {}).get(
-                    "active_object_joints"
-                )
-                if active_joints is not None:
-                    self._task_evaluator.set_active_object_joints(active_joints)
+            self._configure_evaluator(self._task_evaluator)
 
         self.cur_step = 0
         info: dict[str, Any] = {}
         if self._last_randomization is not None:
             info["randomization"] = self._last_randomization
         return self.get_obs(), info
+
+    def _configure_evaluator(self, evaluator) -> None:
+        """Reset an evaluator for this episode and hand it the episode's randomization (object set, model)."""
+        evaluator.reset(nworld=1)
+        randomization = self._last_randomization
+        if randomization is None:
+            return
+        metadata = getattr(randomization, "metadata", {})
+        if hasattr(evaluator, "configure_from_randomization"):
+            evaluator.configure_from_randomization(self.model, randomization)
+        if hasattr(evaluator, "set_active_trash_joints") and metadata.get("trash_joints") is not None:
+            evaluator.set_active_trash_joints(metadata["trash_joints"])
+        if hasattr(evaluator, "set_active_object_joints") and metadata.get("active_object_joints") is not None:
+            evaluator.set_active_object_joints(metadata["active_object_joints"])
 
     def reset_to_snapshot(
         self,
@@ -406,24 +396,38 @@ class MuJoCoYAMEnv(gym.Env):
         info["restored_time"] = float(self.data.time)
         return self.get_obs(), info
 
+    @property
+    def subtask(self):
+        """The current subtask evaluator (``stagekit.SubtaskEvaluator``), or None for a whole-task env.
+
+        Read it after every reset: a reset can rebuild the evaluator (scenes whose object count changes swap the
+        model). Use ``env.subtask.chunk_reward()`` for the RL reward and ``env.subtask.last`` for the metrics."""
+        from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
+
+        ev = self._task_evaluator
+        return ev if isinstance(ev, SubtaskEvaluator) else None
+
+    def _require_subtask(self):
+        ev = self.subtask
+        if ev is None:
+            raise RuntimeError(f"task {self._task_request!r} is not a subtask (<task>__<stage> with a SubtaskEvaluator)")
+        return ev
+
     def reset_to_stage(self, seed: int, start: dict | None = None, *, rng: np.random.Generator | None = None):
         """Start a subtask episode (a ``<task>__<stage>`` task whose evaluator is a ``stagekit.SubtaskEvaluator``):
         the scene of ``seed`` with the stage's precondition already true, e.g. the mug held for mug-flip rotate.
 
-        ``start``: a saved start (the evaluator's ``build_start`` result or a start-set row with seed, the target
-        index under ``target`` or the task's own key (mug flip: ``mug``), state, rest_height, labels); it is restored
-        exactly. Without it the start is built now (~2 s). Returns ``(obs, info)``; ``info`` has the target, the arm
-        and the subtask prompt.
+        ``start``: a saved start (a row of ``stagekit.load_starts``, or an evaluator's ``build_start`` result: seed,
+        target, state, rest_height, labels, arm); it is restored exactly. Without it the start is built now (about
+        1-10 s). Returns ``(obs, info)``; ``info`` has the subtask, the target, the arm and the prompt.
         """
-        ev = self._task_evaluator
-        if not hasattr(ev, "begin") or not hasattr(ev, "stage_name") or not hasattr(ev, "build_start"):
-            raise RuntimeError(f"task {self._task_request!r} is not a subtask (<task>__<stage> with a SubtaskEvaluator)")
+        ev = self._require_subtask()
         if start is None:
             start, log = ev.build_start(self, seed, rng=rng)
             if start is None:
                 raise RuntimeError(f"could not build a {ev.stage_name} start for seed {seed}: {log[-3:]}")
         obs, info = self.reset_to_snapshot(int(start["seed"]), np.asarray(start["state"], dtype=np.float64))
-        ev = self._task_evaluator  # reset() rebuilds the evaluator when the scene swaps models (object count)
+        ev = self._require_subtask()  # reset() rebuilds the evaluator when the scene swaps models (object count)
         key = "target" if "target" in start else ev.TARGET_KEY
         target = int(start[key])
         ev.begin(self.model, self.data, target, rest_height=np.asarray(start["rest_height"], dtype=np.float64),
@@ -432,6 +436,35 @@ class MuJoCoYAMEnv(gym.Env):
         info.update(subtask=ev.stage_name, target=target, arm=int(start.get("arm", -1)), prompt=self.prompt)
         info[ev.TARGET_KEY] = target
         return self.get_obs(), info
+
+    def advance_stage(self, stage: str | None = None) -> dict[str, Any]:
+        """Continue this episode in another stage of the same task, in place (no reset, the sim state is kept).
+
+        ``stage``: the stage to switch to; by default the one the target is in now (``subtask.next_stage()``),
+        which after a +1 is the next stage the scene actually needs (a same-side LEGO block skips handoff). The new
+        stage's evaluator starts from the current labels and the episode's rest heights, so its first chunk reward
+        is the new stage's own progress. Raises if there is no later stage to go to. Returns the new stage's info
+        (subtask, target, prompt); read ``env.subtask`` again afterwards.
+        """
+        from abc_sim.task_eval.subtasks import stage_spec
+
+        old = self._require_subtask()
+        state = old.episode_state()
+        label = old.LABELS[int(state["labels"][state["target"]])]
+        stage = stage or old.next_stage()
+        if stage is None:
+            raise RuntimeError(f"no later {old.TASK} stage to continue in: the target is at {label!r}")
+        if stage != label:  # the new evaluator would latch "back to ..." or succeed on its first step
+            raise ValueError(f"the target is at {label!r}, not {stage!r}: a stage can only continue where it is")
+        spec = stage_spec(old.TASK, stage)
+        evaluator = make_task_evaluator(self.model, spec)
+        self._configure_evaluator(evaluator)
+        evaluator.begin(self.model, self.data, **state)
+        self._task_request, self._task_spec, self._task_evaluator = spec.name, spec, evaluator
+        self.prompt = evaluator.stage_prompt()
+        info = {"subtask": evaluator.stage_name, "target": state["target"], "prompt": self.prompt}
+        info[evaluator.TARGET_KEY] = state["target"]
+        return info
 
     def step(self, action: np.ndarray, *, render_obs: bool = True):
         """Apply one 14D policy-space action.

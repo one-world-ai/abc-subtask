@@ -9,7 +9,7 @@ Full design + reasoning: `../mug_substages.md` (policy-finetuning root, next to 
 | `abc_sim/task_eval/mug_flip_subtask.py` | evaluator: `begin`, per-step latched failures (dropped, regressed, off table), `chunk_reward` modes, potential-based shaping |
 | `abc_sim/task_eval/mug_flip_starts.py` | `ik_link6` (damped LS on link_6 pose), `place_gripper`, `hold_mug` (weightless close 10 actions, gravity hold 30, checks), `build_start` per stage, grasp library I/O |
 | `abc_sim/env.py` | `reset_to_snapshot` (forget_arm_state → reset(seed) → evaluate once → mj_setState), `reset_to_stage` |
-| `abc_sim/task_specs.py`, `task_eval/registry.py` | `turn_mug_right_side_up__<stage>` specs with `evaluator_options` |
+| `task_eval/subtasks.py` | generates the `turn_mug_right_side_up__<stage>` specs from `MugFlipSubtaskEvaluator` (`TASK`, `STAGE_PROMPTS`) |
 | `tests/test_mug_flip_subtasks.py`, `test_stage_starts.py` | the G2 test set |
 | `../simulation/experiments/mug_stages/replay_stages.py` | bit-exact replay of exp12 server traces (state check at every model call) |
 | same dir: `extract_grasps.py`, `build_starts.py` | grasp mining, 100 starts per stage (`SEED_BASE` 9e8) |

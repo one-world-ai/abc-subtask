@@ -8,8 +8,12 @@
   Paint the object of interest a bright colour (`geom_rgba`, `geom_matid=-1`) — dark meshes are unreadable.
 - `reset()` carries the previous arm pose over, which changes the randomized scene → `forget_arm_state()` first
   (done inside `reset_to_snapshot`).
-- Scenes with variable object counts swap the MjModel and the evaluator on reset → re-fetch
-  `env._task_evaluator` after every reset/restore.
+- Scenes with variable object counts swap the MjModel and the evaluator on reset → read `env.subtask` after every
+  reset/restore (never keep an evaluator across resets).
+- Holding still: repeat one fixed action. An action rebuilt from the current qpos every step lets the arm sag under
+  gravity (a held bottle sank 8 → 2.7 cm in 3 chunks and fell back to pick).
+- Chained solvers: decide the arm once per episode. Re-deciding it from the object's position (e.g. y > 0) picks the
+  other arm once the object has moved, and opens the wrong gripper.
 - Task prompts are lookup keys: every subtask prompt must normalize to a string no other task uses.
 - Assets are per task: `python prepare.py --sim-task <task>` in the abc checkout before first use.
 - Object frames are not object-centred: ShapeNet meshes are bounding-box-centred, so a mug's cup axis is 0.6–2 cm off
