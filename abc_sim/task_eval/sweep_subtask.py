@@ -10,6 +10,7 @@ from abc_sim.task_eval.sweep_stages import (C, D, FALLEN, LABELS, STAGE_PROMPTS,
 
 
 class SweepSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "sweep_away_paper_scraps_from_table", "sweep", "sweep_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "scrap"
     _active_joints = None

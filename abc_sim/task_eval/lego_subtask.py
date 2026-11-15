@@ -16,6 +16,7 @@ from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 
 class LegoSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "sort_lego_blocks", "lego_blocks_sorting", "lego_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = 'block'
 

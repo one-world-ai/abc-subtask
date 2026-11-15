@@ -14,6 +14,7 @@ from abc_sim.task_eval.nuts_bolts_stages import (STAGES,LABELS,FALLEN,STAGE_PROM
 from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 class NutsBoltsSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "sort_nuts_and_bolts", "nuts_bolts_sorting", "nuts_bolts_subtask"  # registration: task_eval/subtasks.py
     STAGES,LABELS,FALLEN,STAGE_PROMPTS=STAGES,LABELS,FALLEN,STAGE_PROMPTS
     TARGET_KEY='part'
     def make_config(self):return StageConfig()

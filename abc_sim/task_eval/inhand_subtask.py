@@ -45,6 +45,7 @@ def side_of(randomization: object) -> str | None:
 
 
 class InhandSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "inhand_transfer_item_to_other_side", "inhand_transfer", "inhand_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "target"
 

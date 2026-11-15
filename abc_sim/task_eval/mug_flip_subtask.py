@@ -39,6 +39,7 @@ from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 
 class MugFlipSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "turn_mug_right_side_up", "mug_flip", "mug_flip_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "mug"
 

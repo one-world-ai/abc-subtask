@@ -16,6 +16,7 @@ from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 
 class MugRackSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "hang_mug_on_mug_rack", "mug_tree", "mug_rack_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "mug"
 

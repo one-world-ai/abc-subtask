@@ -13,6 +13,7 @@ from abc_sim.task_eval.clutter_stages import C,H,PL,R,FALLEN,LABELS,STAGES,STAGE
 from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 class ClutterSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "grab_specific_object_from_clutter", "grab_clutter", "clutter_subtask"  # registration: task_eval/subtasks.py
     STAGES,LABELS,FALLEN,STAGE_PROMPTS=STAGES,LABELS,FALLEN,STAGE_PROMPTS
     TARGET_KEY='target'
     def reset(self,*,nworld=1):

@@ -96,6 +96,7 @@ class _DrawerSubtaskEvaluator(SubtaskEvaluator):
 
 
 class DrawerOpenSubtaskEvaluator(_DrawerSubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "open_drawer", "drawer_open", "open_drawer_subtask"  # registration: task_eval/subtasks.py
     STAGES = OPEN_STAGES
     FALLEN = len(OPEN_STAGES)  # never produced: drawers cannot fall
     LABELS = OPEN_STAGES + ("fallen",)
@@ -111,6 +112,7 @@ class DrawerOpenSubtaskEvaluator(_DrawerSubtaskEvaluator):
 
 
 class DrawerCloseSubtaskEvaluator(_DrawerSubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "close_drawer", "drawer_close", "close_drawer_subtask"  # registration: task_eval/subtasks.py
     STAGES = CLOSE_STAGES
     FALLEN = len(CLOSE_STAGES)
     LABELS = CLOSE_STAGES + ("fallen",)

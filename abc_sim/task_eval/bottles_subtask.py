@@ -10,6 +10,7 @@ from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 
 class BottleSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "put_plastic_bottles_in_bin", "put_bottles", "bottles_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "bottle"
 

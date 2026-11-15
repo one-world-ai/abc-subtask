@@ -22,6 +22,7 @@ from abc_sim.task_eval.stagekit.subtask import SubtaskEvaluator
 
 
 class DishrackSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "load_plates_into_dish_rack", "dishrack", "dishrack_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "plate"
 

@@ -49,6 +49,7 @@ def goal_from_randomization(randomization: object) -> dict | None:
 
 
 class PutRelativeSubtaskEvaluator(SubtaskEvaluator):
+    TASK, ENV_TASK, NAME = "put_relative", "put_relative", "put_relative_subtask"  # registration: task_eval/subtasks.py
     STAGES, LABELS, FALLEN, STAGE_PROMPTS = STAGES, LABELS, FALLEN, STAGE_PROMPTS
     TARGET_KEY = "target"
 
