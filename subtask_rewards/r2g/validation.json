@@ -1,0 +1,3175 @@
+{
+ "organize_the_condiment_bottles__reach": {
+  "starts": "100/100",
+  "cpu": "0.16 / 0.22",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "jar02_red_left": 24,
+   "jar01_red_right": 21,
+   "jar04_silver": 27,
+   "bottle05_black": 28
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "16/16 (of 20)"
+  },
+  "gap": 1.29,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 0,
+    "none": 1,
+    "as_expected": 19,
+    "mean_return": 1.292,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.089,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 16,
+    "plus": 0,
+    "minus": 6,
+    "none": 10,
+    "as_expected": 16,
+    "mean_return": -0.374,
+    "failures": {
+     "pushed": 6
+    }
+   }
+  }
+ },
+ "organize_the_condiment_bottles__pick": {
+  "starts": "100/100",
+  "cpu": "0.66 / 2.47",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "jar02_red_left": 24,
+   "jar01_red_right": 21,
+   "jar04_silver": 27,
+   "bottle05_black": 28
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "14/20 / 14/14",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "0/0 (of 20)"
+  },
+  "gap": 1.35,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 14,
+    "plus": 14,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 14,
+    "mean_return": 1.5,
+    "failures": {}
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.151,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 19,
+    "none": 1,
+    "as_expected": 20,
+    "mean_return": -0.95,
+    "failures": {
+     "back to reach": 16,
+     "pushed": 3
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 0,
+    "plus": 0,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 0,
+    "mean_return": null,
+    "failures": {}
+   }
+  }
+ },
+ "organize_the_condiment_bottles__carry": {
+  "starts": "87/100",
+  "cpu": "1.09 / 3.07",
+  "G3": true,
+  "dropped": {
+   "idle: back to pick": 8,
+   "build: gripper/object pose collides with something": 5
+  },
+  "targets": {
+   "jar02_red_left": 24,
+   "jar04_silver": 24,
+   "bottle05_black": 27,
+   "jar01_red_right": 12
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "wrong_way": "14/14 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.15,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.155,
+    "failures": {}
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 14,
+    "plus": 0,
+    "minus": 0,
+    "none": 14,
+    "as_expected": 14,
+    "mean_return": -0.124,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.001,
+    "failures": {}
+   }
+  }
+ },
+ "organize_the_condiment_bottles__place": {
+  "starts": "95/100",
+  "cpu": "1.61 / 4.47",
+  "G3": true,
+  "dropped": {
+   "build: gripper/object pose collides with something": 5
+  },
+  "targets": {
+   "jar02_red_left": 24,
+   "jar01_red_right": 16,
+   "jar04_silver": 27,
+   "bottle05_black": 28
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "20/20 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.07,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.099,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -0.982,
+    "failures": {
+     "back to carry": 14,
+     "back to pick": 6
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.03,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.033,
+    "failures": {}
+   }
+  }
+ },
+ "organize_the_makeup__reach": {
+  "starts": "100/100",
+  "cpu": "0.16 / 0.24",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "eyeshadow_palette": 17,
+   "compact_case": 15,
+   "lip_gloss": 11,
+   "lipstick_case": 12,
+   "sponge_puff": 16,
+   "green_puff": 29
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "20/20 (of 20)"
+  },
+  "gap": 1.36,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.362,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.08,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 2,
+    "none": 18,
+    "as_expected": 20,
+    "mean_return": -0.1,
+    "failures": {
+     "pushed": 2
+    }
+   }
+  }
+ },
+ "organize_the_makeup__pick": {
+  "starts": "97/100",
+  "cpu": "0.38 / 3.86",
+  "G3": true,
+  "dropped": {
+   "build: open fingers touch something": 3
+  },
+  "targets": {
+   "eyeshadow_palette": 17,
+   "compact_case": 15,
+   "lip_gloss": 9,
+   "lipstick_case": 12,
+   "sponge_puff": 16,
+   "green_puff": 28
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "9/9 (of 20)"
+  },
+  "gap": 1.35,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.5,
+    "failures": {}
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.15,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 17,
+     "pushed": 3
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 9,
+    "plus": 0,
+    "minus": 9,
+    "none": 0,
+    "as_expected": 9,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 9
+    }
+   }
+  }
+ },
+ "organize_the_makeup__carry": {
+  "starts": "86/100",
+  "cpu": "4.52 / 7.43",
+  "G3": true,
+  "dropped": {
+   "build: container out of the left arm's reach from above (IK 0.112 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.058 m": 1,
+   "build: container out of the right arm's reach from above (IK 0.070 ": 1,
+   "build: container out of the left arm's reach from above (IK 0.047 m": 1,
+   "build: container out of the right arm's reach from above (IK 0.058 ": 1,
+   "build: container out of the left arm's reach from above (IK 0.099 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.032 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.033 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.014 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.177 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.222 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.038 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.034 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.074 m": 1
+  },
+  "targets": {
+   "compact_case": 14,
+   "lip_gloss": 11,
+   "sponge_puff": 14,
+   "green_puff": 25,
+   "eyeshadow_palette": 12,
+   "lipstick_case": 10
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "18/20 / 18/18",
+  "hacks": {
+   "wrong_way": "20/20 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.17,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 18,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": 1.167,
+    "failures": {}
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.127,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.002,
+    "failures": {}
+   }
+  }
+ },
+ "organize_the_makeup__place": {
+  "starts": "83/100",
+  "cpu": "5.58 / 8.07",
+  "G3": true,
+  "dropped": {
+   "build: container out of the left arm's reach from above (IK 0.112 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.058 m": 1,
+   "build: container out of the right arm's reach from above (IK 0.070 ": 1,
+   "build: container out of the left arm's reach from above (IK 0.047 m": 1,
+   "build: container out of the right arm's reach from above (IK 0.058 ": 1,
+   "build: container out of the left arm's reach from above (IK 0.099 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.032 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.033 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.019 m": 1,
+   "build: classified as pick": 1,
+   "build: container out of the left arm's reach from above (IK 0.014 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.177 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.222 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.038 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.061 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.034 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.074 m": 1
+  },
+  "targets": {
+   "compact_case": 14,
+   "lip_gloss": 11,
+   "sponge_puff": 14,
+   "green_puff": 23,
+   "eyeshadow_palette": 11,
+   "lipstick_case": 10
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "16/16 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.09,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.127,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 16,
+    "plus": 0,
+    "minus": 16,
+    "none": 0,
+    "as_expected": 16,
+    "mean_return": -0.988,
+    "failures": {
+     "back to carry": 16
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.035,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.0,
+    "failures": {}
+   }
+  }
+ },
+ "place_and_organize_the_beverage_onto_the_shelf__reach": {
+  "starts": "100/100",
+  "cpu": "0.15 / 0.24",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "pocari_2": 13,
+   "pocari_1": 23,
+   "redbull_1": 24,
+   "redbull_2": 15,
+   "chang_1": 14,
+   "chang_2": 11
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "20/20 (of 20)"
+  },
+  "gap": 1.23,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.226,
+    "failures": {
+     "pushed": 1
+    }
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.076,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 2,
+    "none": 18,
+    "as_expected": 20,
+    "mean_return": -0.097,
+    "failures": {
+     "pushed": 2
+    }
+   }
+  }
+ },
+ "place_and_organize_the_beverage_onto_the_shelf__pick": {
+  "starts": "90/100",
+  "cpu": "0.75 / 4.07",
+  "G3": true,
+  "dropped": {
+   "build: open fingers touch something": 8,
+   "build: target pushed 0.017 m while settling": 1,
+   "build: target pushed 0.013 m while settling": 1
+  },
+  "targets": {
+   "pocari_2": 13,
+   "pocari_1": 23,
+   "redbull_1": 23,
+   "redbull_2": 13,
+   "chang_1": 10,
+   "chang_2": 8
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "19/20 / 19/19",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "7/7 (of 20)"
+  },
+  "gap": 1.34,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 19,
+    "plus": 19,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.5,
+    "failures": {}
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.163,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 19,
+    "none": 1,
+    "as_expected": 20,
+    "mean_return": -0.935,
+    "failures": {
+     "back to reach": 12,
+     "pushed": 7
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 7,
+    "plus": 0,
+    "minus": 7,
+    "none": 0,
+    "as_expected": 7,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 7
+    }
+   }
+  }
+ },
+ "place_and_organize_the_beverage_onto_the_shelf__carry": {
+  "starts": "85/100",
+  "cpu": "1.4 / 6.73",
+  "G3": true,
+  "dropped": {
+   "idle: back to pick": 13,
+   "build: gripper/object pose collides with something": 2
+  },
+  "targets": {
+   "pocari_2": 9,
+   "pocari_1": 19,
+   "redbull_1": 21,
+   "redbull_2": 15,
+   "chang_1": 12,
+   "chang_2": 9
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "18/20 / 18/20",
+  "hacks": {
+   "wrong_way": "20/20 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.01,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 18,
+    "minus": 2,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": 1.002,
+    "failures": {
+     "container moved or tipped": 1,
+     "released outside the container": 1
+    }
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 7,
+    "none": 13,
+    "as_expected": 20,
+    "mean_return": -0.467,
+    "failures": {
+     "back to pick": 7
+    }
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.004,
+    "failures": {}
+   }
+  }
+ },
+ "place_and_organize_the_beverage_onto_the_shelf__place": {
+  "starts": "61/100",
+  "cpu": "3.42 / 8.93",
+  "G3": false,
+  "dropped": {
+   "build: gripper/object pose collides with something": 18,
+   "idle: place": 18,
+   "build: container out of the right arm's reach from above (IK 0.374 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.316 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.516 ": 1
+  },
+  "targets": {
+   "pocari_1": 17,
+   "redbull_2": 9,
+   "pocari_2": 5,
+   "redbull_1": 13,
+   "chang_1": 11,
+   "chang_2": 6
+  },
+  "G4": false,
+  "G5": false,
+  "solver": "10/20 / 10/20",
+  "hacks": {
+   "release_beside": "18/18 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 0.02,
+  "hack_plus": {
+   "drop_high": "8/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 10,
+    "minus": 10,
+    "none": 0,
+    "as_expected": 10,
+    "mean_return": 0.039,
+    "failures": {
+     "landed outside the container": 6,
+     "back to pick": 4
+    }
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 0,
+    "minus": 18,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": -0.998,
+    "failures": {
+     "back to carry": 13,
+     "landed outside the container": 4,
+     "back to pick": 1
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.02,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 8,
+    "minus": 12,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -0.17,
+    "failures": {
+     "landed outside the container": 6,
+     "back to pick": 6
+    }
+   }
+  }
+ },
+ "place_and_organize_the_canned_foods_onto_the_counter__reach": {
+  "starts": "100/100",
+  "cpu": "0.14 / 0.23",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "progresso_1": 18,
+   "congee_2": 13,
+   "congee_1": 21,
+   "progresso_2": 20,
+   "short_can_2": 9,
+   "short_can_1": 19
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/19",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "17/17 (of 20)"
+  },
+  "gap": 1.36,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 19,
+    "plus": 19,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.359,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.07,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 17,
+    "plus": 0,
+    "minus": 4,
+    "none": 13,
+    "as_expected": 17,
+    "mean_return": -0.243,
+    "failures": {
+     "pushed": 4
+    }
+   }
+  }
+ },
+ "place_and_organize_the_canned_foods_onto_the_counter__pick": {
+  "starts": "97/100",
+  "cpu": "0.46 / 2.6",
+  "G3": true,
+  "dropped": {
+   "build: open fingers touch something": 3
+  },
+  "targets": {
+   "progresso_1": 18,
+   "congee_2": 13,
+   "congee_1": 21,
+   "progresso_2": 17,
+   "short_can_2": 9,
+   "short_can_1": 19
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "15/20 / 15/16",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "8/8 (of 20)"
+  },
+  "gap": 1.2,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 16,
+    "plus": 15,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 15,
+    "mean_return": 1.344,
+    "failures": {
+     "back to reach": 1
+    }
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.147,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 17,
+     "pushed": 3
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 8,
+    "plus": 0,
+    "minus": 8,
+    "none": 0,
+    "as_expected": 8,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 8
+    }
+   }
+  }
+ },
+ "place_and_organize_the_canned_foods_onto_the_counter__carry": {
+  "starts": "88/100",
+  "cpu": "0.98 / 9.34",
+  "G3": true,
+  "dropped": {
+   "idle: back to pick": 12
+  },
+  "targets": {
+   "progresso_1": 16,
+   "congee_2": 11,
+   "congee_1": 17,
+   "progresso_2": 19,
+   "short_can_1": 17,
+   "short_can_2": 8
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "wrong_way": "18/18 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.15,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.146,
+    "failures": {
+     "container moved or tipped": 1
+    }
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 18,
+    "plus": 0,
+    "minus": 3,
+    "none": 15,
+    "as_expected": 18,
+    "mean_return": -0.295,
+    "failures": {
+     "back to pick": 3
+    }
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.004,
+    "failures": {}
+   }
+  }
+ },
+ "place_and_organize_the_canned_foods_onto_the_counter__place": {
+  "starts": "52/100",
+  "cpu": "2.77 / 11.42",
+  "G3": false,
+  "dropped": {
+   "build: container out of the left arm's reach from above (IK 0.250 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.273 m": 1,
+   "idle: place": 38,
+   "build: container out of the left arm's reach from above (IK 0.277 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.289 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.344 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.266 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.332 m": 1,
+   "idle: container moved or tipped": 2,
+   "build: build took 11.4 CPU s": 1
+  },
+  "targets": {
+   "progresso_1": 10,
+   "congee_2": 9,
+   "progresso_2": 10,
+   "short_can_2": 6,
+   "short_can_1": 4,
+   "congee_1": 13
+  },
+  "G4": false,
+  "G5": false,
+  "solver": "13/20 / 13/20",
+  "hacks": {
+   "release_beside": "19/19 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 0.32,
+  "hack_plus": {
+   "drop_high": "11/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 13,
+    "minus": 7,
+    "none": 0,
+    "as_expected": 13,
+    "mean_return": 0.332,
+    "failures": {
+     "landed outside the container": 6,
+     "container moved or tipped": 1
+    }
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 19,
+    "plus": 0,
+    "minus": 19,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": -0.998,
+    "failures": {
+     "back to carry": 17,
+     "landed outside the container": 2
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.016,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 11,
+    "minus": 9,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 0.111,
+    "failures": {
+     "landed outside the container": 9
+    }
+   }
+  }
+ },
+ "place_and_organize_the_fake_fruits_in_the_fruit_bowl__reach": {
+  "starts": "100/100",
+  "cpu": "0.19 / 0.25",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "orange_red_fruit": 59,
+   "yellow_pear": 41
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "14/14 (of 20)"
+  },
+  "gap": 1.36,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.363,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.076,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 14,
+    "plus": 0,
+    "minus": 1,
+    "none": 13,
+    "as_expected": 14,
+    "mean_return": -0.072,
+    "failures": {
+     "container moved or tipped": 1
+    }
+   }
+  }
+ },
+ "place_and_organize_the_fake_fruits_in_the_fruit_bowl__pick": {
+  "starts": "100/100",
+  "cpu": "0.31 / 1.77",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "orange_red_fruit": 59,
+   "yellow_pear": 41
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "16/20 / 16/16",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "13/13 (of 20)"
+  },
+  "gap": 1.35,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 16,
+    "plus": 16,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 16,
+    "mean_return": 1.5,
+    "failures": {}
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.15,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 19,
+    "none": 1,
+    "as_expected": 20,
+    "mean_return": -0.95,
+    "failures": {
+     "back to reach": 16,
+     "pushed": 3
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 13,
+    "plus": 0,
+    "minus": 13,
+    "none": 0,
+    "as_expected": 13,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 13
+    }
+   }
+  }
+ },
+ "place_and_organize_the_fake_fruits_in_the_fruit_bowl__carry": {
+  "starts": "98/100",
+  "cpu": "2.36 / 6.86",
+  "G3": true,
+  "dropped": {
+   "build: container out of the left arm's reach from above (IK 0.134 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.111 m": 1
+  },
+  "targets": {
+   "orange_red_fruit": 57,
+   "yellow_pear": 41
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "18/20 / 18/18",
+  "hacks": {
+   "wrong_way": "18/18 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.14,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 18,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": 1.143,
+    "failures": {}
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 18,
+    "plus": 0,
+    "minus": 0,
+    "none": 18,
+    "as_expected": 18,
+    "mean_return": -0.126,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   }
+  }
+ },
+ "place_and_organize_the_fake_fruits_in_the_fruit_bowl__place": {
+  "starts": "97/100",
+  "cpu": "2.72 / 6.73",
+  "G3": true,
+  "dropped": {
+   "build: classified as pick": 1,
+   "build: container out of the left arm's reach from above (IK 0.134 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.111 m": 1
+  },
+  "targets": {
+   "orange_red_fruit": 56,
+   "yellow_pear": 41
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "15/15 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.18,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.198,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 15,
+    "plus": 0,
+    "minus": 15,
+    "none": 0,
+    "as_expected": 15,
+    "mean_return": -0.993,
+    "failures": {
+     "back to carry": 15
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.016,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.0,
+    "failures": {}
+   }
+  }
+ },
+ "put_the_screwdriver_in_the_bin__reach": {
+  "starts": "100/100",
+  "cpu": "0.18 / 0.26",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver": 100
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "20/20 (of 20)"
+  },
+  "gap": 1.41,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.408,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.099,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 3,
+    "none": 17,
+    "as_expected": 20,
+    "mean_return": -0.15,
+    "failures": {
+     "pushed": 1,
+     "container moved or tipped": 2
+    }
+   }
+  }
+ },
+ "put_the_screwdriver_in_the_bin__pick": {
+  "starts": "100/100",
+  "cpu": "0.26 / 0.5",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver": 100
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "12/12 (of 20)"
+  },
+  "gap": 1.23,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.375,
+    "failures": {
+     "back to reach": 1
+    }
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.142,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 12,
+    "plus": 0,
+    "minus": 12,
+    "none": 0,
+    "as_expected": 12,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 12
+    }
+   }
+  }
+ },
+ "put_the_screwdriver_in_the_bin__carry": {
+  "starts": "100/100",
+  "cpu": "1.31 / 5.04",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver": 100
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "wrong_way": "20/20 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.13,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.127,
+    "failures": {}
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.121,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 12,
+     "back to pick": 8
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   }
+  }
+ },
+ "put_the_screwdriver_in_the_bin__place": {
+  "starts": "100/100",
+  "cpu": "2.52 / 6.59",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver": 100
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "18/18 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.14,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.163,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 0,
+    "minus": 18,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": -0.994,
+    "failures": {
+     "back to carry": 18
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.023,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.126,
+    "failures": {}
+   }
+  }
+ },
+ "put_the_wine_bottle_on_the_wine_rack__reach": {
+  "starts": "100/100",
+  "cpu": "0.21 / 0.31",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "wine_a": 14,
+   "square_a": 14,
+   "square_b": 13,
+   "wine_b": 23,
+   "round_a": 17,
+   "slim": 6,
+   "round_b": 13
+  },
+  "G4": false,
+  "G5": false,
+  "solver": "5/20 / 5/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "15/15 (of 20)"
+  },
+  "gap": 0.11,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 5,
+    "minus": 7,
+    "none": 8,
+    "as_expected": 5,
+    "mean_return": 0.108,
+    "failures": {
+     "pushed": 7
+    }
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.085,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 15,
+    "plus": 0,
+    "minus": 9,
+    "none": 6,
+    "as_expected": 15,
+    "mean_return": -0.598,
+    "failures": {
+     "pushed": 9
+    }
+   }
+  }
+ },
+ "put_the_wine_bottle_on_the_wine_rack__pick": {
+  "starts": "76/100",
+  "cpu": "1.57 / 4.5",
+  "G3": false,
+  "dropped": {
+   "build: open fingers touch something": 18,
+   "build: target pushed 0.017 m while settling": 1,
+   "build: target pushed 0.050 m while settling": 1,
+   "build: target pushed 0.025 m while settling": 1,
+   "idle: pick": 2,
+   "build: target pushed 0.021 m while settling": 1
+  },
+  "targets": {
+   "square_a": 11,
+   "square_b": 13,
+   "wine_a": 8,
+   "wine_b": 23,
+   "round_a": 11,
+   "slim": 6,
+   "round_b": 4
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "17/20 / 17/17",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "3/3 (of 20)"
+  },
+  "gap": 1.27,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 17,
+    "plus": 17,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 17,
+    "mean_return": 1.458,
+    "failures": {}
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.183,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 18,
+    "none": 2,
+    "as_expected": 20,
+    "mean_return": -0.87,
+    "failures": {
+     "pushed": 18
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 3,
+    "plus": 0,
+    "minus": 2,
+    "none": 1,
+    "as_expected": 3,
+    "mean_return": -0.667,
+    "failures": {
+     "back to reach": 2
+    }
+   }
+  }
+ },
+ "put_the_wine_bottle_on_the_wine_rack__carry": {
+  "starts": "90/100",
+  "cpu": "0.81 / 5.45",
+  "G3": true,
+  "dropped": {
+   "idle: back to pick": 8,
+   "build: gripper/object pose collides with something": 2
+  },
+  "targets": {
+   "wine_a": 12,
+   "square_a": 12,
+   "square_b": 12,
+   "wine_b": 20,
+   "round_a": 16,
+   "slim": 6,
+   "round_b": 12
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "wrong_way": "16/16 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.13,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": 1.132,
+    "failures": {
+     "released outside the container": 1
+    }
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 16,
+    "plus": 0,
+    "minus": 1,
+    "none": 15,
+    "as_expected": 16,
+    "mean_return": -0.19,
+    "failures": {
+     "back to pick": 1
+    }
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.002,
+    "failures": {}
+   }
+  }
+ },
+ "put_the_wine_bottle_on_the_wine_rack__place": {
+  "starts": "98/100",
+  "cpu": "1.12 / 4.18",
+  "G3": true,
+  "dropped": {
+   "build: gripper/object pose collides with something": 2
+  },
+  "targets": {
+   "wine_a": 14,
+   "square_a": 14,
+   "square_b": 12,
+   "wine_b": 23,
+   "round_a": 17,
+   "slim": 6,
+   "round_b": 12
+  },
+  "G4": false,
+  "G5": false,
+  "solver": "1/20 / 1/20",
+  "hacks": {
+   "release_beside": "19/19 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": -0.9,
+  "hack_plus": {
+   "drop_high": "1/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 1,
+    "minus": 19,
+    "none": 0,
+    "as_expected": 1,
+    "mean_return": -0.895,
+    "failures": {
+     "landed outside the container": 19
+    }
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 19,
+    "plus": 0,
+    "minus": 19,
+    "none": 0,
+    "as_expected": 19,
+    "mean_return": -1.0,
+    "failures": {
+     "back to carry": 14,
+     "landed outside the container": 5
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 1,
+    "minus": 18,
+    "none": 1,
+    "as_expected": 20,
+    "mean_return": -0.839,
+    "failures": {
+     "landed outside the container": 18
+    }
+   }
+  }
+ },
+ "sort_the_hair_cutting_tools__reach": {
+  "starts": "100/100",
+  "cpu": "0.18 / 0.28",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "battery": 24,
+   "oil_bottle": 23,
+   "hair_clipper": 20,
+   "guide_comb": 19,
+   "charging_cable": 14
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "20/20 (of 20)"
+  },
+  "gap": 1.43,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.434,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.094,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_hair_cutting_tools__pick": {
+  "starts": "95/100",
+  "cpu": "0.57 / 3.2",
+  "G3": true,
+  "dropped": {
+   "build: open fingers touch something": 5
+  },
+  "targets": {
+   "battery": 21,
+   "oil_bottle": 23,
+   "hair_clipper": 18,
+   "guide_comb": 19,
+   "charging_cable": 14
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "17/20 / 17/18",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "8/8 (of 20)"
+  },
+  "gap": 1.24,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 17,
+    "minus": 1,
+    "none": 0,
+    "as_expected": 17,
+    "mean_return": 1.334,
+    "failures": {
+     "back to reach": 1
+    }
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.099,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 17,
+     "pushed": 3
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 8,
+    "plus": 0,
+    "minus": 8,
+    "none": 0,
+    "as_expected": 8,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 8
+    }
+   }
+  }
+ },
+ "sort_the_hair_cutting_tools__carry": {
+  "starts": "100/100",
+  "cpu": "0.78 / 2.21",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "battery": 24,
+   "oil_bottle": 23,
+   "hair_clipper": 20,
+   "guide_comb": 19,
+   "charging_cable": 14
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "wrong_way": "19/19 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.2,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.196,
+    "failures": {}
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 19,
+    "plus": 0,
+    "minus": 0,
+    "none": 19,
+    "as_expected": 19,
+    "mean_return": -0.123,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.001,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_hair_cutting_tools__place": {
+  "starts": "100/100",
+  "cpu": "1.24 / 3.67",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "battery": 24,
+   "oil_bottle": 23,
+   "hair_clipper": 20,
+   "guide_comb": 19,
+   "charging_cable": 14
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "20/20 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.37,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.374,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -0.999,
+    "failures": {
+     "back to carry": 20
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.004,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.028,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_stationery_into_containers__reach": {
+  "starts": "100/100",
+  "cpu": "0.21 / 0.32",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "pen_green": 16,
+   "spray_bottle": 9,
+   "pen_orange": 19,
+   "marker_yellow_4": 13,
+   "crayon_tube": 14,
+   "marker_yellow_3": 10,
+   "marker_yellow_2": 10,
+   "marker_yellow_1": 9
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "19/20 / 19/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "17/17 (of 20)"
+  },
+  "gap": 1.35,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 0,
+    "none": 1,
+    "as_expected": 19,
+    "mean_return": 1.351,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.084,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 17,
+    "plus": 0,
+    "minus": 0,
+    "none": 17,
+    "as_expected": 17,
+    "mean_return": -0.0,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_stationery_into_containers__pick": {
+  "starts": "100/100",
+  "cpu": "0.44 / 2.84",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "pen_green": 16,
+   "spray_bottle": 9,
+   "pen_orange": 19,
+   "marker_yellow_4": 13,
+   "crayon_tube": 14,
+   "marker_yellow_3": 10,
+   "marker_yellow_2": 10,
+   "marker_yellow_1": 9
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "14/20 / 14/20",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "13/13 (of 20)"
+  },
+  "gap": 0.74,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 14,
+    "minus": 5,
+    "none": 1,
+    "as_expected": 14,
+    "mean_return": 0.821,
+    "failures": {
+     "back to reach": 5
+    }
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.083,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 18,
+    "none": 2,
+    "as_expected": 20,
+    "mean_return": -0.9,
+    "failures": {
+     "back to reach": 18
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 13,
+    "plus": 0,
+    "minus": 13,
+    "none": 0,
+    "as_expected": 13,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 13
+    }
+   }
+  }
+ },
+ "sort_the_stationery_into_containers__carry": {
+  "starts": "100/100",
+  "cpu": "0.65 / 3.05",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "pen_green": 16,
+   "spray_bottle": 9,
+   "pen_orange": 19,
+   "marker_yellow_4": 13,
+   "crayon_tube": 14,
+   "marker_yellow_3": 10,
+   "marker_yellow_2": 10,
+   "marker_yellow_1": 9
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "18/20 / 18/20",
+  "hacks": {
+   "wrong_way": "19/19 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.05,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 18,
+    "minus": 1,
+    "none": 1,
+    "as_expected": 18,
+    "mean_return": 1.047,
+    "failures": {
+     "released outside the container": 1
+    }
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 19,
+    "plus": 0,
+    "minus": 0,
+    "none": 19,
+    "as_expected": 19,
+    "mean_return": -0.128,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.001,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_stationery_into_containers__place": {
+  "starts": "98/100",
+  "cpu": "1.71 / 11.54",
+  "G3": false,
+  "dropped": {
+   "build: container out of the left arm's reach from above (IK 0.128 m": 1,
+   "build: container out of the left arm's reach from above (IK 0.208 m": 1
+  },
+  "targets": {
+   "pen_green": 16,
+   "spray_bottle": 9,
+   "pen_orange": 19,
+   "marker_yellow_4": 13,
+   "crayon_tube": 12,
+   "marker_yellow_3": 10,
+   "marker_yellow_2": 10,
+   "marker_yellow_1": 9
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "release_beside": "20/20 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 1.13,
+  "hack_plus": {
+   "drop_high": "20/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.141,
+    "failures": {}
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -0.996,
+    "failures": {
+     "back to carry": 20
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.008,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.0,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_tools_into_containers__reach": {
+  "starts": "100/100",
+  "cpu": "0.19 / 0.27",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver_2": 23,
+   "screwdriver_1": 15,
+   "pliers_green": 12,
+   "wrench_small": 18,
+   "wrench_large": 17,
+   "pliers_yellow": 15
+  },
+  "G4": true,
+  "G5": false,
+  "solver": "20/20 / 20/20",
+  "hacks": {
+   "move_away": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "7/7 (of 20)"
+  },
+  "gap": 1.42,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 20,
+    "minus": 0,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": 1.419,
+    "failures": {}
+   },
+   "move_away": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.099,
+    "failures": {}
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 7,
+    "plus": 0,
+    "minus": 2,
+    "none": 5,
+    "as_expected": 7,
+    "mean_return": -0.288,
+    "failures": {
+     "container moved or tipped": 2
+    }
+   }
+  }
+ },
+ "sort_the_tools_into_containers__pick": {
+  "starts": "100/100",
+  "cpu": "0.22 / 0.33",
+  "G3": true,
+  "dropped": {},
+  "targets": {
+   "screwdriver_2": 23,
+   "screwdriver_1": 15,
+   "pliers_green": 12,
+   "wrench_small": 18,
+   "wrench_large": 17,
+   "pliers_yellow": 15
+  },
+  "G4": false,
+  "G5": false,
+  "solver": "9/20 / 9/18",
+  "hacks": {
+   "close_only": "20/20 (of 20)",
+   "push": "20/20 (of 20)",
+   "idle": "20/20 (of 20)",
+   "other_arm": "4/4 (of 20)"
+  },
+  "gap": 0.15,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 9,
+    "minus": 9,
+    "none": 0,
+    "as_expected": 9,
+    "mean_return": 0.236,
+    "failures": {
+     "back to reach": 9
+    }
+   },
+   "close_only": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.082,
+    "failures": {}
+   },
+   "push": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "other_arm": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 4,
+    "plus": 0,
+    "minus": 4,
+    "none": 0,
+    "as_expected": 4,
+    "mean_return": -1.0,
+    "failures": {
+     "back to reach": 4
+    }
+   }
+  }
+ },
+ "sort_the_tools_into_containers__carry": {
+  "starts": "85/100",
+  "cpu": "1.59 / 15.37",
+  "G3": false,
+  "dropped": {
+   "build: wedged across the gripper, not pinched (fingers 0.040 m apar": 5,
+   "build: wedged across the gripper, not pinched (fingers 0.039 m apar": 5,
+   "build: wedged across the gripper, not pinched (fingers 0.041 m apar": 1,
+   "build: container out of the right arm's reach from above (IK 0.114 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.183 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.128 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.150 ": 1
+  },
+  "targets": {
+   "screwdriver_2": 23,
+   "screwdriver_1": 14,
+   "pliers_green": 12,
+   "wrench_small": 17,
+   "wrench_large": 17,
+   "pliers_yellow": 2
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "16/20 / 16/20",
+  "hacks": {
+   "wrong_way": "20/20 (of 20)",
+   "open_early": "20/20 (of 20)",
+   "idle": "20/20 (of 20)"
+  },
+  "gap": 1.04,
+  "hack_plus": {},
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 16,
+    "minus": 4,
+    "none": 0,
+    "as_expected": 16,
+    "mean_return": 1.039,
+    "failures": {
+     "released outside the container": 2,
+     "container moved or tipped": 2
+    }
+   },
+   "wrong_way": {
+    "expect": "not+1",
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.128,
+    "failures": {}
+   },
+   "open_early": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 20,
+    "none": 0,
+    "as_expected": 20,
+    "mean_return": -1.0,
+    "failures": {
+     "released outside the container": 20
+    }
+   },
+   "idle": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": -0.0,
+    "failures": {}
+   }
+  }
+ },
+ "sort_the_tools_into_containers__place": {
+  "starts": "78/100",
+  "cpu": "2.88 / 15.59",
+  "G3": false,
+  "dropped": {
+   "build: container out of the right arm's reach from above (IK 0.115 ": 2,
+   "build: wedged across the gripper, not pinched (fingers 0.040 m apar": 6,
+   "build: wedged across the gripper, not pinched (fingers 0.039 m apar": 5,
+   "build: wedged across the gripper, not pinched (fingers 0.041 m apar": 1,
+   "build: container out of the right arm's reach from above (IK 0.114 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.164 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.148 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.183 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.128 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.134 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.144 ": 1,
+   "build: container out of the right arm's reach from above (IK 0.150 ": 1
+  },
+  "targets": {
+   "screwdriver_2": 22,
+   "screwdriver_1": 13,
+   "pliers_green": 12,
+   "wrench_small": 17,
+   "wrench_large": 14
+  },
+  "G4": true,
+  "G5": true,
+  "solver": "17/20 / 17/20",
+  "hacks": {
+   "release_beside": "18/18 (of 20)",
+   "hold_still": "20/20 (of 20)",
+   "drop_high": "20/20 (of 20)"
+  },
+  "gap": 0.76,
+  "hack_plus": {
+   "drop_high": "19/20"
+  },
+  "summary": {
+   "solver": {
+    "expect": 1,
+    "starts": 20,
+    "planned": 20,
+    "plus": 17,
+    "minus": 2,
+    "none": 1,
+    "as_expected": 17,
+    "mean_return": 0.756,
+    "failures": {
+     "landed outside the container": 2
+    }
+   },
+   "release_beside": {
+    "expect": -1,
+    "starts": 20,
+    "planned": 18,
+    "plus": 0,
+    "minus": 18,
+    "none": 0,
+    "as_expected": 18,
+    "mean_return": -1.0,
+    "failures": {
+     "container moved or tipped": 1,
+     "back to carry": 17
+    }
+   },
+   "hold_still": {
+    "expect": 0,
+    "starts": 20,
+    "planned": 20,
+    "plus": 0,
+    "minus": 0,
+    "none": 20,
+    "as_expected": 20,
+    "mean_return": 0.0,
+    "failures": {}
+   },
+   "drop_high": {
+    "expect": "any",
+    "starts": 20,
+    "planned": 20,
+    "plus": 19,
+    "minus": 0,
+    "none": 1,
+    "as_expected": 20,
+    "mean_return": 0.963,
+    "failures": {}
+   }
+  }
+ }
+}

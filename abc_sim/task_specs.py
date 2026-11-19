@@ -471,6 +471,72 @@ _TASK_SPECS: tuple[SimTaskSpec, ...] = (
 )
 
 
+# Real2Gym tasks and their variants (imported from openwam-sim-eval abc_tasks/rl_suite): the lookup never lets them
+# take an ABC task's or subtask's name, prompt or alias (_build_lookup).
+# Real2Gym tasks (abc_sim/real2gym_catalog.py; randomization/tasks/real2gym_tasks.py, task_eval/real2gym_tasks.py)
+from abc_sim.real2gym_catalog import PREFIX as _R2G_PREFIX, TASKS as _R2G_TASKS, task_config as _r2g_config  # noqa: E402
+from abc_sim.real2gym_catalog import variants as _r2g_variants  # noqa: E402
+
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=_R2G_PREFIX + t,
+        env_task=_R2G_PREFIX + t,
+        prompt=_r2g_config(t)["prompt"],
+        description=f"Real2Gym (OneWorld-AI/ABC_simulators) task {t} on the abc table: " + _r2g_config(t)["prompt"] + ".",
+        evaluator_name="real2gym",
+        evaluator_options=(("task", t),),
+        aliases=(f"sim_{_R2G_PREFIX}{t}",),
+    )
+    for t in _R2G_TASKS
+)
+_TASK_SPECS += tuple(
+    SimTaskSpec(
+        name=name,
+        env_task=name,
+        prompt=v["prompt"],
+        description=f"Real2Gym {v['task']} ({v['variant']}" + (f", {v['object']}" if v["object"] else "") + "): "
+        + ("stage prompts from the source episode's training labels." if v["variant"] == "staged" else
+           "the instruction is rendered at reset from the layout and enforced by the check (real2gym_spec.py)."),
+        evaluator_name="real2gym",
+        evaluator_options=(("task", v["task"]), ("variant", v["variant"]), ("object", v["object"]),
+                           ("members", tuple(v.get("members") or ())), ("group", v.get("group"))),
+        aliases=(),
+    )
+    for name, v in _r2g_variants(include_legacy=True).items()
+)
+
+
+def _build_lookup(specs: tuple[SimTaskSpec, ...], stock: tuple[SimTaskSpec, ...]) -> dict[str, SimTaskSpec]:
+    """name / prompt / alias -> spec. A name is unique and always resolves to its spec; stock tasks keep their prompts
+    and aliases; a derived spec's prompt or alias is a key only where no name and no stock key has it."""
+    names: dict[str, SimTaskSpec] = {}
+    for spec in specs:
+        key = _normalize_key(spec.name)
+        if key in names:
+            raise ValueError(f"sim task names {names[key].name!r} and {spec.name!r} share the lookup key {key!r}")
+        names[key] = spec
+    stock_ids = {id(spec) for spec in stock}
+    lookup: dict[str, SimTaskSpec] = {}
+    for spec in stock:
+        for alias in {spec.prompt, *spec.aliases}:
+            key = _normalize_key(alias)
+            if key in names and names[key] is not spec:
+                continue
+            if key in lookup and lookup[key] is not spec:
+                raise ValueError(f"task key {alias!r} is used by {lookup[key].name!r} and {spec.name!r}")
+            lookup[key] = spec
+    stock_keys = set(lookup)
+    for spec in specs:
+        if id(spec) in stock_ids:
+            continue
+        for alias in {spec.prompt, *spec.aliases}:
+            key = _normalize_key(alias)
+            if key not in names and key not in stock_keys:
+                lookup.setdefault(key, spec)
+    lookup.update(names)
+    return lookup
+
+
 # Single-stage subtask specs (<task>__<stage>) are not listed here: each task module declares its own and
 # abc_sim/task_eval/subtasks.py discovers them on first lookup (no shared file to edit per task).
 _ALL_SPECS: tuple[SimTaskSpec, ...] | None = None
@@ -483,14 +549,8 @@ def _catalogue() -> tuple[tuple[SimTaskSpec, ...], dict[str, SimTaskSpec]]:
         from abc_sim.task_eval.subtasks import subtask_specs  # lazy: task modules import this module
 
         specs = _TASK_SPECS + subtask_specs()
-        lookup: dict[str, SimTaskSpec] = {}
-        for spec in specs:
-            for alias in {spec.name, spec.prompt, *spec.aliases}:
-                key = _normalize_key(alias)
-                if key in lookup and lookup[key] is not spec:
-                    raise ValueError(f"task key {alias!r} is used by {lookup[key].name!r} and {spec.name!r}")
-                lookup[key] = spec
-        _LOOKUP.update(lookup)
+        # strict (as before): every spec but the imported Real2Gym task / variant specs, whose prompts may repeat
+        _LOOKUP.update(_build_lookup(specs, tuple(sp for sp in specs if sp.evaluator_name != "real2gym")))
         _ALL_SPECS = specs
     return _ALL_SPECS, _LOOKUP
 

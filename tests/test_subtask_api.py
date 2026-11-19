@@ -22,6 +22,11 @@ TASKS = {
     "put_relative", "sort_nuts_and_bolts", "sweep_away_paper_scraps_from_table", "inhand_transfer_item_to_other_side",
     "open_drawer", "close_drawer", "hang_mug_on_mug_rack", "load_plates_into_dish_rack",
 }
+# Real2Gym stage tasks (task_eval/r2g_subtask.py, R2G_STAGE_TASKS): reach / pick / carry / place each
+from abc_sim.task_eval.r2g_subtask import R2G_STAGE_TASKS  # noqa: E402
+
+R2G_TASKS = {f"r2g_{t}" for t in R2G_STAGE_TASKS}
+TASKS = TASKS | R2G_TASKS
 
 
 def test_every_subtask_module_registers_itself():
@@ -30,7 +35,7 @@ def test_every_subtask_module_registers_itself():
     for name, cls in evaluators.items():
         assert issubclass(cls, SubtaskEvaluator) and cls.NAME == name and cls.ENV_TASK, cls
     specs = subtask_specs()
-    assert len(specs) == 53, len(specs)
+    assert len(specs) == 53 + 4 * len(R2G_TASKS), len(specs)  # 53 ABC stages + 4 per Real2Gym task
     assert len({s.name for s in specs}) == len(specs)
 
 

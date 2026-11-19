@@ -56,5 +56,20 @@ TASK_RANDOMIZERS: dict[str, SceneRandomizer] = {
     # "empty": no free-jointed objects to randomize
 }
 
+# Real2Gym tasks (abc_sim/real2gym_catalog.py): one randomizer per task, env task r2g_<task>
+from ..real2gym_catalog import PREFIX as _R2G_PREFIX, TASKS as _R2G_TASKS  # noqa: E402
+from .tasks.real2gym_tasks import Real2GymRandomizer  # noqa: E402
+
+TASK_RANDOMIZERS.update({_R2G_PREFIX + t: Real2GymRandomizer(t) for t in _R2G_TASKS})
+from ..real2gym_catalog import variants as _r2g_variants  # noqa: E402
+
+TASK_RANDOMIZERS.update({name: Real2GymRandomizer(v["task"], v["variant"], v["object"], v.get("members"), v.get("group"))
+                         for name, v in _r2g_variants(include_legacy=True).items()})
+
 
 __all__ = ['TASK_RANDOMIZERS']
+
+# staged mid-task starts (abc_sim/real2gym_midtask.py): the predecessors placed at their goals after the reset settle
+from .tasks.real2gym_midtask import midtask_randomizers as _r2g_midtask  # noqa: E402
+
+TASK_RANDOMIZERS.update(_r2g_midtask())

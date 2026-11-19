@@ -23,6 +23,7 @@ from abc_sim.task_eval.mug_flip_staged import MugFlipStagedEvaluator
 from abc_sim.task_eval.nuts_bolts import NutsBoltsSortingEvaluator
 from abc_sim.task_eval.openwam_tasks import DrawerOpenCloseEvaluator, FruitOnPlateEvaluator, PlateStackEvaluator, WipeWhiteboardEvaluator, HangHeadphonesEvaluator
 from abc_sim.task_eval.pour import PourBeadsInContainerEvaluator
+from abc_sim.task_eval.real2gym_tasks import Real2GymEvaluator
 from abc_sim.task_eval.put_relative import PutRelativeEvaluator
 from abc_sim.task_eval.spell import SpellWordEvaluator
 from abc_sim.task_eval.sweep import SweepAwayEvaluator
@@ -58,6 +59,7 @@ _TASK_EVALUATORS: dict[str, TaskEvaluatorFactory] = {
     "plates_stack": PlateStackEvaluator,
     "wipe_whiteboard": WipeWhiteboardEvaluator,
     "hang_headphones": HangHeadphonesEvaluator,
+    "real2gym": Real2GymEvaluator,
 }
 
 
@@ -79,3 +81,9 @@ def make_task_evaluator(
         ) from exc
 
     return evaluator_cls(model=model, spec=spec, **spec.evaluator_kwargs())
+
+# Real2Gym tool envs (abc_sim/real2gym_tool_envs.py): the "real2gym" factory sends variants tool_pick / tool_use to
+# their own check
+from abc_sim.task_eval.real2gym_tooluse import with_tool_evaluator as _with_tool_evaluator  # noqa: E402
+
+_TASK_EVALUATORS["real2gym"] = _with_tool_evaluator(_TASK_EVALUATORS["real2gym"])

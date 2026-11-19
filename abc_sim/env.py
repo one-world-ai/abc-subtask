@@ -91,6 +91,7 @@ class MuJoCoYAMEnv(gym.Env):
         scene_xml: str | Path | None = None,
         max_episode_steps: int | None = None,
         terminate_on_success: bool = False,
+        home_arms_on_reset: bool = False,
     ):
         super().__init__()
         self.config = config
@@ -110,6 +111,11 @@ class MuJoCoYAMEnv(gym.Env):
             )
         self.max_episode_steps = max_episode_steps
         self.terminate_on_success = bool(terminate_on_success)
+        # True: every reset() starts the arms at the home pose, so the reset is a function of the seed alone (make_env
+        # sets it for the Real2Gym envs). False (ABC's eval loop): the arms stay where the previous episode left them
+        # and the scene is rebuilt around them; forget_arm_state() drops the carried pose once.
+        self.home_arms_on_reset = bool(home_arms_on_reset)
+        self._home_arm_state: np.ndarray | None = None  # set_home_arm_state(); None: init_q
         self._scene_xml_string: str | None = None  # set directly for in-memory XML
         self._task_request: str = ""
         self._task: str = ""  # set by make_env after construction
@@ -117,6 +123,8 @@ class MuJoCoYAMEnv(gym.Env):
         self._task_evaluator = None
         self._task_runtime = None
         self._arm_state_initialized = False
+        # Optional abc_sim.sim_guard.SimGuard: takes each physics step instead of mj_step (set by the Real2Gym randomizer).
+        self._sim_guard = None
 
         # Populated by reset() when randomize=True; readable by callers.
         self._last_randomization: Any = None
@@ -207,6 +215,7 @@ class MuJoCoYAMEnv(gym.Env):
         self.model = model
         self.model.opt.timestep = self._physics_dt
         self.data = mujoco.MjData(self.model)
+        self._sim_guard = None  # bound to the old model / data
         self._arm_state_initialized = False
         if self._task_runtime is not None:
             self._task_runtime.bind(self.model, self.data)
@@ -309,6 +318,8 @@ class MuJoCoYAMEnv(gym.Env):
         randomize: bool = True,
     ):
         super().reset(seed=seed)
+        if self.home_arms_on_reset:
+            self.forget_arm_state()
         reset_arm_state = self._get_reset_arm_state()
         mujoco.mj_resetData(self.model, self.data)
         self._set_qpos_from_state(reset_arm_state)
@@ -588,6 +599,11 @@ class MuJoCoYAMEnv(gym.Env):
         """Drop the carried arm pose so the next reset starts from init_q."""
         self._arm_state_initialized = False
 
+    def set_home_arm_state(self) -> None:
+        """Take the current arm pose as the home pose of ``home_arms_on_reset`` (make_env calls it on the finished env:
+        init_q, after the randomizer's first settle where it has one), so every reset gives what a fresh env gives."""
+        self._home_arm_state = self._get_reset_arm_state().copy()
+
     def _get_reset_arm_state(self) -> np.ndarray:
         """Return the arm state to preserve across scene resets."""
         if self._arm_state_initialized:
@@ -596,6 +612,8 @@ class MuJoCoYAMEnv(gym.Env):
                 self._qpos_indices,
                 self._gripper_indices,
             )
+        if self._home_arm_state is not None:
+            return self._home_arm_state.copy()
         return self.get_init_q().astype(np.float32, copy=True)
 
     def _step_single(self, action_14d: np.ndarray):
@@ -619,7 +637,10 @@ class MuJoCoYAMEnv(gym.Env):
         for _ in range(num_steps):
             if self._task_runtime is not None:
                 self._task_runtime.before_step(self.model, self.data)
-            mujoco.mj_step(self.model, self.data)
+            if self._sim_guard is not None:
+                self._sim_guard.step(self.model, self.data)
+            else:
+                mujoco.mj_step(self.model, self.data)
             if self._task_runtime is not None:
                 after_step = getattr(self._task_runtime, "after_step", None)
                 if after_step is not None:

@@ -91,6 +91,21 @@ _SCENE_TASKS: tuple[SceneTaskSpec, ...] = (
     SceneTaskSpec(name="whiteboard", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
     SceneTaskSpec(name="headphones", scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml"),
 )
+# Real2Gym tasks (abc_sim/real2gym_catalog.py): the table scene, rebuilt by each task's randomizer
+from abc_sim.real2gym_catalog import PREFIX as _R2G_PREFIX, TASKS as _R2G_TASKS  # noqa: E402
+
+from abc_sim.real2gym_catalog import physics as _r2g_physics, variants as _r2g_variants  # noqa: E402
+
+
+def _r2g_spec(name: str) -> SceneTaskSpec:
+    """Physics step per task (real2gym_catalog.physics): the control step stays 0.034 s."""
+    ph = _r2g_physics(name)
+    return SceneTaskSpec(name=name, scene_xml=_MODELS_DIR / "yam_put_relative_scene.xml",
+                         physics_defaults=(("physics_dt", ph["dt"]), ("control_decimation", ph["decimation"])))
+
+
+_SCENE_TASKS += tuple(_r2g_spec(_R2G_PREFIX + t) for t in _R2G_TASKS)
+_SCENE_TASKS += tuple(_r2g_spec(name) for name in _r2g_variants(include_legacy=True))
 
 _SCENE_TASK_LOOKUP = {spec.name: spec for spec in _SCENE_TASKS}
 _SCENE_TASK_ALIASES = {

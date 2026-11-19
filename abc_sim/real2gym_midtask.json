@@ -1,0 +1,576 @@
+{
+ "_doc": "staged mid-task starts, built by tools/real2gym_midtask_build.py; used by abc_sim/real2gym_midtask.py",
+ "tasks": {
+  "load_the_bowls_into_the_dish_rack": {
+   "bowl_4": {
+    "frame": 6363,
+    "why_locked": "the yellow floral bowl (bowl_3) is nested in it: covered 100 %, lifting it lifts bowl_3 (10/10 seeds)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "bowl_0",
+      "goal": "in",
+      "demo_key": "bowl_4:touch_frame-15",
+      "demo_frame": 6363,
+      "pos": [
+       0.62923,
+       0.4554,
+       0.83533
+      ],
+      "quat": [
+       -2e-06,
+       -0.999914,
+       -0.013104,
+       -1e-06
+      ],
+      "anchor": "rack",
+      "anchor_key": "bowl_4:touch_frame-15",
+      "anchor_pos": [
+       0.56905,
+       0.33373,
+       0.75299
+      ],
+      "anchor_quat": [
+       0.999999,
+       -4e-06,
+       -1e-06,
+       0.001173
+      ]
+     },
+     {
+      "name": "bowl_1",
+      "goal": "in",
+      "demo_key": "bowl_4:touch_frame-15",
+      "demo_frame": 6363,
+      "pos": [
+       0.50005,
+       0.45492,
+       0.83826
+      ],
+      "quat": [
+       -0.0,
+       -0.999932,
+       -0.011703,
+       -1e-06
+      ],
+      "anchor": "rack",
+      "anchor_key": "bowl_4:touch_frame-15",
+      "anchor_pos": [
+       0.56905,
+       0.33373,
+       0.75299
+      ],
+      "anchor_quat": [
+       0.999999,
+       -4e-06,
+       -1e-06,
+       0.001173
+      ]
+     },
+     {
+      "name": "bowl_2",
+      "goal": "in",
+      "demo_key": "bowl_4:touch_frame-15",
+      "demo_frame": 6363,
+      "pos": [
+       0.62766,
+       0.33334,
+       0.83533
+      ],
+      "quat": [
+       -4e-06,
+       -0.999974,
+       -0.007225,
+       -0.0
+      ],
+      "anchor": "rack",
+      "anchor_key": "bowl_4:touch_frame-15",
+      "anchor_pos": [
+       0.56905,
+       0.33373,
+       0.75299
+      ],
+      "anchor_quat": [
+       0.999999,
+       -4e-06,
+       -1e-06,
+       0.001173
+      ]
+     },
+     {
+      "name": "bowl_3",
+      "goal": "in",
+      "demo_key": "bowl_4:touch_frame-15",
+      "demo_frame": 6363,
+      "pos": [
+       0.50092,
+       0.33201,
+       0.83548
+      ],
+      "quat": [
+       -0.0,
+       -0.999926,
+       -0.01214,
+       -5e-06
+      ],
+      "anchor": "rack",
+      "anchor_key": "bowl_4:touch_frame-15",
+      "anchor_pos": [
+       0.56905,
+       0.33373,
+       0.75299
+      ],
+      "anchor_quat": [
+       0.999999,
+       -4e-06,
+       -1e-06,
+       0.001173
+      ]
+     }
+    ],
+    "joints": {},
+    "scope": "all demo predecessors"
+   }
+  },
+  "place_and_organize_the_shoes_in_the_shoe_cabinet": {
+   "red01": {
+    "frame": 341,
+    "why_locked": "cabinet door closed at reset (the demo opens it first)",
+    "kinds": [
+     "obj"
+    ],
+    "staged": [],
+    "joints": {
+     "cabinet_door_hinge": -2.0908
+    },
+    "scope": "all demo predecessors"
+   },
+   "red02": {
+    "frame": 883,
+    "why_locked": "cabinet door closed at reset",
+    "kinds": [
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "red01",
+      "goal": "in",
+      "demo_key": "red02:touch_frame-15",
+      "demo_frame": 883,
+      "pos": [
+       0.66782,
+       0.02506,
+       0.92792
+      ],
+      "quat": [
+       -0.01958,
+       -2e-06,
+       -1e-05,
+       -0.999808
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "red02:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75146
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1.2e-05,
+       3e-06,
+       -0.002621
+      ]
+     }
+    ],
+    "joints": {
+     "cabinet_door_hinge": -2.0908
+    },
+    "scope": "all demo predecessors"
+   },
+   "black01": {
+    "frame": 1795,
+    "why_locked": "cabinet door closed at reset; the red shoe red01 rests on it (lifting it lifts red01, 10/10 seeds)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "red01",
+      "goal": "in",
+      "demo_key": "black01:touch_frame-15",
+      "demo_frame": 1795,
+      "pos": [
+       0.66782,
+       0.02506,
+       0.92792
+      ],
+      "quat": [
+       -0.01958,
+       -2e-06,
+       -8e-06,
+       -0.999808
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "black01:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75146
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1e-05,
+       2e-06,
+       -0.002622
+      ]
+     },
+     {
+      "name": "red02",
+      "goal": "in",
+      "demo_key": "black01:touch_frame-15",
+      "demo_frame": 1795,
+      "pos": [
+       0.66159,
+       -0.09051,
+       0.92792
+      ],
+      "quat": [
+       0.001042,
+       3e-06,
+       1.2e-05,
+       0.999999
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "black01:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75146
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1e-05,
+       2e-06,
+       -0.002622
+      ]
+     }
+    ],
+    "joints": {
+     "cabinet_door_hinge": -2.0909
+    },
+    "scope": "all demo predecessors"
+   },
+   "black02": {
+    "frame": 2833,
+    "why_locked": "cabinet door closed at reset; red01 rests on it (10/10 seeds)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "red01",
+      "goal": "in",
+      "demo_key": "black02:touch_frame-15",
+      "demo_frame": 2833,
+      "pos": [
+       0.66782,
+       0.02506,
+       0.92792
+      ],
+      "quat": [
+       -0.019583,
+       0.0,
+       -1e-05,
+       -0.999808
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "black02:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75145
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1.2e-05,
+       1e-06,
+       -0.002624
+      ]
+     },
+     {
+      "name": "red02",
+      "goal": "in",
+      "demo_key": "black02:touch_frame-15",
+      "demo_frame": 2833,
+      "pos": [
+       0.66159,
+       -0.09051,
+       0.92792
+      ],
+      "quat": [
+       0.001044,
+       2e-06,
+       1.4e-05,
+       0.999999
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "black02:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75145
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1.2e-05,
+       1e-06,
+       -0.002624
+      ]
+     },
+     {
+      "name": "black01",
+      "goal": "in",
+      "demo_key": "black02:touch_frame-15",
+      "demo_frame": 2833,
+      "pos": [
+       0.65928,
+       0.00519,
+       0.75545
+      ],
+      "quat": [
+       0.999862,
+       -1.3e-05,
+       2e-06,
+       -0.016604
+      ],
+      "anchor": "cabinet",
+      "anchor_key": "black02:touch_frame-15",
+      "anchor_pos": [
+       0.68859,
+       -0.03354,
+       0.75145
+      ],
+      "anchor_quat": [
+       0.999997,
+       -1.2e-05,
+       1e-06,
+       -0.002624
+      ]
+     }
+    ],
+    "joints": {
+     "cabinet_door_hinge": -2.091
+    },
+    "scope": "all demo predecessors"
+   }
+  },
+  "turn_the_large_container_upside_down": {
+   "blue": {
+    "frame": 341,
+    "why_locked": "the pale green basket is nested in it (covered 100 %, carried 10/10)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "pale_green",
+      "goal": "upright",
+      "demo_key": "blue:touch_frame-15",
+      "demo_frame": 341,
+      "pos": [
+       0.76131,
+       0.46185,
+       0.835
+      ],
+      "quat": [
+       -0.0,
+       -0.999951,
+       0.009906,
+       0.0
+      ],
+      "anchor": "blue",
+      "anchor_key": "start",
+      "anchor_pos": [
+       0.40035,
+       0.07749,
+       0.75
+      ],
+      "anchor_quat": [
+       0.99995,
+       0.0,
+       0.0,
+       0.009993
+      ]
+     }
+    ],
+    "joints": {},
+    "scope": "all demo predecessors"
+   },
+   "white": {
+    "frame": 1031,
+    "why_locked": "the teal basket is nested in it (covered 100 %, carried 10/10)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "turquoise",
+      "goal": "upright",
+      "demo_key": "turquoise:goal_frame+30",
+      "demo_frame": 1082,
+      "pos": [
+       0.3728,
+       0.15019,
+       0.89
+      ],
+      "quat": [
+       0.0,
+       0.993382,
+       0.114854,
+       -0.0
+      ],
+      "anchor": "white",
+      "anchor_key": "start",
+      "anchor_pos": [
+       0.49602,
+       -0.16311,
+       0.77955
+      ],
+      "anchor_quat": [
+       0.999319,
+       0.0,
+       0.0,
+       0.036886
+      ]
+     }
+    ],
+    "joints": {},
+    "scope": "only the objects that block the target (the other demo predecessors do not fit on the abc table)"
+   }
+  },
+  "unload_the_plates_from_the_dish_rack": {
+   "orange": {
+    "frame": 501,
+    "why_locked": "inner plate of the rack, neighbours 4.6 cm away on both sides (phrase table: wrist camera blocks the lift)",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "floral",
+      "goal": "off",
+      "demo_key": "orange:touch_frame-15",
+      "demo_frame": 501,
+      "pos": [
+       0.50405,
+       -0.21487,
+       0.749
+      ],
+      "quat": [
+       0.999957,
+       1e-06,
+       -1e-06,
+       0.009241
+      ],
+      "anchor": "dish_rack",
+      "anchor_key": "orange:touch_frame-15",
+      "anchor_pos": [
+       0.72384,
+       0.23523,
+       0.75349
+      ],
+      "anchor_quat": [
+       0.999297,
+       -2e-06,
+       0.0,
+       -0.037497
+      ]
+     }
+    ],
+    "joints": {},
+    "scope": "all demo predecessors"
+   },
+   "lime": {
+    "frame": 939,
+    "why_locked": "inner plate of the rack, neighbours 4.6 cm away on both sides",
+    "kinds": [
+     "pick",
+     "obj"
+    ],
+    "staged": [
+     {
+      "name": "floral",
+      "goal": "off",
+      "demo_key": "lime:touch_frame-15",
+      "demo_frame": 939,
+      "pos": [
+       0.50417,
+       -0.21489,
+       0.74899
+      ],
+      "quat": [
+       0.999965,
+       6.2e-05,
+       -2.7e-05,
+       0.008344
+      ],
+      "anchor": "dish_rack",
+      "anchor_key": "lime:touch_frame-15",
+      "anchor_pos": [
+       0.72118,
+       0.23731,
+       0.75349
+      ],
+      "anchor_quat": [
+       0.998959,
+       -2e-06,
+       0.0,
+       -0.045621
+      ]
+     },
+     {
+      "name": "orange",
+      "goal": "off",
+      "demo_key": "lime:touch_frame-15",
+      "demo_frame": 939,
+      "pos": [
+       0.49045,
+       -0.25552,
+       0.75987
+      ],
+      "quat": [
+       0.997466,
+       -0.059572,
+       0.022368,
+       0.031832
+      ],
+      "anchor": "dish_rack",
+      "anchor_key": "lime:touch_frame-15",
+      "anchor_pos": [
+       0.72118,
+       0.23731,
+       0.75349
+      ],
+      "anchor_quat": [
+       0.998959,
+       -2e-06,
+       0.0,
+       -0.045621
+      ]
+     }
+    ],
+    "joints": {},
+    "scope": "all demo predecessors"
+   }
+  }
+ }
+}

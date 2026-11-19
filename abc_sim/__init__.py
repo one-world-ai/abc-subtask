@@ -127,6 +127,10 @@ def __getattr__(name: str):
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
+# Sim tasks whose envs reset the arms to the home pose at every reset (the Real2Gym envs and their stage envs).
+_HOME_ARMS_EVALUATORS = ("real2gym",)
+
+
 def make_env(
     task: str = "bottles",
     render_cameras: bool = True,
@@ -141,6 +145,7 @@ def make_env(
     enable_task_randomizer: bool = True,
     max_episode_steps: int | None = None,
     terminate_on_success: bool = False,
+    home_arms_on_reset: bool | None = None,
     **kwargs,
 ) -> "MuJoCoYAMEnv":
     """Create a MuJoCo YAM bimanual environment.
@@ -165,6 +170,10 @@ def make_env(
             ``step`` returns ``truncated=True``.
         terminate_on_success: Whether ``step`` should return ``terminated=True``
             when the task evaluator reports success.
+        home_arms_on_reset: Whether every ``reset`` starts the arms at the
+            home pose (the reset is then a function of the seed alone) instead
+            of where the previous episode left them. Default: on for the
+            Real2Gym envs and their stage envs, off for ABC's own tasks.
         **kwargs: Additional kwargs passed to MuJoCoYAMEnv.
 
     Returns:
@@ -187,6 +196,13 @@ def make_env(
 
     resolved_task = resolve_task(task)
     env_task = resolved_task.env_task or task
+    if home_arms_on_reset is None:
+        home_arms_on_reset = (
+            resolved_task.task_spec is not None
+            and (resolved_task.task_spec.evaluator_name in _HOME_ARMS_EVALUATORS
+                 # Real2Gym stage envs (task_eval/r2g_subtask.py): the same start layouts as the Real2Gym envs
+                 or str(resolved_task.task_spec.evaluator_name).startswith("r2g_subtask__"))
+        )
     resolved_prompt = prompt
     if resolved_prompt is None:
         if resolved_task.task_spec is not None:
@@ -234,6 +250,7 @@ def make_env(
             **get_task_physics_defaults(env_task),
             "max_episode_steps": max_episode_steps,
             "terminate_on_success": terminate_on_success,
+            "home_arms_on_reset": home_arms_on_reset,
         }
         env = MuJoCoYAMEnv(
             config=config,
@@ -257,6 +274,8 @@ def make_env(
         randomizer.bind_env(env)
         randomizer._rng = rng
         env._task_randomizer = randomizer
+        if home_arms_on_reset:
+            env.set_home_arm_state()
         return env
 
     scene_xml_path = Path(scene_xml) if scene_xml is not None else get_task_scene_xml(env_task)
@@ -286,6 +305,7 @@ def make_env(
         **get_task_physics_defaults(env_task),
         "max_episode_steps": max_episode_steps,
         "terminate_on_success": terminate_on_success,
+        "home_arms_on_reset": home_arms_on_reset,
     }
     try:
         env = MuJoCoYAMEnv(
@@ -328,6 +348,8 @@ def make_env(
         if callable(prepare_env):
             prepare_env()
 
+    if home_arms_on_reset:
+        env.set_home_arm_state()
     return env
 
 

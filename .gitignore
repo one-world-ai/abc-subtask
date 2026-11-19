@@ -15,3 +15,6 @@ wandb/
 # Robot recordings, review videos, and exports (deploy/).
 data/
 .python-version
+abc_sim/models/assets_real2gym
+abc_sim/models/assets
+abc_sim/models/assets_robocasa
