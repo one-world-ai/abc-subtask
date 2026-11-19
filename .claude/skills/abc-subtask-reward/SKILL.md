@@ -16,7 +16,7 @@ Goal of stage k = precondition of stage k+1, so trained subtasks chain back into
 
 | what | path |
 |---|---|
-| sim code (branch `substage-mug` until told otherwise) | `abc_sim/task_eval/` — shared kit `stagekit/`, per task `<short>_stages.py`, `<short>_starts.py`, `<short>_subtask.py` (like mug_flip_*) |
+| sim code (branch `subtask-r`) | `abc_sim/task_eval/` — shared kit `stagekit/`, per task `<short>_stages.py`, `<short>_starts.py`, `<short>_subtask.py` (like mug_flip_*) |
 | other repos used (siblings of this one under policy-finetuning/) | `../simulation` (tooling + venv, branch `torch`), `../envs/mesa-cpu`, `../mug_substages.md` |
 | task specs / registry | generated: set `TASK, ENV_TASK, NAME` on the evaluator class (`abc_sim/task_eval/subtasks.py`); never edit `task_specs.py` / `registry.py` for a subtask |
 | user API | `env.reset_to_stage`, `env.subtask`, `env.advance_stage`, `abc_sim.load_starts` / `stagekit.save_starts` (`subtask_rewards/QUICKSTART.md`) |
@@ -28,6 +28,13 @@ Goal of stage k = precondition of stage k+1, so trained subtasks chain back into
 
 Python: `MUJOCO_GL=disable PYTHONPATH=$PWD ../simulation/.venv/bin/python ...` on a CPU node.
 Read `references/gotchas.md` once per session.
+
+## Real2Gym tasks (`r2g_<task>`)
+Yuyang's scenes ported onto the ABC table (`abc_sim/real2gym_catalog.py`). "Put objects in / on a container" tasks
+reuse one stage module: add the task to `R2G_STAGE_TASKS` in `abc_sim/task_eval/r2g_subtask.py`, then run
+`subtask_rewards/r2g/tools/{build_starts,scripted_rollouts,gates}.py` (case B in `subtask_rewards/ADDING_A_TASK.md`)
+and record it in `subtask_rewards/r2g/STATUS.md`. Other task kinds follow the phases below like an ABC task. A scene
+that isn't in the catalog yet must be ported first (case C): stop and tell the user.
 
 ## Shared kit
 `abc_sim/task_eval/stagekit/` (extracted 2026-11-13, see `references/contract.md`). Changing the kit: the mug tests,

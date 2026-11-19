@@ -1,6 +1,10 @@
 # ABC subtask rewards — task queue
 
 **Using the rewards for RL: see [QUICKSTART.md](QUICKSTART.md)** (usable stages, minimal loop, saved starts, paths).
+**Adding a task (ABC or Real2Gym) and the agent skills: see [ADDING_A_TASK.md](ADDING_A_TASK.md).**
+
+Real2Gym tasks (Yuyang's scenes, env ids `r2g_<task>__<stage>`): 10 tasks, 33 of 40 stages usable; one shared stage
+module, ledger `r2g/STATUS.md`, numbers `r2g/validation.json`. The table below is the ABC queue.
 
 Pipeline (paths relative to the abc repo root): `.claude/skills/abc-subtask-reward` (scorer checks: `.claude/skills/abc-scorer-audit`).
 One ledger per task: `subtask_rewards/<short>/STATUS.md`. Update the status column when a task changes state.
