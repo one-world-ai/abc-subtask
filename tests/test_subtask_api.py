@@ -18,6 +18,7 @@ from abc_sim.task_eval.subtasks import specs_for, stage_spec, subtask_evaluators
 from abc_sim.task_specs import get_task_spec, list_task_specs
 
 TASKS = {
+    "pouring", "throw_plastic_bottles_in_bin",
     "turn_mug_right_side_up", "put_plastic_bottles_in_bin", "sort_lego_blocks", "grab_specific_object_from_clutter",
     "put_relative", "sort_nuts_and_bolts", "sweep_away_paper_scraps_from_table", "inhand_transfer_item_to_other_side",
     "open_drawer", "close_drawer", "hang_mug_on_mug_rack", "load_plates_into_dish_rack",
@@ -30,7 +31,7 @@ def test_every_subtask_module_registers_itself():
     for name, cls in evaluators.items():
         assert issubclass(cls, SubtaskEvaluator) and cls.NAME == name and cls.ENV_TASK, cls
     specs = subtask_specs()
-    assert len(specs) == 53, len(specs)
+    assert len(specs) == 55, len(specs)
     assert len({s.name for s in specs}) == len(specs)
 
 

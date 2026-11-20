@@ -1,0 +1,213 @@
+[
+  {
+    "summary": {
+      "task": "pouring__pour",
+      "starts": 13,
+      "restore_exact": 52,
+      "idle_success": 0,
+      "idle_sim_fault": 0,
+      "early_success": 0,
+      "open_success": 0,
+      "open_sim_fault": 0,
+      "sweep_success": 0,
+      "sweep_sim_fault": 0,
+      "fault_latched": 13,
+      "actions_success": 13,
+      "trace_success": 12,
+      "trace_sim_fault": 1
+    },
+    "episodes": [
+      {
+        "episode": "episode_019e4b36-a9aa-799b-8332-b1c712a752b9",
+        "seed": 0,
+        "split": "train",
+        "start_frame": 128,
+        "trace": "success",
+        "trace_end_frame": 387,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b37-2422-746e-a1a2-8ca9aad0df01",
+        "seed": 1261875904,
+        "split": "train",
+        "start_frame": 268,
+        "trace": "success",
+        "trace_end_frame": 531,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b37-870a-7cd2-aa3a-97cbdf79bf99",
+        "seed": 1261908051,
+        "split": "train",
+        "start_frame": 228,
+        "trace": "success",
+        "trace_end_frame": 407,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b38-1242-745d-9df2-a36b2d217b95",
+        "seed": 1261932817,
+        "split": "train",
+        "start_frame": 224,
+        "trace": "success",
+        "trace_end_frame": 717,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b38-6e9a-72e7-bbb2-73bda49c5923",
+        "seed": 1261967784,
+        "split": "train",
+        "start_frame": 148,
+        "trace": "success",
+        "trace_end_frame": 324,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b38-be42-7a35-b7f9-c0ba91fca290",
+        "seed": 1261991168,
+        "split": "train",
+        "start_frame": 192,
+        "trace": "sim_fault",
+        "trace_end_frame": 371,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b39-1c6e-7445-8a92-df591f4b75eb",
+        "seed": 1262011448,
+        "split": "train",
+        "start_frame": 132,
+        "trace": "success",
+        "trace_end_frame": 327,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b39-6ac9-73f7-9a11-ebf400e10a21",
+        "seed": 1262036268,
+        "split": "train",
+        "start_frame": 116,
+        "trace": "success",
+        "trace_end_frame": 285,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b39-fd07-7702-adb5-3f0294deed1e",
+        "seed": 1262055823,
+        "split": "train",
+        "start_frame": 132,
+        "trace": "success",
+        "trace_end_frame": 301,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b3a-7832-79d5-ada0-5c16971bad91",
+        "seed": 1262100751,
+        "split": "train",
+        "start_frame": 176,
+        "trace": "success",
+        "trace_end_frame": 365,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b3b-036e-7227-89f4-22b923c2b867",
+        "seed": 1262132038,
+        "split": "eval",
+        "start_frame": 132,
+        "trace": "success",
+        "trace_end_frame": 333,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b3b-66f9-786a-8939-455c29ce3240",
+        "seed": 1262160506,
+        "split": "eval",
+        "start_frame": 152,
+        "trace": "success",
+        "trace_end_frame": 308,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019e4b3b-d9fc-714e-951a-7468906f8dc7",
+        "seed": 1262186638,
+        "split": "eval",
+        "start_frame": 236,
+        "trace": "success",
+        "trace_end_frame": 418,
+        "action_replay": "success"
+      }
+    ]
+  },
+  {
+    "summary": {
+      "task": "throw_plastic_bottles_in_bin__throw",
+      "starts": 6,
+      "restore_exact": 24,
+      "idle_success": 0,
+      "idle_sim_fault": 0,
+      "early_success": 0,
+      "open_success": 0,
+      "open_sim_fault": 0,
+      "sweep_success": 0,
+      "sweep_sim_fault": 0,
+      "fault_latched": 6,
+      "actions_success": 6,
+      "trace_released without outside flight": 1,
+      "trace_success": 5
+    },
+    "episodes": [
+      {
+        "episode": "episode_019dd883-4306-7297-9718-ec3c341e4ad5",
+        "seed": 3632411537,
+        "split": "train",
+        "start_frame": 128,
+        "trace": "released without outside flight",
+        "trace_end_frame": 255,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019dd888-aa18-745b-adc7-efb243b85ac8",
+        "seed": 3632798043,
+        "split": "train",
+        "start_frame": 100,
+        "trace": "success",
+        "trace_end_frame": 248,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019dd889-4cd3-7997-81e1-98892d35b0ce",
+        "seed": 3632798043,
+        "split": "train",
+        "start_frame": 216,
+        "trace": "success",
+        "trace_end_frame": 368,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019dd88a-b149-7b48-be1d-5e73e7010879",
+        "seed": 3632835885,
+        "split": "eval",
+        "start_frame": 620,
+        "trace": "success",
+        "trace_end_frame": 816,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019dd88c-648a-73b0-ad81-f23b2a04bca4",
+        "seed": 3632931531,
+        "split": "eval",
+        "start_frame": 120,
+        "trace": "success",
+        "trace_end_frame": 244,
+        "action_replay": "success"
+      },
+      {
+        "episode": "episode_019dd88c-fd83-79c2-964d-fd9b82cfc769",
+        "seed": 3633048973,
+        "split": "eval",
+        "start_frame": 304,
+        "trace": "success",
+        "trace_end_frame": 480,
+        "action_replay": "success"
+      }
+    ]
+  }
+]

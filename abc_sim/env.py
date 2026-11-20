@@ -549,7 +549,7 @@ class MuJoCoYAMEnv(gym.Env):
 
     def _episode_status(self, info: dict[str, Any]) -> tuple[bool, bool]:
         task_success = bool(info.get("task_success", False))
-        terminated = bool(self.terminate_on_success and task_success)
+        terminated = bool(self.terminate_on_success and task_success or info.get("task_eval", {}).get("episode_done", False))
         time_limit_reached = (
             self.max_episode_steps is not None
             and self.cur_step >= self.max_episode_steps
@@ -616,10 +616,13 @@ class MuJoCoYAMEnv(gym.Env):
         num_steps = self._control_decimation if steps is None else steps
         if num_steps < 0:
             raise ValueError(f"steps must be non-negative, got {num_steps}")
+        check = getattr(self._task_evaluator, "check_physics_step", None)
         for _ in range(num_steps):
             if self._task_runtime is not None:
                 self._task_runtime.before_step(self.model, self.data)
             mujoco.mj_step(self.model, self.data)
+            if check is not None:
+                check(self.data)
             if self._task_runtime is not None:
                 after_step = getattr(self._task_runtime, "after_step", None)
                 if after_step is not None:
