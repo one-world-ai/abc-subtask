@@ -37,6 +37,17 @@ class HeldStage(SubtaskEvaluator):
         self.stable_since = None
         self.stock.reset(nworld=nworld)
 
+    # The review host's earlier stagekit does not expose these two accessors.
+    @property
+    def success(self):
+        """A latched goal counts only while the episode has no failure."""
+        return bool(self._success and not self._failed)
+
+    @property
+    def failure(self):
+        """Return the reason this episode ended unsuccessfully."""
+        return self._failed
+
     def valid_start(self, data, target, rest):
         """Require a slow, lifted two-finger grasp and the task's initial object arrangement."""
         obs = self.scene.observe(data, rest)
