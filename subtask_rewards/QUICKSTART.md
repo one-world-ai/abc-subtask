@@ -31,26 +31,22 @@ python prepare.py --sim-task <abc task>                    # ABC 3D models for t
 hf download OneWorld-AI/abc-rl-envs --repo-type dataset --include "abc_assets_v4/*" --local-dir ../abc-rl-envs
 ln -s "$(realpath ../abc-rl-envs/abc_assets_v4)" abc_sim/models/assets_real2gym
 
-# saved start states of every usable stage, both families (private)
+# Optional: reproduce a historical release that used saved rows (private)
 hf download OneWorld-AI/abc-subtask-starts --repo-type dataset --local-dir final_starts
 ```
 
 Run with `PYTHONPATH=<repo>`. Headless: `MUJOCO_GL=disable` without cameras, EGL with them. Set
 `OPENBLAS_NUM_THREADS=1` when running many processes.
 
-## Minimal loop
+## Fresh resets for newly authored stages
 
 ```python
-import numpy as np, abc_sim
+import abc_sim
 
 task, stage = "put_plastic_bottles_in_bin", "carry"        # or "r2g_put_the_screwdriver_in_the_bin", "carry"
 env = abc_sim.make_env(task=f"{task}__{stage}", render_cameras=False)   # True for images in obs
-starts = abc_sim.load_starts("final_starts", task, stage)                # or set $ABC_SUBTASK_STARTS, pass None
-rng = np.random.default_rng(0)
-
-for ep in range(N):
-    row = starts.sample(rng)
-    obs, info = env.reset_to_stage(row["seed"], row)   # restores the saved start exactly, in milliseconds
+for seed in training_seeds:
+    obs, info = env.reset_to_stage(seed)               # generate the stage from this seed
     prompt = info["prompt"]                            # e.g. "carry over the bin opening bottle 5"
     for chunk in range(MAX_CHUNKS):
         for _ in range(32):
@@ -60,7 +56,11 @@ for ep in range(N):
             break
 ```
 
-The whole API is these five calls:
+Use disjoint training and evaluation seeds. A builder can exhaust its bounded attempts. Record the rejected seed
+and reason and count it in start-quality reports. Each new stage must also be tested through its training worker's
+fresh-reset path. Resuming a previous training trajectory uses the worker's explicit restore path.
+
+The stage API:
 
 | call | what it does |
 |---|---|
@@ -80,7 +80,7 @@ A stage's goal is the next stage's starting condition. After a +1, `env.advance_
 target is now in, without a reset (same sim state, same target, labels carried over):
 
 ```python
-obs, info = env.reset_to_stage(row["seed"], row)       # e.g. a reach start
+obs, info = env.reset_to_stage(seed)                  # e.g. a reach start
 while True:
     ...                                                # run the policy for this stage until done
     if not env.subtask.success or env.subtask.next_stage() is None:
@@ -148,7 +148,7 @@ Place is passed when the task's own check says the object is in place. Env id: `
 ² Accepted (2026-11-17): every hack behaved as expected, but the other-arm hack could be planned on fewer than 10 of
 20 starts (the other arm can't reach the object). ³ Accepted: fails only the 10 s CPU limit per built start.
 
-## Start states
+## Saved starts of historical releases
 
 The saved starts are on Hugging Face, not in git: the dataset
 [`OneWorld-AI/abc-subtask-starts`](https://huggingface.co/datasets/OneWorld-AI/abc-subtask-starts) (private: ask for
@@ -167,7 +167,7 @@ restores into the wrong poses. After any scene change, rebuild that task's start
 **Saved vs built starts.** `env.reset_to_stage(seed, row)` restores a saved start in milliseconds.
 `env.reset_to_stage(seed)` without a row builds one on the spot: it randomizes the scene for that seed, moves the arm
 to the object, closes the gripper and checks that the start is valid and holds still. That takes about 1–10 s of CPU,
-too slow per RL episode, so use the saved pools, or prebuild your own with `env.subtask.build_start(env, seed)`
+which motivated these historical releases to prebuild rows with `env.subtask.build_start(env, seed)`
 (returns `(start, log)`, `start` is `None` when that seed has no valid start) and save them with
 `abc_sim.task_eval.stagekit.save_starts(path, rows, stage=...)`.
 

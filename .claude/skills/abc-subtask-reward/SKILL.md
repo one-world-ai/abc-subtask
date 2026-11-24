@@ -5,7 +5,7 @@ description: Build single-stage RL subtasks for one ABC sim task — split it in
 
 # ABC subtask rewards: one task through the pipeline
 
-Goal: for task `<task>`, deliver `<task>__<stage>` env tasks that start from a saved state where the stage's
+Goal: for task `<task>`, deliver `<task>__<stage>` env tasks whose fresh reset generates a state from the caller's seed where the stage's
 precondition holds, and score each 32-action chunk with +1 (stage goal) / −1 (failure) / potential-based shaping in
 between. The reference implementation is mug flip — read `references/mug-codemap.md` before writing any code.
 
@@ -31,8 +31,8 @@ Read `references/gotchas.md` once per session.
 
 ## Real2Gym tasks (`r2g_<task>`)
 Yuyang's scenes ported onto the ABC table (`abc_sim/real2gym_catalog.py`). "Put objects in / on a container" tasks
-reuse one stage module: add the task to `R2G_STAGE_TASKS` in `abc_sim/task_eval/r2g_subtask.py`, then run
-`subtask_rewards/r2g/tools/{build_starts,scripted_rollouts,gates}.py` (case B in `subtask_rewards/ADDING_A_TASK.md`)
+reuse one stage module: add the task to `R2G_STAGE_TASKS` in `abc_sim/task_eval/r2g_subtask.py`, then validate through fresh seed resets
+(case B in `subtask_rewards/ADDING_A_TASK.md`)
 and record it in `subtask_rewards/r2g/STATUS.md`. Other task kinds follow the phases below like an ABC task. A scene
 that isn't in the catalog yet must be ported first (case C): stop and tell the user.
 
@@ -67,22 +67,23 @@ Gate G0. A scorer false positive must be fixed before stages are defined — the
 
 ### Phase 2 — stages, tracker, reward
 Write `<short>_stages.py` / `<short>_starts.py` / `<short>_subtask.py` against the kit (`references/contract.md`).
-Register `<task>__<stage>` specs (description must say "start with env.reset_to_stage"). Unit tests (gate G2) on
+Register `<task>__<stage>` specs and wire the worker’s fresh reset to the stage generator. Unit tests (gate G2) on
 scripted motions and synthetic states. Use `reward_mode="progress"` by default.
 
 ### Phase 3 — start states
-Grasp sources, in order of preference:
-1. **Chain from the previous stage's solver** (end state of a successful stage-k solver run is a stage-k+1 start).
-2. **Recorded policy rollouts** — replay bit-exactly, cut at stage entries, extract grasps (mug: `replay_stages.py`,
-   `extract_grasps.py`). Only if the baseline has some success on that stage.
-3. **Sampled grasps** on the collision mesh (antipodal / top-down), IK teleport, close on the weightless object, hold
-   check under gravity.
+Specify the physical distribution and legality checks for each stage. On every fresh reset, draw scene variations,
+targets, arms and grasp candidates from the supplied seed. Build in simulation, with a bounded number of deterministic
+attempts, then verify the requested stage, stability and absence of terminal reward. Generate intermediate grasps
+with a seeded solver or sample them from task geometry. Do not produce, ship or consult a pool of concrete starts,
+including demonstration frames selected by seed. Replaying an episode already in progress is a separate operation.
 
-Build 100 starts per stage on seeds `SEED_BASE + i` (fixed per task, recorded in the ledger). Gate G3.
+Exercise the fresh-reset entry point used by the actual training worker with no start files present. Pin the
+simulator, assets and backend. Measure acceptance, latency, diversity and independent regeneration under G2/G3
+in `references/gates.md`. Publish the seed ranges, generator settings and results.
 
 ### Phase 4 — scripted policies
-Write behaviours per stage (`references/templates.md` lists the hacks for each template), run them from the saved
-starts exactly like an RL loop (32-action chunks, `chunk_reward()` after each), write `summary.json`. Gates G4 + G5.
+Write behaviours per stage (`references/templates.md` lists the hacks for each template), run solver and hacks from the same independently regenerated
+held-out seeds exactly like an RL loop (32-action chunks, `chunk_reward()` after each), write `summary.json`. Gates G4 + G5.
 If the solver fails, first look at *why* (IK unreachable, slip, collision) — a planning failure is a solver bug,
 a slip with a good plan is evidence the stage is too hard.
 

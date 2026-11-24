@@ -7,7 +7,7 @@ How to use the rewards for RL: [QUICKSTART.md](QUICKSTART.md). This page is abou
 A new task is split into stages (e.g. reach → pick → carry → place). Each stage gets:
 1. a **stage table**: its start condition, goal, failures and progress measure, approved by a person;
 2. **code**: a stage evaluator that scores every 32-action chunk +1 / −1 / progress shaping;
-3. **≥ 80 saved start states** out of 100 seeds;
+3. **a deterministic fresh-reset generator** that builds legal starts for ≥ 80 of 100 evaluation seeds;
 4. **evidence the reward is right**: a scripted solver that earns +1, and scripted "hacks" (idle, push the object,
    use the wrong arm, …) that don't.
 
@@ -26,9 +26,9 @@ task still ships its passing stages.
 | 0 scene and scorer | check the task's own success check: 0 on resets, rejects fake successes, accepts real ones | **G0** |
 | 1 stage table | write the stages and list the decisions it makes (e.g. "placed, not dropped") | **G1: a person approves** |
 | 2 code + tests | stage evaluator, unit tests (starts classify, idle earns ~0, every failure fires, restore is exact) | **G2** |
-| 3 start states | 100 seeds per stage; ≥ 80 valid, ≤ 10 s each, still in the stage after 10 idle chunks | **G3** |
+| 3 start states | 100 seeds per stage, report rejection reasons and diversity; ≥ 80 valid, ≤ 10 s each, still in the stage after 10 idle chunks | **G3** |
 | 4 scripted checks | solver earns +1 on ≥ 40 % of starts; hacks behave as expected, none gets +1 on > 10 %; solver beats the best hack by ≥ 0.5 return | **G4, G5** |
-| 5 report | `design.md`, `STATUS.md`, start upload, optional videos on the Space | |
+| 5 report | `design.md`, `STATUS.md`, seed audit, optional videos on the Space | |
 
 Every task keeps a ledger, `subtask_rewards/<short>/STATUS.md`, with the result of each phase and its numbers. Work
 resumes from it.
@@ -76,16 +76,9 @@ all of them (`abc_sim/task_eval/r2g_subtask.py`, `r2g_stages.py`, `r2g_starts.py
    "organize_the_condiment_bottles": ("bottle03_grinder",),
    ```
    That registers `r2g_<task>__reach`, `__pick`, `__carry`, `__place`.
-2. Build starts, run the scripted solver and hacks, compute the gates:
-   ```bash
-   export PYTHONPATH=$PWD MUJOCO_GL=disable NO_RENDER=1
-   for s in reach pick carry place; do
-     python subtask_rewards/r2g/tools/build_starts.py <task> $s OUT/starts --n 100
-     python subtask_rewards/r2g/tools/scripted_rollouts.py <task> $s OUT/starts OUT/rollouts --n 20
-   done
-   python subtask_rewards/r2g/tools/gates.py OUT/starts OUT/rollouts --json subtask_rewards/r2g/validation.json
-   ```
-   On the Torch cluster: `slurm/torch/r2g_starts.bash` and `r2g_rollouts.bash` run these as array jobs.
+2. Call the stage generator directly for each evaluation seed. Run the solver and hacks on the same seeds and
+   report G2–G5. The historical Real2Gym scripts take a directory of saved rows. Adapt the harness to regenerate
+   each episode when evaluating a new stage. Do not create intermediate start files for those scripts.
 3. Record the result in `subtask_rewards/r2g/STATUS.md` and the usable stages in `QUICKSTART.md`.
 
 Known limits of the shared design: carry/place mean "held over the container, above its top", which fits low open
@@ -133,7 +126,8 @@ The task queue and the status of every task are in [README.md](README.md).
 
 1. Tests pass: `python tests/test_<short>_subtasks.py`, plus `tests/test_subtask_api.py` (update its task list and
    stage count).
-2. Upload the start states to HF `OneWorld-AI/abc-subtask-starts` as `<task>/<stage>.npz` (Real2Gym:
-   `r2g_<task>/`), and update `manifest.json` with the row counts and the commit they were built at.
+2. Publish the generator, runtime and asset versions, distribution bounds, training and held-out seed ranges,
+   rejection counts and deterministic replay results. Require only the stage ID, seed and normal simulation
+   dependencies for a fresh reset. Do not save or upload concrete starts.
 3. Add the task to the usable-stage table in `QUICKSTART.md` and to the queue in `README.md`.
 4. Optional: videos on the Space `OneWorld-AI/subtask-reward-visualization` (needs OneWorld-AI write access).

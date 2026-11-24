@@ -13,7 +13,7 @@ Scripted behaviours to run (phase 4):
 | stage | behaviour | expect |
 |---|---|---|
 
-Start setup per stage (grasp source, how the precondition is made true, checks):
+Seeded start distribution per stage (physical variables and ranges, grasp construction, retry bound, legality and stability checks, expected diversity):
 -
 
 **Decisions for you** (I picked the first option unless you say otherwise):

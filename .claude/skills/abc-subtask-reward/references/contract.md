@@ -15,6 +15,12 @@ bit-identical to before). Read the kit's docstrings; this is the map.
 
 `env.reset_to_stage(seed, start=None, rng=None)` works for any `SubtaskEvaluator` task: builds via
 `ev.build_start(env, seed, rng)` or restores `start` (target under `target` or `ev.TARGET_KEY`), then `ev.begin`.
+For a new stage the caller supplies only the stage ID and seed. Use an episode-local RNG. Derive bounded
+attempts from that seed and reinitialize all physics, target metadata and reward latches on each reset. An exhausted
+seed returns a reproducible diagnostic. An in-memory state used to initialize the live episode is transient.
+Keep explicit restore available to existing callers and to trajectory continuation. Test the actual training adapter
+as well as the stage API: its fresh reset must select this same stage and seed.
+
 Scripted-motion helpers (Cartesian paths, IK paths, run loop) are tooling, not kit:
 `../simulation/experiments/mug_stages/scripted_rollouts.py` — copy and adapt per task.
 
