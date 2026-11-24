@@ -16,9 +16,17 @@ A gate is a script result, not a judgement. Record the numbers in STATUS.md. Thr
 the reward: the EXPECT share is computed over planned runs, with at least 10 of 20 starts planned. Applied
 retroactively: clutter reach (11/12 planned), inhand reach (14/14), drawer close reach (15/15) pass under it.
 
+For new stages run G2/G3 with start banks and rollout files absent. Regenerate the same seed in independent
+environments and after unrelated resets on a reused environment. Compare the integration state, randomized model
+parameters, target, arm, prompt, evaluator state and first reward on the same pinned runtime. Count exact matches
+and reproducible failures. Exercise an unlisted seed through the worker’s fresh-reset path. Across the 100 G3 seeds,
+report distinct realized layouts or grasps and their spread in the variables declared in the stage table.
+Record all rejected seeds and reasons in the denominator. Report runtime/asset revisions and disjoint train and
+held-out seed ranges. Multiple seeds mapping to a fixed snapshot bank do not meet this contract.
+
 ## Stop rule
 - A gate failing after 3 repair rounds → STOP that **stage** (later stages that need its end state for starts may
-  still use sources 2–3). A task with at least one PASSED stage still ships those stages.
+  still use a seeded physics builder independent of the failed solver). A task with at least one PASSED stage still ships those stages.
 - Hard stops (no repair rounds): the scorer can't be fixed without redefining the task; the scene needs assets that
   aren't available; a stage needs a capability the robot doesn't have (e.g. reach beyond workspace).
 - Write the stop as: stage, gate, numbers, the failure seen (with an npz/video path), what was tried.
